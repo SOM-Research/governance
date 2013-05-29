@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="atlanmod.decision.ui"
+            name="Collaboration Strategy">
+      </category>
+      <view
+            category="atlanmod.decision.ui"
+            class="fr.inria.atlanmod.decision.ui.views.DecisionView"
+            id="atlanmod.decision.ui.decisionView"
+            name="Decision Process View"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="fr.inria.atlanmod.decision.ui.voting"
+            objectClass="fr.inria.atlanmod.decision.ui.ProxyTask">
+         <action
+               class="fr.inria.atlanmod.decision.ui.actions.VotePositiveAction"
+               id="fr.inria.atlanmod.decision.ui.votePositive"
+               label="Yes!">
+         </action>
+         <action
+               class="fr.inria.atlanmod.decision.ui.actions.VoteNegativeAction"
+               id="fr.inria.atlanmod.decision.ui.voteNegative"
+               label="No way!">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>
