@@ -5,6 +5,8 @@ package fr.inria.atlanmod.decision.strategy.Strategy.impl;
 import fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType;
 import fr.inria.atlanmod.decision.strategy.Strategy.Deadline;
 import fr.inria.atlanmod.decision.strategy.Strategy.Role;
+import fr.inria.atlanmod.decision.strategy.Strategy.StageType;
+import fr.inria.atlanmod.decision.strategy.Strategy.Stage;
 import fr.inria.atlanmod.decision.strategy.Strategy.Strategy;
 import fr.inria.atlanmod.decision.strategy.Strategy.StrategyPackage;
 
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.impl.StrategyImpl#getPeople <em>People</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.impl.StrategyImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.impl.StrategyImpl#getAppliedTo <em>Applied To</em>}</li>
+ *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.impl.StrategyImpl#getStage <em>Stage</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,6 +140,35 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 	 * @ordered
 	 */
 	protected boolean appliedToESet;
+
+	/**
+	 * The default value of the '{@link #getStage() <em>Stage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStage()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final StageType STAGE_EDEFAULT = StageType.TASK_REVIEW;
+
+	/**
+	 * The cached value of the '{@link #getStage() <em>Stage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStage()
+	 * @generated
+	 * @ordered
+	 */
+	protected StageType stage = STAGE_EDEFAULT;
+
+	/**
+	 * This is true if the Stage attribute has been set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean stageESet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -325,6 +357,52 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public StageType getStage() {
+		return stage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStage(StageType newStage) {
+		StageType oldStage = stage;
+		stage = newStage == null ? STAGE_EDEFAULT : newStage;
+		boolean oldStageESet = stageESet;
+		stageESet = true;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StrategyPackage.STRATEGY__STAGE, oldStage, stage, !oldStageESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void unsetStage() {
+		StageType oldStage = stage;
+		boolean oldStageESet = stageESet;
+		stage = STAGE_EDEFAULT;
+		stageESet = false;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.UNSET, StrategyPackage.STRATEGY__STAGE, oldStage, STAGE_EDEFAULT, oldStageESet));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetStage() {
+		return stageESet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -339,6 +417,8 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 				return getName();
 			case StrategyPackage.STRATEGY__APPLIED_TO:
 				return getAppliedTo();
+			case StrategyPackage.STRATEGY__STAGE:
+				return getStage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,6 +448,9 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 			case StrategyPackage.STRATEGY__APPLIED_TO:
 				setAppliedTo((CollaborationType)newValue);
 				return;
+			case StrategyPackage.STRATEGY__STAGE:
+				setStage((StageType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -395,6 +478,9 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 			case StrategyPackage.STRATEGY__APPLIED_TO:
 				unsetAppliedTo();
 				return;
+			case StrategyPackage.STRATEGY__STAGE:
+				unsetStage();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -417,6 +503,8 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case StrategyPackage.STRATEGY__APPLIED_TO:
 				return isSetAppliedTo();
+			case StrategyPackage.STRATEGY__STAGE:
+				return isSetStage();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -437,6 +525,8 @@ public abstract class StrategyImpl extends EObjectImpl implements Strategy {
 		result.append(name);
 		result.append(", appliedTo: ");
 		if (appliedToESet) result.append(appliedTo); else result.append("<unset>");
+		result.append(", stage: ");
+		if (stageESet) result.append(stage); else result.append("<unset>");
 		result.append(')');
 		return result.toString();
 	}

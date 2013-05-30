@@ -12,6 +12,8 @@ import fr.inria.atlanmod.decision.strategy.Strategy.Project;
 import fr.inria.atlanmod.decision.strategy.Strategy.RangeType;
 import fr.inria.atlanmod.decision.strategy.Strategy.RatioMajority;
 import fr.inria.atlanmod.decision.strategy.Strategy.Role;
+import fr.inria.atlanmod.decision.strategy.Strategy.StageType;
+import fr.inria.atlanmod.decision.strategy.Strategy.Stage;
 import fr.inria.atlanmod.decision.strategy.Strategy.Strategy;
 import fr.inria.atlanmod.decision.strategy.Strategy.StrategyFactory;
 import fr.inria.atlanmod.decision.strategy.Strategy.StrategyPackage;
@@ -123,6 +125,13 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * @generated
 	 */
 	private EEnum collaborationTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum stageTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -307,6 +316,15 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStrategy_Stage() {
+		return (EAttribute)strategyEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMajority() {
 		return majorityEClass;
 	}
@@ -478,6 +496,15 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getStageType() {
+		return stageTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StrategyFactory getStrategyFactory() {
 		return (StrategyFactory)getEFactoryInstance();
 	}
@@ -516,6 +543,7 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		createEReference(strategyEClass, STRATEGY__PEOPLE);
 		createEAttribute(strategyEClass, STRATEGY__NAME);
 		createEAttribute(strategyEClass, STRATEGY__APPLIED_TO);
+		createEAttribute(strategyEClass, STRATEGY__STAGE);
 
 		majorityEClass = createEClass(MAJORITY);
 		createEAttribute(majorityEClass, MAJORITY__RANGE);
@@ -545,6 +573,7 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		// Create enums
 		rangeTypeEEnum = createEEnum(RANGE_TYPE);
 		collaborationTypeEEnum = createEEnum(COLLABORATION_TYPE);
+		stageTypeEEnum = createEEnum(STAGE_TYPE);
 	}
 
 	/**
@@ -599,6 +628,7 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		initEReference(getStrategy_People(), this.getRole(), null, "people", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStrategy_AppliedTo(), this.getCollaborationType(), "appliedTo", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStrategy_Stage(), this.getStageType(), "stage", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(majorityEClass, Majority.class, "Majority", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMajority_Range(), this.getRangeType(), "range", null, 1, 1, Majority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -634,6 +664,11 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		addEEnumLiteral(collaborationTypeEEnum, CollaborationType.TASK);
 		addEEnumLiteral(collaborationTypeEEnum, CollaborationType.PATCH);
 		addEEnumLiteral(collaborationTypeEEnum, CollaborationType.COMMENT);
+
+		initEEnum(stageTypeEEnum, StageType.class, "StageType");
+		addEEnumLiteral(stageTypeEEnum, StageType.TASK_REVIEW);
+		addEEnumLiteral(stageTypeEEnum, StageType.PATCH_REVIEW);
+		addEEnumLiteral(stageTypeEEnum, StageType.RELEASE);
 
 		// Create resource
 		createResource(eNS_URI);

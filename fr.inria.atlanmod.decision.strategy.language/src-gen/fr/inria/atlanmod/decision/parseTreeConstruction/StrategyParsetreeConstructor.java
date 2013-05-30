@@ -1084,15 +1084,19 @@ protected class Role_NameAssignment extends AssignmentToken  {
  *
  * Majority:
  * 
- * 	name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "people" people+=[Role] (","
+ * 	name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "when" stage=StageType "people"
  * 
- * 	people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline] "}";
+ * 	people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline"
+ * 
+ * 	deadline=[Deadline] "}";
  *
  **/
 
-// name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "people" people+=[Role] (","
+// name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "when" stage=StageType "people"
 // 
-// people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline] "}"
+// people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline]
+// 
+// "}"
 protected class Majority_Group extends GroupToken {
 	
 	public Majority_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1107,7 +1111,7 @@ protected class Majority_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_RightCurlyBracketKeyword_15(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_RightCurlyBracketKeyword_17(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1276,16 +1280,16 @@ protected class Majority_AppliedToAssignment_5 extends AssignmentToken  {
 
 }
 
-// "people"
-protected class Majority_PeopleKeyword_7 extends KeywordToken  {
+// "when"
+protected class Majority_WhenKeyword_7 extends KeywordToken  {
 	
-	public Majority_PeopleKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_WhenKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getPeopleKeyword_7();
+		return grammarAccess.getMajorityAccess().getWhenKeyword_7();
 	}
 
     @Override
@@ -1298,22 +1302,78 @@ protected class Majority_PeopleKeyword_7 extends KeywordToken  {
 
 }
 
-// people+=[Role]
-protected class Majority_PeopleAssignment_8 extends AssignmentToken  {
+// stage=StageType
+protected class Majority_StageAssignment_8 extends AssignmentToken  {
 	
-	public Majority_PeopleAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_StageAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getPeopleAssignment_8();
+		return grammarAccess.getMajorityAccess().getStageAssignment_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_PeopleKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_WhenKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("stage",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("stage");
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getMajorityAccess().getStageStageTypeEnumRuleCall_8_0(), value, null)) { 
+			type = AssignmentType.ENUM_RULE_CALL;
+			element = grammarAccess.getMajorityAccess().getStageStageTypeEnumRuleCall_8_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "people"
+protected class Majority_PeopleKeyword_9 extends KeywordToken  {
+	
+	public Majority_PeopleKeyword_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getMajorityAccess().getPeopleKeyword_9();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Majority_StageAssignment_8(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// people+=[Role]
+protected class Majority_PeopleAssignment_10 extends AssignmentToken  {
+	
+	public Majority_PeopleAssignment_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMajorityAccess().getPeopleAssignment_10();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Majority_PeopleKeyword_9(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1324,9 +1384,9 @@ protected class Majority_PeopleAssignment_8 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("people");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_8_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_10_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_8_0(); 
+				element = grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_10_0(); 
 				return obj;
 			}
 		}
@@ -1336,21 +1396,21 @@ protected class Majority_PeopleAssignment_8 extends AssignmentToken  {
 }
 
 // ("," people+=[Role])*
-protected class Majority_Group_9 extends GroupToken {
+protected class Majority_Group_11 extends GroupToken {
 	
-	public Majority_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_Group_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getGroup_9();
+		return grammarAccess.getMajorityAccess().getGroup_11();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_PeopleAssignment_9_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_PeopleAssignment_11_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1358,22 +1418,22 @@ protected class Majority_Group_9 extends GroupToken {
 }
 
 // ","
-protected class Majority_CommaKeyword_9_0 extends KeywordToken  {
+protected class Majority_CommaKeyword_11_0 extends KeywordToken  {
 	
-	public Majority_CommaKeyword_9_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_CommaKeyword_11_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getCommaKeyword_9_0();
+		return grammarAccess.getMajorityAccess().getCommaKeyword_11_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_Group_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Majority_PeopleAssignment_8(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Majority_Group_11(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Majority_PeopleAssignment_10(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -1381,21 +1441,21 @@ protected class Majority_CommaKeyword_9_0 extends KeywordToken  {
 }
 
 // people+=[Role]
-protected class Majority_PeopleAssignment_9_1 extends AssignmentToken  {
+protected class Majority_PeopleAssignment_11_1 extends AssignmentToken  {
 	
-	public Majority_PeopleAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_PeopleAssignment_11_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getPeopleAssignment_9_1();
+		return grammarAccess.getMajorityAccess().getPeopleAssignment_11_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_CommaKeyword_9_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_CommaKeyword_11_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1406,9 +1466,9 @@ protected class Majority_PeopleAssignment_9_1 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("people");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_9_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_11_1_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_9_1_0(); 
+				element = grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_11_1_0(); 
 				return obj;
 			}
 		}
@@ -1419,22 +1479,22 @@ protected class Majority_PeopleAssignment_9_1 extends AssignmentToken  {
 
 
 // "range"
-protected class Majority_RangeKeyword_10 extends KeywordToken  {
+protected class Majority_RangeKeyword_12 extends KeywordToken  {
 	
-	public Majority_RangeKeyword_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_RangeKeyword_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getRangeKeyword_10();
+		return grammarAccess.getMajorityAccess().getRangeKeyword_12();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_Group_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Majority_PeopleAssignment_8(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Majority_Group_11(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Majority_PeopleAssignment_10(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -1442,21 +1502,21 @@ protected class Majority_RangeKeyword_10 extends KeywordToken  {
 }
 
 // range=RangeType
-protected class Majority_RangeAssignment_11 extends AssignmentToken  {
+protected class Majority_RangeAssignment_13 extends AssignmentToken  {
 	
-	public Majority_RangeAssignment_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_RangeAssignment_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getRangeAssignment_11();
+		return grammarAccess.getMajorityAccess().getRangeAssignment_13();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_RangeKeyword_10(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_RangeKeyword_12(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1465,9 +1525,9 @@ protected class Majority_RangeAssignment_11 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("range",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("range");
-		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getMajorityAccess().getRangeRangeTypeEnumRuleCall_11_0(), value, null)) { 
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getMajorityAccess().getRangeRangeTypeEnumRuleCall_13_0(), value, null)) { 
 			type = AssignmentType.ENUM_RULE_CALL;
-			element = grammarAccess.getMajorityAccess().getRangeRangeTypeEnumRuleCall_11_0();
+			element = grammarAccess.getMajorityAccess().getRangeRangeTypeEnumRuleCall_13_0();
 			return obj;
 		}
 		return null;
@@ -1476,21 +1536,21 @@ protected class Majority_RangeAssignment_11 extends AssignmentToken  {
 }
 
 // ("minVotes" minVotes=INT)?
-protected class Majority_Group_12 extends GroupToken {
+protected class Majority_Group_14 extends GroupToken {
 	
-	public Majority_Group_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_Group_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getGroup_12();
+		return grammarAccess.getMajorityAccess().getGroup_14();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_MinVotesAssignment_12_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_MinVotesAssignment_14_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1498,21 +1558,21 @@ protected class Majority_Group_12 extends GroupToken {
 }
 
 // "minVotes"
-protected class Majority_MinVotesKeyword_12_0 extends KeywordToken  {
+protected class Majority_MinVotesKeyword_14_0 extends KeywordToken  {
 	
-	public Majority_MinVotesKeyword_12_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_MinVotesKeyword_14_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getMinVotesKeyword_12_0();
+		return grammarAccess.getMajorityAccess().getMinVotesKeyword_14_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_RangeAssignment_11(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_RangeAssignment_13(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1520,21 +1580,21 @@ protected class Majority_MinVotesKeyword_12_0 extends KeywordToken  {
 }
 
 // minVotes=INT
-protected class Majority_MinVotesAssignment_12_1 extends AssignmentToken  {
+protected class Majority_MinVotesAssignment_14_1 extends AssignmentToken  {
 	
-	public Majority_MinVotesAssignment_12_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_MinVotesAssignment_14_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getMinVotesAssignment_12_1();
+		return grammarAccess.getMajorityAccess().getMinVotesAssignment_14_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_MinVotesKeyword_12_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_MinVotesKeyword_14_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1543,9 +1603,9 @@ protected class Majority_MinVotesAssignment_12_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("minVotes",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("minVotes");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getMajorityAccess().getMinVotesINTTerminalRuleCall_12_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getMajorityAccess().getMinVotesINTTerminalRuleCall_14_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getMajorityAccess().getMinVotesINTTerminalRuleCall_12_1_0();
+			element = grammarAccess.getMajorityAccess().getMinVotesINTTerminalRuleCall_14_1_0();
 			return obj;
 		}
 		return null;
@@ -1555,22 +1615,22 @@ protected class Majority_MinVotesAssignment_12_1 extends AssignmentToken  {
 
 
 // "deadline"
-protected class Majority_DeadlineKeyword_13 extends KeywordToken  {
+protected class Majority_DeadlineKeyword_15 extends KeywordToken  {
 	
-	public Majority_DeadlineKeyword_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_DeadlineKeyword_15(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getDeadlineKeyword_13();
+		return grammarAccess.getMajorityAccess().getDeadlineKeyword_15();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_Group_12(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Majority_RangeAssignment_11(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Majority_Group_14(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Majority_RangeAssignment_13(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -1578,21 +1638,21 @@ protected class Majority_DeadlineKeyword_13 extends KeywordToken  {
 }
 
 // deadline=[Deadline]
-protected class Majority_DeadlineAssignment_14 extends AssignmentToken  {
+protected class Majority_DeadlineAssignment_16 extends AssignmentToken  {
 	
-	public Majority_DeadlineAssignment_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_DeadlineAssignment_16(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getDeadlineAssignment_14();
+		return grammarAccess.getMajorityAccess().getDeadlineAssignment_16();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_DeadlineKeyword_13(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_DeadlineKeyword_15(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1603,9 +1663,9 @@ protected class Majority_DeadlineAssignment_14 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("deadline");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getMajorityAccess().getDeadlineDeadlineCrossReference_14_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getMajorityAccess().getDeadlineDeadlineCrossReference_16_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getMajorityAccess().getDeadlineDeadlineCrossReference_14_0(); 
+				element = grammarAccess.getMajorityAccess().getDeadlineDeadlineCrossReference_16_0(); 
 				return obj;
 			}
 		}
@@ -1615,21 +1675,21 @@ protected class Majority_DeadlineAssignment_14 extends AssignmentToken  {
 }
 
 // "}"
-protected class Majority_RightCurlyBracketKeyword_15 extends KeywordToken  {
+protected class Majority_RightCurlyBracketKeyword_17 extends KeywordToken  {
 	
-	public Majority_RightCurlyBracketKeyword_15(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Majority_RightCurlyBracketKeyword_17(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getMajorityAccess().getRightCurlyBracketKeyword_15();
+		return grammarAccess.getMajorityAccess().getRightCurlyBracketKeyword_17();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Majority_DeadlineAssignment_14(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Majority_DeadlineAssignment_16(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1644,19 +1704,19 @@ protected class Majority_RightCurlyBracketKeyword_15 extends KeywordToken  {
  *
  * RatioMajority:
  * 
- * 	name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "people" people+=[Role] (","
+ * 	name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "when" stage=StageType "people"
  * 
- * 	people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline"
+ * 	people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT
  * 
- * 	deadline=[Deadline] "}";
+ * 	"deadline" deadline=[Deadline] "}";
  *
  **/
 
-// name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "people" people+=[Role] (","
+// name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "when" stage=StageType "people"
 // 
-// people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline" deadline=[Deadline]
+// people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline"
 // 
-// "}"
+// deadline=[Deadline] "}"
 protected class RatioMajority_Group extends GroupToken {
 	
 	public RatioMajority_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1671,7 +1731,7 @@ protected class RatioMajority_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_RightCurlyBracketKeyword_17(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_RightCurlyBracketKeyword_19(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1851,16 +1911,16 @@ protected class RatioMajority_TaskKeyword_5_0 extends KeywordToken  {
 }
 
 
-// "people"
-protected class RatioMajority_PeopleKeyword_7 extends KeywordToken  {
+// "when"
+protected class RatioMajority_WhenKeyword_7 extends KeywordToken  {
 	
-	public RatioMajority_PeopleKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_WhenKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getPeopleKeyword_7();
+		return grammarAccess.getRatioMajorityAccess().getWhenKeyword_7();
 	}
 
     @Override
@@ -1873,22 +1933,78 @@ protected class RatioMajority_PeopleKeyword_7 extends KeywordToken  {
 
 }
 
-// people+=[Role]
-protected class RatioMajority_PeopleAssignment_8 extends AssignmentToken  {
+// stage=StageType
+protected class RatioMajority_StageAssignment_8 extends AssignmentToken  {
 	
-	public RatioMajority_PeopleAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_StageAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getPeopleAssignment_8();
+		return grammarAccess.getRatioMajorityAccess().getStageAssignment_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_PeopleKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_WhenKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("stage",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("stage");
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getStageStageTypeEnumRuleCall_8_0(), value, null)) { 
+			type = AssignmentType.ENUM_RULE_CALL;
+			element = grammarAccess.getRatioMajorityAccess().getStageStageTypeEnumRuleCall_8_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "people"
+protected class RatioMajority_PeopleKeyword_9 extends KeywordToken  {
+	
+	public RatioMajority_PeopleKeyword_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRatioMajorityAccess().getPeopleKeyword_9();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RatioMajority_StageAssignment_8(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// people+=[Role]
+protected class RatioMajority_PeopleAssignment_10 extends AssignmentToken  {
+	
+	public RatioMajority_PeopleAssignment_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRatioMajorityAccess().getPeopleAssignment_10();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RatioMajority_PeopleKeyword_9(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1899,9 +2015,9 @@ protected class RatioMajority_PeopleAssignment_8 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("people");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_8_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_10_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_8_0(); 
+				element = grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_10_0(); 
 				return obj;
 			}
 		}
@@ -1911,21 +2027,21 @@ protected class RatioMajority_PeopleAssignment_8 extends AssignmentToken  {
 }
 
 // ("," people+=[Role])*
-protected class RatioMajority_Group_9 extends GroupToken {
+protected class RatioMajority_Group_11 extends GroupToken {
 	
-	public RatioMajority_Group_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_Group_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getGroup_9();
+		return grammarAccess.getRatioMajorityAccess().getGroup_11();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_PeopleAssignment_9_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_PeopleAssignment_11_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1933,22 +2049,22 @@ protected class RatioMajority_Group_9 extends GroupToken {
 }
 
 // ","
-protected class RatioMajority_CommaKeyword_9_0 extends KeywordToken  {
+protected class RatioMajority_CommaKeyword_11_0 extends KeywordToken  {
 	
-	public RatioMajority_CommaKeyword_9_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_CommaKeyword_11_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getCommaKeyword_9_0();
+		return grammarAccess.getRatioMajorityAccess().getCommaKeyword_11_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_Group_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new RatioMajority_PeopleAssignment_8(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new RatioMajority_Group_11(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new RatioMajority_PeopleAssignment_10(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -1956,21 +2072,21 @@ protected class RatioMajority_CommaKeyword_9_0 extends KeywordToken  {
 }
 
 // people+=[Role]
-protected class RatioMajority_PeopleAssignment_9_1 extends AssignmentToken  {
+protected class RatioMajority_PeopleAssignment_11_1 extends AssignmentToken  {
 	
-	public RatioMajority_PeopleAssignment_9_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_PeopleAssignment_11_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getPeopleAssignment_9_1();
+		return grammarAccess.getRatioMajorityAccess().getPeopleAssignment_11_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_CommaKeyword_9_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_CommaKeyword_11_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -1981,9 +2097,9 @@ protected class RatioMajority_PeopleAssignment_9_1 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("people");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_9_1_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_11_1_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_9_1_0(); 
+				element = grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_11_1_0(); 
 				return obj;
 			}
 		}
@@ -1994,22 +2110,22 @@ protected class RatioMajority_PeopleAssignment_9_1 extends AssignmentToken  {
 
 
 // "range"
-protected class RatioMajority_RangeKeyword_10 extends KeywordToken  {
+protected class RatioMajority_RangeKeyword_12 extends KeywordToken  {
 	
-	public RatioMajority_RangeKeyword_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_RangeKeyword_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getRangeKeyword_10();
+		return grammarAccess.getRatioMajorityAccess().getRangeKeyword_12();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_Group_9(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new RatioMajority_PeopleAssignment_8(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new RatioMajority_Group_11(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new RatioMajority_PeopleAssignment_10(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -2017,21 +2133,21 @@ protected class RatioMajority_RangeKeyword_10 extends KeywordToken  {
 }
 
 // range=RangeType
-protected class RatioMajority_RangeAssignment_11 extends AssignmentToken  {
+protected class RatioMajority_RangeAssignment_13 extends AssignmentToken  {
 	
-	public RatioMajority_RangeAssignment_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_RangeAssignment_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getRangeAssignment_11();
+		return grammarAccess.getRatioMajorityAccess().getRangeAssignment_13();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_RangeKeyword_10(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_RangeKeyword_12(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2040,9 +2156,9 @@ protected class RatioMajority_RangeAssignment_11 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("range",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("range");
-		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getRangeRangeTypeEnumRuleCall_11_0(), value, null)) { 
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getRangeRangeTypeEnumRuleCall_13_0(), value, null)) { 
 			type = AssignmentType.ENUM_RULE_CALL;
-			element = grammarAccess.getRatioMajorityAccess().getRangeRangeTypeEnumRuleCall_11_0();
+			element = grammarAccess.getRatioMajorityAccess().getRangeRangeTypeEnumRuleCall_13_0();
 			return obj;
 		}
 		return null;
@@ -2051,21 +2167,21 @@ protected class RatioMajority_RangeAssignment_11 extends AssignmentToken  {
 }
 
 // ("minVotes" minVotes=INT)?
-protected class RatioMajority_Group_12 extends GroupToken {
+protected class RatioMajority_Group_14 extends GroupToken {
 	
-	public RatioMajority_Group_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_Group_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getGroup_12();
+		return grammarAccess.getRatioMajorityAccess().getGroup_14();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_MinVotesAssignment_12_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_MinVotesAssignment_14_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2073,21 +2189,21 @@ protected class RatioMajority_Group_12 extends GroupToken {
 }
 
 // "minVotes"
-protected class RatioMajority_MinVotesKeyword_12_0 extends KeywordToken  {
+protected class RatioMajority_MinVotesKeyword_14_0 extends KeywordToken  {
 	
-	public RatioMajority_MinVotesKeyword_12_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_MinVotesKeyword_14_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getMinVotesKeyword_12_0();
+		return grammarAccess.getRatioMajorityAccess().getMinVotesKeyword_14_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_RangeAssignment_11(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_RangeAssignment_13(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2095,21 +2211,21 @@ protected class RatioMajority_MinVotesKeyword_12_0 extends KeywordToken  {
 }
 
 // minVotes=INT
-protected class RatioMajority_MinVotesAssignment_12_1 extends AssignmentToken  {
+protected class RatioMajority_MinVotesAssignment_14_1 extends AssignmentToken  {
 	
-	public RatioMajority_MinVotesAssignment_12_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_MinVotesAssignment_14_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getMinVotesAssignment_12_1();
+		return grammarAccess.getRatioMajorityAccess().getMinVotesAssignment_14_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_MinVotesKeyword_12_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_MinVotesKeyword_14_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2118,9 +2234,9 @@ protected class RatioMajority_MinVotesAssignment_12_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("minVotes",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("minVotes");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getMinVotesINTTerminalRuleCall_12_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getMinVotesINTTerminalRuleCall_14_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getRatioMajorityAccess().getMinVotesINTTerminalRuleCall_12_1_0();
+			element = grammarAccess.getRatioMajorityAccess().getMinVotesINTTerminalRuleCall_14_1_0();
 			return obj;
 		}
 		return null;
@@ -2130,22 +2246,22 @@ protected class RatioMajority_MinVotesAssignment_12_1 extends AssignmentToken  {
 
 
 // "ratio"
-protected class RatioMajority_RatioKeyword_13 extends KeywordToken  {
+protected class RatioMajority_RatioKeyword_15 extends KeywordToken  {
 	
-	public RatioMajority_RatioKeyword_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_RatioKeyword_15(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getRatioKeyword_13();
+		return grammarAccess.getRatioMajorityAccess().getRatioKeyword_15();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_Group_12(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new RatioMajority_RangeAssignment_11(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new RatioMajority_Group_14(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new RatioMajority_RangeAssignment_13(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -2153,21 +2269,21 @@ protected class RatioMajority_RatioKeyword_13 extends KeywordToken  {
 }
 
 // ratio=FLOAT
-protected class RatioMajority_RatioAssignment_14 extends AssignmentToken  {
+protected class RatioMajority_RatioAssignment_16 extends AssignmentToken  {
 	
-	public RatioMajority_RatioAssignment_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_RatioAssignment_16(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getRatioAssignment_14();
+		return grammarAccess.getRatioMajorityAccess().getRatioAssignment_16();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_RatioKeyword_13(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_RatioKeyword_15(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2176,9 +2292,9 @@ protected class RatioMajority_RatioAssignment_14 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("ratio",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("ratio");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getRatioFLOATTerminalRuleCall_14_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getRatioMajorityAccess().getRatioFLOATTerminalRuleCall_16_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getRatioMajorityAccess().getRatioFLOATTerminalRuleCall_14_0();
+			element = grammarAccess.getRatioMajorityAccess().getRatioFLOATTerminalRuleCall_16_0();
 			return obj;
 		}
 		return null;
@@ -2187,21 +2303,21 @@ protected class RatioMajority_RatioAssignment_14 extends AssignmentToken  {
 }
 
 // "deadline"
-protected class RatioMajority_DeadlineKeyword_15 extends KeywordToken  {
+protected class RatioMajority_DeadlineKeyword_17 extends KeywordToken  {
 	
-	public RatioMajority_DeadlineKeyword_15(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_DeadlineKeyword_17(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getDeadlineKeyword_15();
+		return grammarAccess.getRatioMajorityAccess().getDeadlineKeyword_17();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_RatioAssignment_14(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_RatioAssignment_16(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2209,21 +2325,21 @@ protected class RatioMajority_DeadlineKeyword_15 extends KeywordToken  {
 }
 
 // deadline=[Deadline]
-protected class RatioMajority_DeadlineAssignment_16 extends AssignmentToken  {
+protected class RatioMajority_DeadlineAssignment_18 extends AssignmentToken  {
 	
-	public RatioMajority_DeadlineAssignment_16(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_DeadlineAssignment_18(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getDeadlineAssignment_16();
+		return grammarAccess.getRatioMajorityAccess().getDeadlineAssignment_18();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_DeadlineKeyword_15(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_DeadlineKeyword_17(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2234,9 +2350,9 @@ protected class RatioMajority_DeadlineAssignment_16 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("deadline");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getRatioMajorityAccess().getDeadlineDeadlineCrossReference_16_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRatioMajorityAccess().getDeadlineDeadlineCrossReference_18_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getRatioMajorityAccess().getDeadlineDeadlineCrossReference_16_0(); 
+				element = grammarAccess.getRatioMajorityAccess().getDeadlineDeadlineCrossReference_18_0(); 
 				return obj;
 			}
 		}
@@ -2246,21 +2362,21 @@ protected class RatioMajority_DeadlineAssignment_16 extends AssignmentToken  {
 }
 
 // "}"
-protected class RatioMajority_RightCurlyBracketKeyword_17 extends KeywordToken  {
+protected class RatioMajority_RightCurlyBracketKeyword_19 extends KeywordToken  {
 	
-	public RatioMajority_RightCurlyBracketKeyword_17(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public RatioMajority_RightCurlyBracketKeyword_19(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getRatioMajorityAccess().getRightCurlyBracketKeyword_17();
+		return grammarAccess.getRatioMajorityAccess().getRightCurlyBracketKeyword_19();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new RatioMajority_DeadlineAssignment_16(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new RatioMajority_DeadlineAssignment_18(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2275,15 +2391,15 @@ protected class RatioMajority_RightCurlyBracketKeyword_17 extends KeywordToken  
  *
  * LeaderDriven:
  * 
- * 	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "default"
+ * 	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
  * 
- * 	default=[Strategy] "deadline" deadline=[Deadline] "}";
+ * 	stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}";
  *
  **/
 
-// name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "default"
+// name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 // 
-// default=[Strategy] "deadline" deadline=[Deadline] "}"
+// stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}"
 protected class LeaderDriven_Group extends GroupToken {
 	
 	public LeaderDriven_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2298,7 +2414,7 @@ protected class LeaderDriven_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LeaderDriven_RightCurlyBracketKeyword_11(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new LeaderDriven_RightCurlyBracketKeyword_13(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2579,16 +2695,16 @@ protected class LeaderDriven_RightParenthesisKeyword_6_2 extends KeywordToken  {
 }
 
 
-// "default"
-protected class LeaderDriven_DefaultKeyword_7 extends KeywordToken  {
+// "when"
+protected class LeaderDriven_WhenKeyword_7 extends KeywordToken  {
 	
-	public LeaderDriven_DefaultKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public LeaderDriven_WhenKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLeaderDrivenAccess().getDefaultKeyword_7();
+		return grammarAccess.getLeaderDrivenAccess().getWhenKeyword_7();
 	}
 
     @Override
@@ -2602,22 +2718,78 @@ protected class LeaderDriven_DefaultKeyword_7 extends KeywordToken  {
 
 }
 
-// default=[Strategy]
-protected class LeaderDriven_DefaultAssignment_8 extends AssignmentToken  {
+// stage=StageType
+protected class LeaderDriven_StageAssignment_8 extends AssignmentToken  {
 	
-	public LeaderDriven_DefaultAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public LeaderDriven_StageAssignment_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLeaderDrivenAccess().getDefaultAssignment_8();
+		return grammarAccess.getLeaderDrivenAccess().getStageAssignment_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LeaderDriven_DefaultKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new LeaderDriven_WhenKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("stage",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("stage");
+		if(enumLitSerializer.isValid(obj.getEObject(), grammarAccess.getLeaderDrivenAccess().getStageStageTypeEnumRuleCall_8_0(), value, null)) { 
+			type = AssignmentType.ENUM_RULE_CALL;
+			element = grammarAccess.getLeaderDrivenAccess().getStageStageTypeEnumRuleCall_8_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// "default"
+protected class LeaderDriven_DefaultKeyword_9 extends KeywordToken  {
+	
+	public LeaderDriven_DefaultKeyword_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getLeaderDrivenAccess().getDefaultKeyword_9();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new LeaderDriven_StageAssignment_8(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// default=[Strategy]
+protected class LeaderDriven_DefaultAssignment_10 extends AssignmentToken  {
+	
+	public LeaderDriven_DefaultAssignment_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getLeaderDrivenAccess().getDefaultAssignment_10();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new LeaderDriven_DefaultKeyword_9(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2628,9 +2800,9 @@ protected class LeaderDriven_DefaultAssignment_8 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("default");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_8_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_8_0(); 
+				element = grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0(); 
 				return obj;
 			}
 		}
@@ -2640,21 +2812,21 @@ protected class LeaderDriven_DefaultAssignment_8 extends AssignmentToken  {
 }
 
 // "deadline"
-protected class LeaderDriven_DeadlineKeyword_9 extends KeywordToken  {
+protected class LeaderDriven_DeadlineKeyword_11 extends KeywordToken  {
 	
-	public LeaderDriven_DeadlineKeyword_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public LeaderDriven_DeadlineKeyword_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLeaderDrivenAccess().getDeadlineKeyword_9();
+		return grammarAccess.getLeaderDrivenAccess().getDeadlineKeyword_11();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LeaderDriven_DefaultAssignment_8(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new LeaderDriven_DefaultAssignment_10(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2662,21 +2834,21 @@ protected class LeaderDriven_DeadlineKeyword_9 extends KeywordToken  {
 }
 
 // deadline=[Deadline]
-protected class LeaderDriven_DeadlineAssignment_10 extends AssignmentToken  {
+protected class LeaderDriven_DeadlineAssignment_12 extends AssignmentToken  {
 	
-	public LeaderDriven_DeadlineAssignment_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public LeaderDriven_DeadlineAssignment_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLeaderDrivenAccess().getDeadlineAssignment_10();
+		return grammarAccess.getLeaderDrivenAccess().getDeadlineAssignment_12();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LeaderDriven_DeadlineKeyword_9(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new LeaderDriven_DeadlineKeyword_11(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2687,9 +2859,9 @@ protected class LeaderDriven_DeadlineAssignment_10 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("deadline");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLeaderDrivenAccess().getDeadlineDeadlineCrossReference_10_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getLeaderDrivenAccess().getDeadlineDeadlineCrossReference_12_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getLeaderDrivenAccess().getDeadlineDeadlineCrossReference_10_0(); 
+				element = grammarAccess.getLeaderDrivenAccess().getDeadlineDeadlineCrossReference_12_0(); 
 				return obj;
 			}
 		}
@@ -2699,21 +2871,21 @@ protected class LeaderDriven_DeadlineAssignment_10 extends AssignmentToken  {
 }
 
 // "}"
-protected class LeaderDriven_RightCurlyBracketKeyword_11 extends KeywordToken  {
+protected class LeaderDriven_RightCurlyBracketKeyword_13 extends KeywordToken  {
 	
-	public LeaderDriven_RightCurlyBracketKeyword_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public LeaderDriven_RightCurlyBracketKeyword_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getLeaderDrivenAccess().getRightCurlyBracketKeyword_11();
+		return grammarAccess.getLeaderDrivenAccess().getRightCurlyBracketKeyword_13();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new LeaderDriven_DeadlineAssignment_10(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new LeaderDriven_DeadlineAssignment_12(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}

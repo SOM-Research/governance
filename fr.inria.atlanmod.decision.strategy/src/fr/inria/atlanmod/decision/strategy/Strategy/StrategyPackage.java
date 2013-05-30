@@ -195,13 +195,22 @@ public interface StrategyPackage extends EPackage {
 	int STRATEGY__APPLIED_TO = 4;
 
 	/**
+	 * The feature id for the '<em><b>Stage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRATEGY__STAGE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Strategy</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = 5;
+	int STRATEGY_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.atlanmod.decision.strategy.Strategy.impl.MajorityImpl <em>Majority</em>}' class.
@@ -257,6 +266,15 @@ public interface StrategyPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAJORITY__APPLIED_TO = STRATEGY__APPLIED_TO;
+
+	/**
+	 * The feature id for the '<em><b>Stage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAJORITY__STAGE = STRATEGY__STAGE;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -339,6 +357,15 @@ public interface StrategyPackage extends EPackage {
 	 * @ordered
 	 */
 	int RATIO_MAJORITY__APPLIED_TO = MAJORITY__APPLIED_TO;
+
+	/**
+	 * The feature id for the '<em><b>Stage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RATIO_MAJORITY__STAGE = MAJORITY__STAGE;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -432,6 +459,15 @@ public interface StrategyPackage extends EPackage {
 	int LEADER_DRIVEN__APPLIED_TO = STRATEGY__APPLIED_TO;
 
 	/**
+	 * The feature id for the '<em><b>Stage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LEADER_DRIVEN__STAGE = STRATEGY__STAGE;
+
+	/**
 	 * The feature id for the '<em><b>Default</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -503,6 +539,15 @@ public interface StrategyPackage extends EPackage {
 	 * @ordered
 	 */
 	int PHASED_STRATEGY__APPLIED_TO = STRATEGY__APPLIED_TO;
+
+	/**
+	 * The feature id for the '<em><b>Stage</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHASED_STRATEGY__STAGE = STRATEGY__STAGE;
 
 	/**
 	 * The feature id for the '<em><b>Phases</b></em>' reference list.
@@ -683,6 +728,16 @@ public interface StrategyPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link fr.inria.atlanmod.decision.strategy.Strategy.StageType <em>Stage Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.StageType
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.impl.StrategyPackageImpl#getStageType()
+	 * @generated
+	 */
+	int STAGE_TYPE = 13;
+
+	/**
 	 * Returns the meta object for class '{@link fr.inria.atlanmod.decision.strategy.Strategy.Project <em>Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -821,6 +876,17 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStrategy_AppliedTo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getStage <em>Stage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Stage</em>'.
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getStage()
+	 * @see #getStrategy()
+	 * @generated
+	 */
+	EAttribute getStrategy_Stage();
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.atlanmod.decision.strategy.Strategy.Majority <em>Majority</em>}'.
@@ -1022,6 +1088,16 @@ public interface StrategyPackage extends EPackage {
 	EEnum getCollaborationType();
 
 	/**
+	 * Returns the meta object for enum '{@link fr.inria.atlanmod.decision.strategy.Strategy.StageType <em>Stage Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Stage Type</em>'.
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.StageType
+	 * @generated
+	 */
+	EEnum getStageType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1152,6 +1228,14 @@ public interface StrategyPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRATEGY__APPLIED_TO = eINSTANCE.getStrategy_AppliedTo();
+
+		/**
+		 * The meta object literal for the '<em><b>Stage</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRATEGY__STAGE = eINSTANCE.getStrategy_Stage();
 
 		/**
 		 * The meta object literal for the '{@link fr.inria.atlanmod.decision.strategy.Strategy.impl.MajorityImpl <em>Majority</em>}' class.
@@ -1324,6 +1408,16 @@ public interface StrategyPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COLLABORATION_TYPE = eINSTANCE.getCollaborationType();
+
+		/**
+		 * The meta object literal for the '{@link fr.inria.atlanmod.decision.strategy.Strategy.StageType <em>Stage Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see fr.inria.atlanmod.decision.strategy.Strategy.StageType
+		 * @see fr.inria.atlanmod.decision.strategy.Strategy.impl.StrategyPackageImpl#getStageType()
+		 * @generated
+		 */
+		EEnum STAGE_TYPE = eINSTANCE.getStageType();
 
 	}
 

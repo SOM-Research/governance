@@ -83,6 +83,8 @@ public class StrategyFactoryImpl extends EFactoryImpl implements StrategyFactory
 				return createRangeTypeFromString(eDataType, initialValue);
 			case StrategyPackage.COLLABORATION_TYPE:
 				return createCollaborationTypeFromString(eDataType, initialValue);
+			case StrategyPackage.STAGE_TYPE:
+				return createStageTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +102,8 @@ public class StrategyFactoryImpl extends EFactoryImpl implements StrategyFactory
 				return convertRangeTypeToString(eDataType, instanceValue);
 			case StrategyPackage.COLLABORATION_TYPE:
 				return convertCollaborationTypeToString(eDataType, instanceValue);
+			case StrategyPackage.STAGE_TYPE:
+				return convertStageTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -232,6 +236,26 @@ public class StrategyFactoryImpl extends EFactoryImpl implements StrategyFactory
 	 * @generated
 	 */
 	public String convertCollaborationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StageType createStageTypeFromString(EDataType eDataType, String initialValue) {
+		StageType result = StageType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStageTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

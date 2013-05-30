@@ -23,6 +23,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="appliedTo" eType="#//CollaborationType"
         unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" eType="#//StageType"
+        unsettable="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Majority" eSuperTypes="#//Strategy">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="#//RangeType"/>
@@ -62,5 +64,10 @@
     <eLiterals name="TASK" literal="TASK"/>
     <eLiterals name="PATCH" value="1" literal="PATCH"/>
     <eLiterals name="COMMENT" value="2" literal="COMMENT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StageType">
+    <eLiterals name="TASK_REVIEW" literal="TASK_REVIEW"/>
+    <eLiterals name="PATCH_REVIEW" value="1" literal="PATCH_REVIEW"/>
+    <eLiterals name="RELEASE" value="2" literal="RELEASE"/>
   </eClassifiers>
 </ecore:EPackage>

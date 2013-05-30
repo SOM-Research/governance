@@ -24,6 +24,7 @@ Majority returns Majority:
 	name=ID ':' 'Majority'
 	'{'
 		'applied to' appliedTo=CollaborationType ('(' Filter ')')?
+		'when' stage=StageType
 		'people' people+=[Role|ID] ( "," people+=[Role|ID])*  
 		'range' range=RangeType
 		('minVotes' minVotes=INT)?
@@ -34,6 +35,7 @@ RatioMajority returns RatioMajority:
 	name=ID ':' 'Ratio'
 	'{'
 		'applied to' ('Task' | 'Patch' | 'Comment') ('(' Filter ')')?
+		'when' stage=StageType
 		'people' people+=[Role|ID] ( "," people+=[Role|ID])*  
 		'range' range=RangeType
 		('minVotes' minVotes=INT)? 
@@ -45,6 +47,7 @@ LeaderDriven returns LeaderDriven:
 	name=ID ':' 'LeaderDriven'
 	'{' 
 		'applied to' ('Task' | 'Patch' | 'Comment') ('(' filter=Filter ')')?
+		'when' stage=StageType
 		'default' default=[Strategy|ID]
 		'deadline' deadline=[Deadline|ID]
 	'}';	
@@ -56,7 +59,7 @@ PhasedStrategy returns PhasedStrategy:
 	'}';	
 		 
 Filter:
-	(ID '=' ID) (',' ID '=' ID)? 
+	(ID ('='|'!=') ID) (',' ID ('='|'!=') ID)? 
 ; 
 	
 Deadline returns Deadline:
@@ -78,6 +81,10 @@ WaitForVote returns WaitForVote:
 enum CollaborationType returns CollaborationType:
 	TASK='Task' | PATCH='Patch' | COMMENT='Comment'
 ;	
+
+enum StageType returns StageType:
+	TASK_REVIEW='TaskReview' | PATCH_REVIEW='PatchReview' | RELEASE='Release'
+;
 	
 enum RangeType returns RangeType:
 	PRESENT = 'Present' | QUALIFIED = 'Qualified';

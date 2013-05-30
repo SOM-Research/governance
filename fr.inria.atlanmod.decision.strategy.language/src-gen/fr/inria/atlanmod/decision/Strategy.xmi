@@ -103,6 +103,10 @@
           <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
+        <elements xsi:type="xtext:Keyword" value="when"/>
+        <elements xsi:type="xtext:Assignment" feature="stage" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
         <elements xsi:type="xtext:Keyword" value="people"/>
         <elements xsi:type="xtext:Assignment" feature="people" operator="+=">
           <terminal xsi:type="xtext:CrossReference">
@@ -125,7 +129,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="range"/>
         <elements xsi:type="xtext:Assignment" feature="range" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="minVotes"/>
@@ -167,6 +171,10 @@
           <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
           <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
+        <elements xsi:type="xtext:Keyword" value="when"/>
+        <elements xsi:type="xtext:Assignment" feature="stage" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
         <elements xsi:type="xtext:Keyword" value="people"/>
         <elements xsi:type="xtext:Assignment" feature="people" operator="+=">
           <terminal xsi:type="xtext:CrossReference">
@@ -189,7 +197,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="range"/>
         <elements xsi:type="xtext:Assignment" feature="range" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="minVotes"/>
@@ -199,7 +207,7 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value="ratio"/>
         <elements xsi:type="xtext:Assignment" feature="ratio" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="deadline"/>
         <elements xsi:type="xtext:Assignment" feature="deadline" operator="=">
@@ -236,6 +244,10 @@
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
           </elements>
           <elements xsi:type="xtext:Keyword" value=")"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="when"/>
+        <elements xsi:type="xtext:Assignment" feature="stage" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="default"/>
         <elements xsi:type="xtext:Assignment" feature="default" operator="=">
@@ -290,13 +302,19 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Group">
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          <elements xsi:type="xtext:Keyword" value="="/>
+          <elements xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="="/>
+            <elements xsi:type="xtext:Keyword" value="!="/>
+          </elements>
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value=","/>
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-          <elements xsi:type="xtext:Keyword" value="="/>
+          <elements xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="="/>
+            <elements xsi:type="xtext:Keyword" value="!="/>
+          </elements>
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
         </elements>
       </alternatives>
@@ -381,6 +399,25 @@
         <elements xsi:type="xtext:EnumLiteralDeclaration">
           <enumLiteral href="http://atlanmod.fr/strategy#//CollaborationType/COMMENT"/>
           <literal value="Comment"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="StageType">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EEnum" href="http://atlanmod.fr/strategy#//StageType"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://atlanmod.fr/strategy#//StageType/TASK_REVIEW"/>
+          <literal value="TaskReview"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://atlanmod.fr/strategy#//StageType/PATCH_REVIEW"/>
+          <literal value="PatchReview"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://atlanmod.fr/strategy#//StageType/RELEASE"/>
+          <literal value="Release"/>
         </elements>
       </alternatives>
     </rules>

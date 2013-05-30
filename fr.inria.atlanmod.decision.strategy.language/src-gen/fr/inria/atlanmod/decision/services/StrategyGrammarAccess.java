@@ -229,38 +229,45 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final RuleCall cFilterParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cPeopleKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cPeopleAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cPeopleRoleCrossReference_8_0 = (CrossReference)cPeopleAssignment_8.eContents().get(0);
-		private final RuleCall cPeopleRoleIDTerminalRuleCall_8_0_1 = (RuleCall)cPeopleRoleCrossReference_8_0.eContents().get(1);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cPeopleAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cPeopleRoleCrossReference_9_1_0 = (CrossReference)cPeopleAssignment_9_1.eContents().get(0);
-		private final RuleCall cPeopleRoleIDTerminalRuleCall_9_1_0_1 = (RuleCall)cPeopleRoleCrossReference_9_1_0.eContents().get(1);
-		private final Keyword cRangeKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cRangeAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cRangeRangeTypeEnumRuleCall_11_0 = (RuleCall)cRangeAssignment_11.eContents().get(0);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cMinVotesKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Assignment cMinVotesAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final RuleCall cMinVotesINTTerminalRuleCall_12_1_0 = (RuleCall)cMinVotesAssignment_12_1.eContents().get(0);
-		private final Keyword cDeadlineKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cDeadlineAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final CrossReference cDeadlineDeadlineCrossReference_14_0 = (CrossReference)cDeadlineAssignment_14.eContents().get(0);
-		private final RuleCall cDeadlineDeadlineIDTerminalRuleCall_14_0_1 = (RuleCall)cDeadlineDeadlineCrossReference_14_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Keyword cWhenKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStageAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cStageStageTypeEnumRuleCall_8_0 = (RuleCall)cStageAssignment_8.eContents().get(0);
+		private final Keyword cPeopleKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cPeopleAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final CrossReference cPeopleRoleCrossReference_10_0 = (CrossReference)cPeopleAssignment_10.eContents().get(0);
+		private final RuleCall cPeopleRoleIDTerminalRuleCall_10_0_1 = (RuleCall)cPeopleRoleCrossReference_10_0.eContents().get(1);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cPeopleAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final CrossReference cPeopleRoleCrossReference_11_1_0 = (CrossReference)cPeopleAssignment_11_1.eContents().get(0);
+		private final RuleCall cPeopleRoleIDTerminalRuleCall_11_1_0_1 = (RuleCall)cPeopleRoleCrossReference_11_1_0.eContents().get(1);
+		private final Keyword cRangeKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cRangeAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cRangeRangeTypeEnumRuleCall_13_0 = (RuleCall)cRangeAssignment_13.eContents().get(0);
+		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
+		private final Keyword cMinVotesKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
+		private final Assignment cMinVotesAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
+		private final RuleCall cMinVotesINTTerminalRuleCall_14_1_0 = (RuleCall)cMinVotesAssignment_14_1.eContents().get(0);
+		private final Keyword cDeadlineKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Assignment cDeadlineAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final CrossReference cDeadlineDeadlineCrossReference_16_0 = (CrossReference)cDeadlineAssignment_16.eContents().get(0);
+		private final RuleCall cDeadlineDeadlineIDTerminalRuleCall_16_0_1 = (RuleCall)cDeadlineDeadlineCrossReference_16_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
 		
 		//Majority:
 		//
-		//	name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "people" people+=[Role] (","
+		//	name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "when" stage=StageType "people"
 		//
-		//	people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline] "}";
+		//	people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline"
+		//
+		//	deadline=[Deadline] "}";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "people" people+=[Role] (","
+		//name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "when" stage=StageType "people"
 		//
-		//people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline] "}"
+		//people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline]
+		//
+		//"}"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -299,68 +306,77 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
 
+		//"when"
+		public Keyword getWhenKeyword_7() { return cWhenKeyword_7; }
+
+		//stage=StageType
+		public Assignment getStageAssignment_8() { return cStageAssignment_8; }
+
+		//StageType
+		public RuleCall getStageStageTypeEnumRuleCall_8_0() { return cStageStageTypeEnumRuleCall_8_0; }
+
 		//"people"
-		public Keyword getPeopleKeyword_7() { return cPeopleKeyword_7; }
+		public Keyword getPeopleKeyword_9() { return cPeopleKeyword_9; }
 
 		//people+=[Role]
-		public Assignment getPeopleAssignment_8() { return cPeopleAssignment_8; }
+		public Assignment getPeopleAssignment_10() { return cPeopleAssignment_10; }
 
 		//[Role]
-		public CrossReference getPeopleRoleCrossReference_8_0() { return cPeopleRoleCrossReference_8_0; }
+		public CrossReference getPeopleRoleCrossReference_10_0() { return cPeopleRoleCrossReference_10_0; }
 
 		//ID
-		public RuleCall getPeopleRoleIDTerminalRuleCall_8_0_1() { return cPeopleRoleIDTerminalRuleCall_8_0_1; }
+		public RuleCall getPeopleRoleIDTerminalRuleCall_10_0_1() { return cPeopleRoleIDTerminalRuleCall_10_0_1; }
 
 		//("," people+=[Role])*
-		public Group getGroup_9() { return cGroup_9; }
+		public Group getGroup_11() { return cGroup_11; }
 
 		//","
-		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
+		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
 
 		//people+=[Role]
-		public Assignment getPeopleAssignment_9_1() { return cPeopleAssignment_9_1; }
+		public Assignment getPeopleAssignment_11_1() { return cPeopleAssignment_11_1; }
 
 		//[Role]
-		public CrossReference getPeopleRoleCrossReference_9_1_0() { return cPeopleRoleCrossReference_9_1_0; }
+		public CrossReference getPeopleRoleCrossReference_11_1_0() { return cPeopleRoleCrossReference_11_1_0; }
 
 		//ID
-		public RuleCall getPeopleRoleIDTerminalRuleCall_9_1_0_1() { return cPeopleRoleIDTerminalRuleCall_9_1_0_1; }
+		public RuleCall getPeopleRoleIDTerminalRuleCall_11_1_0_1() { return cPeopleRoleIDTerminalRuleCall_11_1_0_1; }
 
 		//"range"
-		public Keyword getRangeKeyword_10() { return cRangeKeyword_10; }
+		public Keyword getRangeKeyword_12() { return cRangeKeyword_12; }
 
 		//range=RangeType
-		public Assignment getRangeAssignment_11() { return cRangeAssignment_11; }
+		public Assignment getRangeAssignment_13() { return cRangeAssignment_13; }
 
 		//RangeType
-		public RuleCall getRangeRangeTypeEnumRuleCall_11_0() { return cRangeRangeTypeEnumRuleCall_11_0; }
+		public RuleCall getRangeRangeTypeEnumRuleCall_13_0() { return cRangeRangeTypeEnumRuleCall_13_0; }
 
 		//("minVotes" minVotes=INT)?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_14() { return cGroup_14; }
 
 		//"minVotes"
-		public Keyword getMinVotesKeyword_12_0() { return cMinVotesKeyword_12_0; }
+		public Keyword getMinVotesKeyword_14_0() { return cMinVotesKeyword_14_0; }
 
 		//minVotes=INT
-		public Assignment getMinVotesAssignment_12_1() { return cMinVotesAssignment_12_1; }
+		public Assignment getMinVotesAssignment_14_1() { return cMinVotesAssignment_14_1; }
 
 		//INT
-		public RuleCall getMinVotesINTTerminalRuleCall_12_1_0() { return cMinVotesINTTerminalRuleCall_12_1_0; }
+		public RuleCall getMinVotesINTTerminalRuleCall_14_1_0() { return cMinVotesINTTerminalRuleCall_14_1_0; }
 
 		//"deadline"
-		public Keyword getDeadlineKeyword_13() { return cDeadlineKeyword_13; }
+		public Keyword getDeadlineKeyword_15() { return cDeadlineKeyword_15; }
 
 		//deadline=[Deadline]
-		public Assignment getDeadlineAssignment_14() { return cDeadlineAssignment_14; }
+		public Assignment getDeadlineAssignment_16() { return cDeadlineAssignment_16; }
 
 		//[Deadline]
-		public CrossReference getDeadlineDeadlineCrossReference_14_0() { return cDeadlineDeadlineCrossReference_14_0; }
+		public CrossReference getDeadlineDeadlineCrossReference_16_0() { return cDeadlineDeadlineCrossReference_16_0; }
 
 		//ID
-		public RuleCall getDeadlineDeadlineIDTerminalRuleCall_14_0_1() { return cDeadlineDeadlineIDTerminalRuleCall_14_0_1; }
+		public RuleCall getDeadlineDeadlineIDTerminalRuleCall_16_0_1() { return cDeadlineDeadlineIDTerminalRuleCall_16_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_15() { return cRightCurlyBracketKeyword_15; }
+		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
 	}
 
 	public class RatioMajorityElements extends AbstractParserRuleElementFinder {
@@ -380,45 +396,48 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final RuleCall cFilterParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cPeopleKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cPeopleAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cPeopleRoleCrossReference_8_0 = (CrossReference)cPeopleAssignment_8.eContents().get(0);
-		private final RuleCall cPeopleRoleIDTerminalRuleCall_8_0_1 = (RuleCall)cPeopleRoleCrossReference_8_0.eContents().get(1);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cCommaKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cPeopleAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final CrossReference cPeopleRoleCrossReference_9_1_0 = (CrossReference)cPeopleAssignment_9_1.eContents().get(0);
-		private final RuleCall cPeopleRoleIDTerminalRuleCall_9_1_0_1 = (RuleCall)cPeopleRoleCrossReference_9_1_0.eContents().get(1);
-		private final Keyword cRangeKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cRangeAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cRangeRangeTypeEnumRuleCall_11_0 = (RuleCall)cRangeAssignment_11.eContents().get(0);
-		private final Group cGroup_12 = (Group)cGroup.eContents().get(12);
-		private final Keyword cMinVotesKeyword_12_0 = (Keyword)cGroup_12.eContents().get(0);
-		private final Assignment cMinVotesAssignment_12_1 = (Assignment)cGroup_12.eContents().get(1);
-		private final RuleCall cMinVotesINTTerminalRuleCall_12_1_0 = (RuleCall)cMinVotesAssignment_12_1.eContents().get(0);
-		private final Keyword cRatioKeyword_13 = (Keyword)cGroup.eContents().get(13);
-		private final Assignment cRatioAssignment_14 = (Assignment)cGroup.eContents().get(14);
-		private final RuleCall cRatioFLOATTerminalRuleCall_14_0 = (RuleCall)cRatioAssignment_14.eContents().get(0);
-		private final Keyword cDeadlineKeyword_15 = (Keyword)cGroup.eContents().get(15);
-		private final Assignment cDeadlineAssignment_16 = (Assignment)cGroup.eContents().get(16);
-		private final CrossReference cDeadlineDeadlineCrossReference_16_0 = (CrossReference)cDeadlineAssignment_16.eContents().get(0);
-		private final RuleCall cDeadlineDeadlineIDTerminalRuleCall_16_0_1 = (RuleCall)cDeadlineDeadlineCrossReference_16_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Keyword cWhenKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStageAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cStageStageTypeEnumRuleCall_8_0 = (RuleCall)cStageAssignment_8.eContents().get(0);
+		private final Keyword cPeopleKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cPeopleAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final CrossReference cPeopleRoleCrossReference_10_0 = (CrossReference)cPeopleAssignment_10.eContents().get(0);
+		private final RuleCall cPeopleRoleIDTerminalRuleCall_10_0_1 = (RuleCall)cPeopleRoleCrossReference_10_0.eContents().get(1);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cCommaKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Assignment cPeopleAssignment_11_1 = (Assignment)cGroup_11.eContents().get(1);
+		private final CrossReference cPeopleRoleCrossReference_11_1_0 = (CrossReference)cPeopleAssignment_11_1.eContents().get(0);
+		private final RuleCall cPeopleRoleIDTerminalRuleCall_11_1_0_1 = (RuleCall)cPeopleRoleCrossReference_11_1_0.eContents().get(1);
+		private final Keyword cRangeKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cRangeAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cRangeRangeTypeEnumRuleCall_13_0 = (RuleCall)cRangeAssignment_13.eContents().get(0);
+		private final Group cGroup_14 = (Group)cGroup.eContents().get(14);
+		private final Keyword cMinVotesKeyword_14_0 = (Keyword)cGroup_14.eContents().get(0);
+		private final Assignment cMinVotesAssignment_14_1 = (Assignment)cGroup_14.eContents().get(1);
+		private final RuleCall cMinVotesINTTerminalRuleCall_14_1_0 = (RuleCall)cMinVotesAssignment_14_1.eContents().get(0);
+		private final Keyword cRatioKeyword_15 = (Keyword)cGroup.eContents().get(15);
+		private final Assignment cRatioAssignment_16 = (Assignment)cGroup.eContents().get(16);
+		private final RuleCall cRatioFLOATTerminalRuleCall_16_0 = (RuleCall)cRatioAssignment_16.eContents().get(0);
+		private final Keyword cDeadlineKeyword_17 = (Keyword)cGroup.eContents().get(17);
+		private final Assignment cDeadlineAssignment_18 = (Assignment)cGroup.eContents().get(18);
+		private final CrossReference cDeadlineDeadlineCrossReference_18_0 = (CrossReference)cDeadlineAssignment_18.eContents().get(0);
+		private final RuleCall cDeadlineDeadlineIDTerminalRuleCall_18_0_1 = (RuleCall)cDeadlineDeadlineCrossReference_18_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_19 = (Keyword)cGroup.eContents().get(19);
 		
 		//RatioMajority:
 		//
-		//	name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "people" people+=[Role] (","
+		//	name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "when" stage=StageType "people"
 		//
-		//	people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline"
+		//	people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT
 		//
-		//	deadline=[Deadline] "}";
+		//	"deadline" deadline=[Deadline] "}";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "people" people+=[Role] (","
+		//name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "when" stage=StageType "people"
 		//
-		//people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline" deadline=[Deadline]
+		//people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline"
 		//
-		//"}"
+		//deadline=[Deadline] "}"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -463,77 +482,86 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
 
+		//"when"
+		public Keyword getWhenKeyword_7() { return cWhenKeyword_7; }
+
+		//stage=StageType
+		public Assignment getStageAssignment_8() { return cStageAssignment_8; }
+
+		//StageType
+		public RuleCall getStageStageTypeEnumRuleCall_8_0() { return cStageStageTypeEnumRuleCall_8_0; }
+
 		//"people"
-		public Keyword getPeopleKeyword_7() { return cPeopleKeyword_7; }
+		public Keyword getPeopleKeyword_9() { return cPeopleKeyword_9; }
 
 		//people+=[Role]
-		public Assignment getPeopleAssignment_8() { return cPeopleAssignment_8; }
+		public Assignment getPeopleAssignment_10() { return cPeopleAssignment_10; }
 
 		//[Role]
-		public CrossReference getPeopleRoleCrossReference_8_0() { return cPeopleRoleCrossReference_8_0; }
+		public CrossReference getPeopleRoleCrossReference_10_0() { return cPeopleRoleCrossReference_10_0; }
 
 		//ID
-		public RuleCall getPeopleRoleIDTerminalRuleCall_8_0_1() { return cPeopleRoleIDTerminalRuleCall_8_0_1; }
+		public RuleCall getPeopleRoleIDTerminalRuleCall_10_0_1() { return cPeopleRoleIDTerminalRuleCall_10_0_1; }
 
 		//("," people+=[Role])*
-		public Group getGroup_9() { return cGroup_9; }
+		public Group getGroup_11() { return cGroup_11; }
 
 		//","
-		public Keyword getCommaKeyword_9_0() { return cCommaKeyword_9_0; }
+		public Keyword getCommaKeyword_11_0() { return cCommaKeyword_11_0; }
 
 		//people+=[Role]
-		public Assignment getPeopleAssignment_9_1() { return cPeopleAssignment_9_1; }
+		public Assignment getPeopleAssignment_11_1() { return cPeopleAssignment_11_1; }
 
 		//[Role]
-		public CrossReference getPeopleRoleCrossReference_9_1_0() { return cPeopleRoleCrossReference_9_1_0; }
+		public CrossReference getPeopleRoleCrossReference_11_1_0() { return cPeopleRoleCrossReference_11_1_0; }
 
 		//ID
-		public RuleCall getPeopleRoleIDTerminalRuleCall_9_1_0_1() { return cPeopleRoleIDTerminalRuleCall_9_1_0_1; }
+		public RuleCall getPeopleRoleIDTerminalRuleCall_11_1_0_1() { return cPeopleRoleIDTerminalRuleCall_11_1_0_1; }
 
 		//"range"
-		public Keyword getRangeKeyword_10() { return cRangeKeyword_10; }
+		public Keyword getRangeKeyword_12() { return cRangeKeyword_12; }
 
 		//range=RangeType
-		public Assignment getRangeAssignment_11() { return cRangeAssignment_11; }
+		public Assignment getRangeAssignment_13() { return cRangeAssignment_13; }
 
 		//RangeType
-		public RuleCall getRangeRangeTypeEnumRuleCall_11_0() { return cRangeRangeTypeEnumRuleCall_11_0; }
+		public RuleCall getRangeRangeTypeEnumRuleCall_13_0() { return cRangeRangeTypeEnumRuleCall_13_0; }
 
 		//("minVotes" minVotes=INT)?
-		public Group getGroup_12() { return cGroup_12; }
+		public Group getGroup_14() { return cGroup_14; }
 
 		//"minVotes"
-		public Keyword getMinVotesKeyword_12_0() { return cMinVotesKeyword_12_0; }
+		public Keyword getMinVotesKeyword_14_0() { return cMinVotesKeyword_14_0; }
 
 		//minVotes=INT
-		public Assignment getMinVotesAssignment_12_1() { return cMinVotesAssignment_12_1; }
+		public Assignment getMinVotesAssignment_14_1() { return cMinVotesAssignment_14_1; }
 
 		//INT
-		public RuleCall getMinVotesINTTerminalRuleCall_12_1_0() { return cMinVotesINTTerminalRuleCall_12_1_0; }
+		public RuleCall getMinVotesINTTerminalRuleCall_14_1_0() { return cMinVotesINTTerminalRuleCall_14_1_0; }
 
 		//"ratio"
-		public Keyword getRatioKeyword_13() { return cRatioKeyword_13; }
+		public Keyword getRatioKeyword_15() { return cRatioKeyword_15; }
 
 		//ratio=FLOAT
-		public Assignment getRatioAssignment_14() { return cRatioAssignment_14; }
+		public Assignment getRatioAssignment_16() { return cRatioAssignment_16; }
 
 		//FLOAT
-		public RuleCall getRatioFLOATTerminalRuleCall_14_0() { return cRatioFLOATTerminalRuleCall_14_0; }
+		public RuleCall getRatioFLOATTerminalRuleCall_16_0() { return cRatioFLOATTerminalRuleCall_16_0; }
 
 		//"deadline"
-		public Keyword getDeadlineKeyword_15() { return cDeadlineKeyword_15; }
+		public Keyword getDeadlineKeyword_17() { return cDeadlineKeyword_17; }
 
 		//deadline=[Deadline]
-		public Assignment getDeadlineAssignment_16() { return cDeadlineAssignment_16; }
+		public Assignment getDeadlineAssignment_18() { return cDeadlineAssignment_18; }
 
 		//[Deadline]
-		public CrossReference getDeadlineDeadlineCrossReference_16_0() { return cDeadlineDeadlineCrossReference_16_0; }
+		public CrossReference getDeadlineDeadlineCrossReference_18_0() { return cDeadlineDeadlineCrossReference_18_0; }
 
 		//ID
-		public RuleCall getDeadlineDeadlineIDTerminalRuleCall_16_0_1() { return cDeadlineDeadlineIDTerminalRuleCall_16_0_1; }
+		public RuleCall getDeadlineDeadlineIDTerminalRuleCall_18_0_1() { return cDeadlineDeadlineIDTerminalRuleCall_18_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_17() { return cRightCurlyBracketKeyword_17; }
+		public Keyword getRightCurlyBracketKeyword_19() { return cRightCurlyBracketKeyword_19; }
 	}
 
 	public class LeaderDrivenElements extends AbstractParserRuleElementFinder {
@@ -554,26 +582,29 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cFilterAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
 		private final RuleCall cFilterFilterParserRuleCall_6_1_0 = (RuleCall)cFilterAssignment_6_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
-		private final Keyword cDefaultKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cDefaultAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cDefaultStrategyCrossReference_8_0 = (CrossReference)cDefaultAssignment_8.eContents().get(0);
-		private final RuleCall cDefaultStrategyIDTerminalRuleCall_8_0_1 = (RuleCall)cDefaultStrategyCrossReference_8_0.eContents().get(1);
-		private final Keyword cDeadlineKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Assignment cDeadlineAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cDeadlineDeadlineCrossReference_10_0 = (CrossReference)cDeadlineAssignment_10.eContents().get(0);
-		private final RuleCall cDeadlineDeadlineIDTerminalRuleCall_10_0_1 = (RuleCall)cDeadlineDeadlineCrossReference_10_0.eContents().get(1);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cWhenKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cStageAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cStageStageTypeEnumRuleCall_8_0 = (RuleCall)cStageAssignment_8.eContents().get(0);
+		private final Keyword cDefaultKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cDefaultAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final CrossReference cDefaultStrategyCrossReference_10_0 = (CrossReference)cDefaultAssignment_10.eContents().get(0);
+		private final RuleCall cDefaultStrategyIDTerminalRuleCall_10_0_1 = (RuleCall)cDefaultStrategyCrossReference_10_0.eContents().get(1);
+		private final Keyword cDeadlineKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Assignment cDeadlineAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final CrossReference cDeadlineDeadlineCrossReference_12_0 = (CrossReference)cDeadlineAssignment_12.eContents().get(0);
+		private final RuleCall cDeadlineDeadlineIDTerminalRuleCall_12_0_1 = (RuleCall)cDeadlineDeadlineCrossReference_12_0.eContents().get(1);
+		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
 		
 		//LeaderDriven:
 		//
-		//	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "default"
+		//	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 		//
-		//	default=[Strategy] "deadline" deadline=[Deadline] "}";
+		//	stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "default"
+		//name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 		//
-		//default=[Strategy] "deadline" deadline=[Deadline] "}"
+		//stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -621,32 +652,41 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
 
+		//"when"
+		public Keyword getWhenKeyword_7() { return cWhenKeyword_7; }
+
+		//stage=StageType
+		public Assignment getStageAssignment_8() { return cStageAssignment_8; }
+
+		//StageType
+		public RuleCall getStageStageTypeEnumRuleCall_8_0() { return cStageStageTypeEnumRuleCall_8_0; }
+
 		//"default"
-		public Keyword getDefaultKeyword_7() { return cDefaultKeyword_7; }
+		public Keyword getDefaultKeyword_9() { return cDefaultKeyword_9; }
 
 		//default=[Strategy]
-		public Assignment getDefaultAssignment_8() { return cDefaultAssignment_8; }
+		public Assignment getDefaultAssignment_10() { return cDefaultAssignment_10; }
 
 		//[Strategy]
-		public CrossReference getDefaultStrategyCrossReference_8_0() { return cDefaultStrategyCrossReference_8_0; }
+		public CrossReference getDefaultStrategyCrossReference_10_0() { return cDefaultStrategyCrossReference_10_0; }
 
 		//ID
-		public RuleCall getDefaultStrategyIDTerminalRuleCall_8_0_1() { return cDefaultStrategyIDTerminalRuleCall_8_0_1; }
+		public RuleCall getDefaultStrategyIDTerminalRuleCall_10_0_1() { return cDefaultStrategyIDTerminalRuleCall_10_0_1; }
 
 		//"deadline"
-		public Keyword getDeadlineKeyword_9() { return cDeadlineKeyword_9; }
+		public Keyword getDeadlineKeyword_11() { return cDeadlineKeyword_11; }
 
 		//deadline=[Deadline]
-		public Assignment getDeadlineAssignment_10() { return cDeadlineAssignment_10; }
+		public Assignment getDeadlineAssignment_12() { return cDeadlineAssignment_12; }
 
 		//[Deadline]
-		public CrossReference getDeadlineDeadlineCrossReference_10_0() { return cDeadlineDeadlineCrossReference_10_0; }
+		public CrossReference getDeadlineDeadlineCrossReference_12_0() { return cDeadlineDeadlineCrossReference_12_0; }
 
 		//ID
-		public RuleCall getDeadlineDeadlineIDTerminalRuleCall_10_0_1() { return cDeadlineDeadlineIDTerminalRuleCall_10_0_1; }
+		public RuleCall getDeadlineDeadlineIDTerminalRuleCall_12_0_1() { return cDeadlineDeadlineIDTerminalRuleCall_12_0_1; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
 
 	public class PhasedStrategyElements extends AbstractParserRuleElementFinder {
@@ -715,35 +755,45 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Alternatives cAlternatives_0_1 = (Alternatives)cGroup_0.eContents().get(1);
+		private final Keyword cEqualsSignKeyword_0_1_0 = (Keyword)cAlternatives_0_1.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_0_1_1 = (Keyword)cAlternatives_0_1.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_0_2 = (RuleCall)cGroup_0.eContents().get(2);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Alternatives cAlternatives_1_2 = (Alternatives)cGroup_1.eContents().get(2);
+		private final Keyword cEqualsSignKeyword_1_2_0 = (Keyword)cAlternatives_1_2.eContents().get(0);
+		private final Keyword cExclamationMarkEqualsSignKeyword_1_2_1 = (Keyword)cAlternatives_1_2.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
 		
 		//Filter:
 		//
-		//	(ID "=" ID) ("," ID "=" ID)?;
+		//	(ID ("=" | "!=") ID) ("," ID ("=" | "!=") ID)?;
 		public ParserRule getRule() { return rule; }
 
-		//(ID "=" ID) ("," ID "=" ID)?
+		//(ID ("=" | "!=") ID) ("," ID ("=" | "!=") ID)?
 		public Group getGroup() { return cGroup; }
 
-		//ID "=" ID
+		//ID ("=" | "!=") ID
 		public Group getGroup_0() { return cGroup_0; }
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
 
+		//"=" | "!="
+		public Alternatives getAlternatives_0_1() { return cAlternatives_0_1; }
+
 		//"="
-		public Keyword getEqualsSignKeyword_0_1() { return cEqualsSignKeyword_0_1; }
+		public Keyword getEqualsSignKeyword_0_1_0() { return cEqualsSignKeyword_0_1_0; }
+
+		//"!="
+		public Keyword getExclamationMarkEqualsSignKeyword_0_1_1() { return cExclamationMarkEqualsSignKeyword_0_1_1; }
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_0_2() { return cIDTerminalRuleCall_0_2; }
 
-		//("," ID "=" ID)?
+		//("," ID ("=" | "!=") ID)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//","
@@ -752,8 +802,14 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 
+		//"=" | "!="
+		public Alternatives getAlternatives_1_2() { return cAlternatives_1_2; }
+
 		//"="
-		public Keyword getEqualsSignKeyword_1_2() { return cEqualsSignKeyword_1_2; }
+		public Keyword getEqualsSignKeyword_1_2_0() { return cEqualsSignKeyword_1_2_0; }
+
+		//"!="
+		public Keyword getExclamationMarkEqualsSignKeyword_1_2_1() { return cExclamationMarkEqualsSignKeyword_1_2_1; }
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_3() { return cIDTerminalRuleCall_1_3; }
@@ -925,6 +981,43 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getCOMMENTCommentKeyword_2_0() { return cCOMMENTCommentKeyword_2_0; }
 	}
 
+	public class StageTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "StageType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cTASK_REVIEWEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cTASK_REVIEWTaskReviewKeyword_0_0 = (Keyword)cTASK_REVIEWEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cPATCH_REVIEWEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cPATCH_REVIEWPatchReviewKeyword_1_0 = (Keyword)cPATCH_REVIEWEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cRELEASEEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cRELEASEReleaseKeyword_2_0 = (Keyword)cRELEASEEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum StageType:
+		//
+		//	TASK_REVIEW="TaskReview" | PATCH_REVIEW="PatchReview" | RELEASE="Release";
+		public EnumRule getRule() { return rule; }
+
+		//TASK_REVIEW="TaskReview" | PATCH_REVIEW="PatchReview" | RELEASE="Release"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//TASK_REVIEW="TaskReview"
+		public EnumLiteralDeclaration getTASK_REVIEWEnumLiteralDeclaration_0() { return cTASK_REVIEWEnumLiteralDeclaration_0; }
+
+		//"TaskReview"
+		public Keyword getTASK_REVIEWTaskReviewKeyword_0_0() { return cTASK_REVIEWTaskReviewKeyword_0_0; }
+
+		//PATCH_REVIEW="PatchReview"
+		public EnumLiteralDeclaration getPATCH_REVIEWEnumLiteralDeclaration_1() { return cPATCH_REVIEWEnumLiteralDeclaration_1; }
+
+		//"PatchReview"
+		public Keyword getPATCH_REVIEWPatchReviewKeyword_1_0() { return cPATCH_REVIEWPatchReviewKeyword_1_0; }
+
+		//RELEASE="Release"
+		public EnumLiteralDeclaration getRELEASEEnumLiteralDeclaration_2() { return cRELEASEEnumLiteralDeclaration_2; }
+
+		//"Release"
+		public Keyword getRELEASEReleaseKeyword_2_0() { return cRELEASEReleaseKeyword_2_0; }
+	}
+
 	public class RangeTypeElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "RangeType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -967,6 +1060,7 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 	private OCLConditionElements pOCLCondition;
 	private WaitForVoteElements pWaitForVote;
 	private CollaborationTypeElements unknownRuleCollaborationType;
+	private StageTypeElements unknownRuleStageType;
 	private RangeTypeElements unknownRuleRangeType;
 	private TerminalRule tFLOAT;
 	
@@ -1045,9 +1139,11 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Majority:
 	//
-	//	name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "people" people+=[Role] (","
+	//	name=ID ":" "Majority" "{" "applied to" appliedTo=CollaborationType ("(" Filter ")")? "when" stage=StageType "people"
 	//
-	//	people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline" deadline=[Deadline] "}";
+	//	people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "deadline"
+	//
+	//	deadline=[Deadline] "}";
 	public MajorityElements getMajorityAccess() {
 		return (pMajority != null) ? pMajority : (pMajority = new MajorityElements());
 	}
@@ -1058,11 +1154,11 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 
 	//RatioMajority:
 	//
-	//	name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "people" people+=[Role] (","
+	//	name=ID ":" "Ratio" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" Filter ")")? "when" stage=StageType "people"
 	//
-	//	people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT "deadline"
+	//	people+=[Role] ("," people+=[Role])* "range" range=RangeType ("minVotes" minVotes=INT)? "ratio" ratio=FLOAT
 	//
-	//	deadline=[Deadline] "}";
+	//	"deadline" deadline=[Deadline] "}";
 	public RatioMajorityElements getRatioMajorityAccess() {
 		return (pRatioMajority != null) ? pRatioMajority : (pRatioMajority = new RatioMajorityElements());
 	}
@@ -1073,9 +1169,9 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 
 	//LeaderDriven:
 	//
-	//	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "default"
+	//	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 	//
-	//	default=[Strategy] "deadline" deadline=[Deadline] "}";
+	//	stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}";
 	public LeaderDrivenElements getLeaderDrivenAccess() {
 		return (pLeaderDriven != null) ? pLeaderDriven : (pLeaderDriven = new LeaderDrivenElements());
 	}
@@ -1097,7 +1193,7 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Filter:
 	//
-	//	(ID "=" ID) ("," ID "=" ID)?;
+	//	(ID ("=" | "!=") ID) ("," ID ("=" | "!=") ID)?;
 	public FilterElements getFilterAccess() {
 		return (pFilter != null) ? pFilter : (pFilter = new FilterElements());
 	}
@@ -1159,6 +1255,17 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getCollaborationTypeRule() {
 		return getCollaborationTypeAccess().getRule();
+	}
+
+	//enum StageType:
+	//
+	//	TASK_REVIEW="TaskReview" | PATCH_REVIEW="PatchReview" | RELEASE="Release";
+	public StageTypeElements getStageTypeAccess() {
+		return (unknownRuleStageType != null) ? unknownRuleStageType : (unknownRuleStageType = new StageTypeElements());
+	}
+	
+	public EnumRule getStageTypeRule() {
+		return getStageTypeAccess().getRule();
 	}
 
 	//enum RangeType:

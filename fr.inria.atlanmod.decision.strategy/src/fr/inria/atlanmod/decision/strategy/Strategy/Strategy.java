@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getPeople <em>People</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getName <em>Name</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getAppliedTo <em>Applied To</em>}</li>
+ *   <li>{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getStage <em>Stage</em>}</li>
  * </ul>
  * </p>
  *
@@ -203,5 +204,61 @@ public interface Strategy extends EObject {
 	 * @generated
 	 */
 	boolean isSetAppliedTo();
+
+	/**
+	 * Returns the value of the '<em><b>Stage</b></em>' attribute.
+	 * The literals are from the enumeration {@link fr.inria.atlanmod.decision.strategy.Strategy.StageType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Stage</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stage</em>' attribute.
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.StageType
+	 * @see #isSetStage()
+	 * @see #unsetStage()
+	 * @see #setStage(StageType)
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.StrategyPackage#getStrategy_Stage()
+	 * @model unsettable="true"
+	 * @generated
+	 */
+	StageType getStage();
+
+	/**
+	 * Sets the value of the '{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getStage <em>Stage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Stage</em>' attribute.
+	 * @see fr.inria.atlanmod.decision.strategy.Strategy.StageType
+	 * @see #isSetStage()
+	 * @see #unsetStage()
+	 * @see #getStage()
+	 * @generated
+	 */
+	void setStage(StageType value);
+
+	/**
+	 * Unsets the value of the '{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getStage <em>Stage</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSetStage()
+	 * @see #getStage()
+	 * @see #setStage(StageType)
+	 * @generated
+	 */
+	void unsetStage();
+
+	/**
+	 * Returns whether the value of the '{@link fr.inria.atlanmod.decision.strategy.Strategy.Strategy#getStage <em>Stage</em>}' attribute is set.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return whether the value of the '<em>Stage</em>' attribute is set.
+	 * @see #unsetStage()
+	 * @see #getStage()
+	 * @see #setStage(StageType)
+	 * @generated
+	 */
+	boolean isSetStage();
 
 } // Strategy

@@ -21,33 +21,38 @@ public class InternalStrategyLexer extends Lexer {
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=11;
     public static final int T__21=21;
+    public static final int RULE_ANY_OTHER=11;
     public static final int T__20=20;
-    public static final int RULE_FLOAT=6;
     public static final int EOF=-1;
+    public static final int T__19=19;
+    public static final int T__16=16;
+    public static final int T__15=15;
+    public static final int T__18=18;
+    public static final int T__17=17;
+    public static final int T__12=12;
+    public static final int T__14=14;
+    public static final int T__13=13;
+    public static final int RULE_INT=5;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__44=44;
+    public static final int RULE_FLOAT=6;
     public static final int RULE_SL_COMMENT=9;
     public static final int RULE_ML_COMMENT=8;
-    public static final int T__19=19;
     public static final int T__30=30;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int RULE_STRING=7;
-    public static final int T__16=16;
     public static final int T__33=33;
-    public static final int T__15=15;
     public static final int T__34=34;
-    public static final int T__18=18;
     public static final int T__35=35;
-    public static final int T__17=17;
     public static final int T__36=36;
-    public static final int T__12=12;
     public static final int T__37=37;
     public static final int T__38=38;
-    public static final int T__14=14;
     public static final int T__39=39;
-    public static final int T__13=13;
-    public static final int RULE_INT=5;
     public static final int RULE_WS=10;
 
     // delegates
@@ -314,10 +319,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:23:7: ( 'people' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:23:9: 'people'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:23:7: ( 'when' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:23:9: 'when'
             {
-            match("people"); 
+            match("when"); 
 
 
             }
@@ -335,10 +340,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:24:7: ( 'range' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:24:9: 'range'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:24:7: ( 'people' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:24:9: 'people'
             {
-            match("range"); 
+            match("people"); 
 
 
             }
@@ -356,10 +361,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:25:7: ( 'minVotes' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:25:9: 'minVotes'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:25:7: ( 'range' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:25:9: 'range'
             {
-            match("minVotes"); 
+            match("range"); 
 
 
             }
@@ -377,10 +382,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:26:7: ( 'deadline' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:26:9: 'deadline'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:26:7: ( 'minVotes' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:26:9: 'minVotes'
             {
-            match("deadline"); 
+            match("minVotes"); 
 
 
             }
@@ -398,10 +403,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:27:7: ( 'Ratio' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:27:9: 'Ratio'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:27:7: ( 'deadline' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:27:9: 'deadline'
             {
-            match("Ratio"); 
+            match("deadline"); 
 
 
             }
@@ -419,10 +424,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:28:7: ( 'Task' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:28:9: 'Task'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:28:7: ( 'Ratio' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:28:9: 'Ratio'
             {
-            match("Task"); 
+            match("Ratio"); 
 
 
             }
@@ -440,10 +445,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:29:7: ( 'Patch' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:29:9: 'Patch'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:29:7: ( 'Task' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:29:9: 'Task'
             {
-            match("Patch"); 
+            match("Task"); 
 
 
             }
@@ -461,10 +466,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:30:7: ( 'Comment' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:30:9: 'Comment'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:30:7: ( 'Patch' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:30:9: 'Patch'
             {
-            match("Comment"); 
+            match("Patch"); 
 
 
             }
@@ -482,10 +487,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:31:7: ( 'ratio' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:31:9: 'ratio'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:31:7: ( 'Comment' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:31:9: 'Comment'
             {
-            match("ratio"); 
+            match("Comment"); 
 
 
             }
@@ -503,10 +508,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:32:7: ( 'LeaderDriven' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:32:9: 'LeaderDriven'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:32:7: ( 'ratio' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:32:9: 'ratio'
             {
-            match("LeaderDriven"); 
+            match("ratio"); 
 
 
             }
@@ -524,10 +529,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:33:7: ( 'default' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:33:9: 'default'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:33:7: ( 'LeaderDriven' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:33:9: 'LeaderDriven'
             {
-            match("default"); 
+            match("LeaderDriven"); 
 
 
             }
@@ -545,10 +550,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:34:7: ( 'phases' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:34:9: 'phases'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:34:7: ( 'default' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:34:9: 'default'
             {
-            match("phases"); 
+            match("default"); 
 
 
             }
@@ -566,10 +571,11 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:35:7: ( '=' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:35:9: '='
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:35:7: ( 'phases' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:35:9: 'phases'
             {
-            match('='); 
+            match("phases"); 
+
 
             }
 
@@ -586,11 +592,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:36:7: ( 'days' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:36:9: 'days'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:36:7: ( '=' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:36:9: '='
             {
-            match("days"); 
-
+            match('='); 
 
             }
 
@@ -607,10 +612,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:37:7: ( 'Present' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:37:9: 'Present'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:37:7: ( '!=' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:37:9: '!='
             {
-            match("Present"); 
+            match("!="); 
 
 
             }
@@ -628,10 +633,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:38:7: ( 'Qualified' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:38:9: 'Qualified'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:38:7: ( 'days' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:38:9: 'days'
             {
-            match("Qualified"); 
+            match("days"); 
 
 
             }
@@ -644,15 +649,120 @@ public class InternalStrategyLexer extends Lexer {
     }
     // $ANTLR end "T__39"
 
+    // $ANTLR start "T__40"
+    public final void mT__40() throws RecognitionException {
+        try {
+            int _type = T__40;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:39:7: ( 'TaskReview' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:39:9: 'TaskReview'
+            {
+            match("TaskReview"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__40"
+
+    // $ANTLR start "T__41"
+    public final void mT__41() throws RecognitionException {
+        try {
+            int _type = T__41;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:40:7: ( 'PatchReview' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:40:9: 'PatchReview'
+            {
+            match("PatchReview"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__41"
+
+    // $ANTLR start "T__42"
+    public final void mT__42() throws RecognitionException {
+        try {
+            int _type = T__42;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:41:7: ( 'Release' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:41:9: 'Release'
+            {
+            match("Release"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__42"
+
+    // $ANTLR start "T__43"
+    public final void mT__43() throws RecognitionException {
+        try {
+            int _type = T__43;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:42:7: ( 'Present' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:42:9: 'Present'
+            {
+            match("Present"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__43"
+
+    // $ANTLR start "T__44"
+    public final void mT__44() throws RecognitionException {
+        try {
+            int _type = T__44;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:43:7: ( 'Qualified' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:43:9: 'Qualified'
+            {
+            match("Qualified"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__44"
+
     // $ANTLR start "RULE_FLOAT"
     public final void mRULE_FLOAT() throws RecognitionException {
         try {
             int _type = RULE_FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:12: ( ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? | '1' ) )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:14: ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? | '1' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:12: ( ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? | '1' ) )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:14: ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? | '1' )
             {
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:14: ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? | '1' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:14: ( ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )? | '1' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -676,9 +786,9 @@ public class InternalStrategyLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:15: ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )?
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:15: ( '-' | '+' )? ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' ) ( 'e' ( '-' | '+' ) RULE_INT )?
                     {
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:15: ( '-' | '+' )?
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:15: ( '-' | '+' )?
                     int alt1=2;
                     int LA1_0 = input.LA(1);
 
@@ -704,12 +814,12 @@ public class InternalStrategyLexer extends Lexer {
 
                     }
 
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )
                     int alt2=3;
                     alt2 = dfa2.predict(input);
                     switch (alt2) {
                         case 1 :
-                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:27: RULE_INT '.' RULE_INT
+                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:27: RULE_INT '.' RULE_INT
                             {
                             mRULE_INT(); 
                             match('.'); 
@@ -718,7 +828,7 @@ public class InternalStrategyLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:49: '.' RULE_INT
+                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:49: '.' RULE_INT
                             {
                             match('.'); 
                             mRULE_INT(); 
@@ -726,7 +836,7 @@ public class InternalStrategyLexer extends Lexer {
                             }
                             break;
                         case 3 :
-                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:62: RULE_INT '.'
+                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:62: RULE_INT '.'
                             {
                             mRULE_INT(); 
                             match('.'); 
@@ -736,7 +846,7 @@ public class InternalStrategyLexer extends Lexer {
 
                     }
 
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:76: ( 'e' ( '-' | '+' ) RULE_INT )?
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:76: ( 'e' ( '-' | '+' ) RULE_INT )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -745,7 +855,7 @@ public class InternalStrategyLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:77: 'e' ( '-' | '+' ) RULE_INT
+                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:77: 'e' ( '-' | '+' ) RULE_INT
                             {
                             match('e'); 
                             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
@@ -768,7 +878,7 @@ public class InternalStrategyLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1296:102: '1'
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1401:102: '1'
                     {
                     match('1'); 
 
@@ -793,10 +903,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1298:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1298:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1403:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1403:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1298:11: ( '^' )?
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1403:11: ( '^' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -805,7 +915,7 @@ public class InternalStrategyLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1298:11: '^'
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1403:11: '^'
                     {
                     match('^'); 
 
@@ -823,7 +933,7 @@ public class InternalStrategyLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1298:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1403:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -872,10 +982,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1300:10: ( ( '0' .. '9' )+ )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1300:12: ( '0' .. '9' )+
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1405:10: ( ( '0' .. '9' )+ )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1405:12: ( '0' .. '9' )+
             {
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1300:12: ( '0' .. '9' )+
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1405:12: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -889,7 +999,7 @@ public class InternalStrategyLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1300:13: '0' .. '9'
+            	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1405:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -921,10 +1031,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -942,10 +1052,10 @@ public class InternalStrategyLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -961,7 +1071,7 @@ public class InternalStrategyLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -977,7 +1087,7 @@ public class InternalStrategyLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1002,10 +1112,10 @@ public class InternalStrategyLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -1021,7 +1131,7 @@ public class InternalStrategyLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1037,7 +1147,7 @@ public class InternalStrategyLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1302:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1407:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1080,12 +1190,12 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1304:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1304:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1409:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1409:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1304:24: ( options {greedy=false; } : . )*
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1409:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -1110,7 +1220,7 @@ public class InternalStrategyLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1304:52: .
+            	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1409:52: .
             	    {
             	    matchAny(); 
 
@@ -1140,12 +1250,12 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -1158,7 +1268,7 @@ public class InternalStrategyLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1178,7 +1288,7 @@ public class InternalStrategyLexer extends Lexer {
                 }
             } while (true);
 
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:40: ( ( '\\r' )? '\\n' )?
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1187,9 +1297,9 @@ public class InternalStrategyLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:41: ( '\\r' )? '\\n'
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:41: ( '\\r' )? '\\n'
                     {
-                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:41: ( '\\r' )?
+                    // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1198,7 +1308,7 @@ public class InternalStrategyLexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1306:41: '\\r'
+                            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1411:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1230,10 +1340,10 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1308:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1308:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1413:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1413:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1308:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1413:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -1287,8 +1397,8 @@ public class InternalStrategyLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1310:16: ( . )
-            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1310:18: .
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1415:16: ( . )
+            // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1415:18: .
             {
             matchAny(); 
 
@@ -1303,8 +1413,8 @@ public class InternalStrategyLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt16=36;
+        // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt16=41;
         alt16 = dfa16.predict(input);
         switch (alt16) {
             case 1 :
@@ -1504,56 +1614,91 @@ public class InternalStrategyLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:178: RULE_FLOAT
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:178: T__40
+                {
+                mT__40(); 
+
+                }
+                break;
+            case 30 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:184: T__41
+                {
+                mT__41(); 
+
+                }
+                break;
+            case 31 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:190: T__42
+                {
+                mT__42(); 
+
+                }
+                break;
+            case 32 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:196: T__43
+                {
+                mT__43(); 
+
+                }
+                break;
+            case 33 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:202: T__44
+                {
+                mT__44(); 
+
+                }
+                break;
+            case 34 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:208: RULE_FLOAT
                 {
                 mRULE_FLOAT(); 
 
                 }
                 break;
-            case 30 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:189: RULE_ID
+            case 35 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:219: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 31 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:197: RULE_INT
+            case 36 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:227: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 32 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:206: RULE_STRING
+            case 37 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:236: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 33 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:218: RULE_ML_COMMENT
+            case 38 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:248: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 34 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:234: RULE_SL_COMMENT
+            case 39 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:264: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 35 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:250: RULE_WS
+            case 40 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:280: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 36 :
-                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:258: RULE_ANY_OTHER
+            case 41 :
+                // ../fr.inria.atlanmod.decision.strategy.language/src-gen/fr/inria/atlanmod/decision/parser/antlr/internal/InternalStrategy.g:1:288: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1618,141 +1763,148 @@ public class InternalStrategyLexer extends Lexer {
             this.transition = DFA2_transition;
         }
         public String getDescription() {
-            return "1296:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )";
+            return "1401:26: ( RULE_INT '.' RULE_INT | '.' RULE_INT | RULE_INT '.' )";
         }
     }
     static final String DFA16_eotS =
-        "\1\uffff\1\43\1\uffff\1\43\2\uffff\2\43\1\uffff\2\43\2\uffff\7"+
-        "\43\1\uffff\1\43\1\40\1\73\1\40\1\75\1\40\1\uffff\3\40\2\uffff\2"+
-        "\43\2\uffff\2\43\2\uffff\2\43\1\uffff\2\43\2\uffff\11\43\1\uffff"+
-        "\1\43\1\uffff\1\75\5\uffff\45\43\1\174\1\175\5\43\1\u0083\1\u0084"+
-        "\1\u0085\6\43\1\u008c\1\u008d\3\43\2\uffff\5\43\3\uffff\4\43\1\u009a"+
-        "\1\u009b\2\uffff\6\43\1\u00a2\1\u00a3\4\43\2\uffff\2\43\1\u00aa"+
-        "\1\u00ab\2\43\2\uffff\2\43\1\u00b0\1\uffff\1\u00b1\1\u00b2\2\uffff"+
-        "\2\43\1\u00b5\1\43\3\uffff\1\43\1\u00b8\1\uffff\1\u00b9\1\43\2\uffff"+
-        "\1\43\1\u00bc\1\uffff";
+        "\1\uffff\1\45\1\uffff\1\45\2\uffff\2\45\1\uffff\2\45\2\uffff\10"+
+        "\45\1\uffff\1\42\1\45\1\42\1\100\1\42\1\102\1\42\1\uffff\3\42\2"+
+        "\uffff\2\45\2\uffff\3\45\2\uffff\2\45\1\uffff\2\45\2\uffff\12\45"+
+        "\2\uffff\1\45\1\uffff\1\102\5\uffff\41\45\1\177\7\45\1\u0087\1\u0089"+
+        "\5\45\1\u0090\1\u0091\1\u0092\5\45\1\uffff\2\45\1\u009a\1\u009b"+
+        "\3\45\1\uffff\1\45\1\uffff\6\45\3\uffff\5\45\1\u00ab\1\u00ac\2\uffff"+
+        "\7\45\1\u00b4\1\u00b5\1\45\1\u00b7\4\45\2\uffff\2\45\1\u00be\1\45"+
+        "\1\u00c0\2\45\2\uffff\1\45\1\uffff\2\45\1\u00c6\1\uffff\1\u00c7"+
+        "\1\u00c8\1\uffff\1\45\1\uffff\3\45\1\u00cd\1\45\3\uffff\2\45\1\u00d1"+
+        "\1\45\1\uffff\1\u00d3\1\u00d4\1\45\1\uffff\1\u00d6\2\uffff\1\45"+
+        "\1\uffff\1\u00d8\1\uffff";
     static final String DFA16_eofS =
-        "\u00bd\uffff";
+        "\u00d9\uffff";
     static final String DFA16_minS =
         "\1\0\1\141\1\uffff\1\141\2\uffff\1\145\1\164\1\uffff\1\141\1\160"+
-        "\2\uffff\1\145\1\141\1\151\2\141\1\157\1\145\1\uffff\1\165\1\56"+
-        "\2\60\1\56\1\101\1\uffff\2\0\1\52\2\uffff\1\145\1\164\2\uffff\1"+
-        "\154\1\164\2\uffff\1\141\1\162\1\uffff\1\152\1\160\2\uffff\1\157"+
-        "\1\141\2\156\1\141\1\171\1\163\1\155\1\141\1\uffff\1\141\1\uffff"+
-        "\1\56\5\uffff\1\152\1\163\1\143\1\145\1\151\1\144\1\141\1\157\1"+
-        "\154\1\160\1\163\1\147\1\151\1\126\1\144\1\141\1\163\1\153\1\155"+
-        "\1\144\1\154\2\145\1\150\1\163\1\157\1\154\1\164\1\162\1\151\1\154"+
-        "\2\145\2\157\1\154\1\165\2\60\2\145\1\151\1\143\1\156\3\60\1\151"+
-        "\1\145\1\151\2\145\1\163\2\60\1\164\1\151\1\154\2\uffff\1\156\1"+
-        "\162\1\146\2\164\3\uffff\1\156\1\147\1\164\1\144\2\60\2\uffff\1"+
-        "\145\1\156\2\164\1\104\1\151\2\60\1\145\1\151\1\171\1\40\2\uffff"+
-        "\1\163\1\145\2\60\1\162\1\145\2\uffff\1\163\1\145\1\60\1\uffff\2"+
-        "\60\2\uffff\1\151\1\144\1\60\1\163\3\uffff\1\166\1\60\1\uffff\1"+
-        "\60\1\145\2\uffff\1\156\1\60\1\uffff";
+        "\2\uffff\1\150\1\145\1\141\1\151\2\141\1\157\1\145\1\uffff\1\75"+
+        "\1\165\1\56\2\60\1\56\1\101\1\uffff\2\0\1\52\2\uffff\1\145\1\164"+
+        "\2\uffff\1\154\1\164\1\154\2\uffff\1\141\1\162\1\uffff\1\152\1\160"+
+        "\2\uffff\1\145\1\157\1\141\2\156\1\141\1\171\1\163\1\155\1\141\2"+
+        "\uffff\1\141\1\uffff\1\56\5\uffff\1\152\1\163\1\143\1\145\1\151"+
+        "\1\145\1\144\1\141\1\157\1\154\1\156\1\160\1\163\1\147\1\151\1\126"+
+        "\1\144\1\141\1\163\1\153\1\155\1\144\1\154\2\145\1\150\1\163\1\157"+
+        "\1\141\1\154\1\164\1\162\1\151\1\60\1\154\2\145\2\157\1\154\1\165"+
+        "\2\60\2\145\1\151\1\143\1\156\3\60\1\163\1\151\1\145\1\151\1\145"+
+        "\1\uffff\1\145\1\163\2\60\1\164\1\151\1\154\1\uffff\1\145\1\uffff"+
+        "\1\156\1\162\1\146\2\164\1\145\3\uffff\1\145\1\156\1\147\1\164\1"+
+        "\144\2\60\2\uffff\1\145\1\156\1\164\1\166\1\164\1\104\1\151\2\60"+
+        "\1\166\1\60\1\145\1\151\1\171\1\40\2\uffff\1\163\1\145\1\60\1\151"+
+        "\1\60\1\162\1\145\2\uffff\1\151\1\uffff\1\163\1\145\1\60\1\uffff"+
+        "\2\60\1\uffff\1\145\1\uffff\1\151\1\144\1\145\1\60\1\163\3\uffff"+
+        "\1\167\1\166\1\60\1\167\1\uffff\2\60\1\145\1\uffff\1\60\2\uffff"+
+        "\1\156\1\uffff\1\60\1\uffff";
     static final String DFA16_maxS =
         "\1\uffff\1\162\1\uffff\1\157\2\uffff\1\145\1\164\1\uffff\1\141"+
-        "\1\160\2\uffff\1\150\1\141\1\151\1\145\1\141\1\157\1\145\1\uffff"+
-        "\1\165\4\71\1\172\1\uffff\2\uffff\1\57\2\uffff\1\157\1\164\2\uffff"+
-        "\1\154\1\164\2\uffff\1\141\1\162\1\uffff\1\152\1\160\2\uffff\1\157"+
-        "\1\141\1\164\1\156\1\146\1\171\1\163\1\155\1\141\1\uffff\1\141\1"+
-        "\uffff\1\71\5\uffff\1\152\1\163\1\143\1\145\1\151\1\144\1\141\1"+
-        "\157\1\154\1\160\1\163\1\147\1\151\1\126\1\144\1\141\1\163\1\153"+
-        "\1\155\1\144\1\154\2\145\1\150\1\163\1\157\1\154\1\164\1\162\1\151"+
-        "\1\154\2\145\2\157\1\154\1\165\2\172\2\145\1\151\1\143\1\156\3\172"+
-        "\1\151\1\145\1\151\2\145\1\163\2\172\1\164\1\151\1\154\2\uffff\1"+
-        "\156\1\162\1\146\2\164\3\uffff\1\156\1\147\1\164\1\144\2\172\2\uffff"+
-        "\1\145\1\156\2\164\1\104\1\151\2\172\1\145\1\151\1\171\1\40\2\uffff"+
-        "\1\163\1\145\2\172\1\162\1\145\2\uffff\1\163\1\145\1\172\1\uffff"+
-        "\2\172\2\uffff\1\151\1\144\1\172\1\163\3\uffff\1\166\1\172\1\uffff"+
-        "\1\172\1\145\2\uffff\1\156\1\172\1\uffff";
+        "\1\160\2\uffff\2\150\1\141\1\151\1\145\1\141\1\157\1\145\1\uffff"+
+        "\1\75\1\165\4\71\1\172\1\uffff\2\uffff\1\57\2\uffff\1\157\1\164"+
+        "\2\uffff\1\154\1\164\1\154\2\uffff\1\141\1\162\1\uffff\1\152\1\160"+
+        "\2\uffff\1\145\1\157\1\141\1\164\1\156\1\146\1\171\1\163\1\155\1"+
+        "\141\2\uffff\1\141\1\uffff\1\71\5\uffff\1\152\1\163\1\143\1\145"+
+        "\1\151\1\145\1\144\1\141\1\157\1\154\1\156\1\160\1\163\1\147\1\151"+
+        "\1\126\1\144\1\141\1\163\1\153\1\155\1\144\1\154\2\145\1\150\1\163"+
+        "\1\157\1\141\1\154\1\164\1\162\1\151\1\172\1\154\2\145\2\157\1\154"+
+        "\1\165\2\172\2\145\1\151\1\143\1\156\3\172\1\163\1\151\1\145\1\151"+
+        "\1\145\1\uffff\1\145\1\163\2\172\1\164\1\151\1\154\1\uffff\1\145"+
+        "\1\uffff\1\156\1\162\1\146\2\164\1\145\3\uffff\1\145\1\156\1\147"+
+        "\1\164\1\144\2\172\2\uffff\1\145\1\156\1\164\1\166\1\164\1\104\1"+
+        "\151\2\172\1\166\1\172\1\145\1\151\1\171\1\40\2\uffff\1\163\1\145"+
+        "\1\172\1\151\1\172\1\162\1\145\2\uffff\1\151\1\uffff\1\163\1\145"+
+        "\1\172\1\uffff\2\172\1\uffff\1\145\1\uffff\1\151\1\144\1\145\1\172"+
+        "\1\163\3\uffff\1\167\1\166\1\172\1\167\1\uffff\2\172\1\145\1\uffff"+
+        "\1\172\2\uffff\1\156\1\uffff\1\172\1\uffff";
     static final String DFA16_acceptS =
-        "\2\uffff\1\2\1\uffff\1\4\1\5\2\uffff\1\10\2\uffff\1\13\1\14\7\uffff"+
-        "\1\31\6\uffff\1\36\3\uffff\1\43\1\44\2\uffff\1\36\1\2\2\uffff\1"+
-        "\4\1\5\2\uffff\1\10\2\uffff\1\13\1\14\11\uffff\1\31\1\uffff\1\35"+
-        "\1\uffff\1\37\1\40\1\41\1\42\1\43\72\uffff\1\32\1\22\5\uffff\1\23"+
-        "\1\3\1\21\6\uffff\1\16\1\25\14\uffff\1\15\1\30\6\uffff\1\1\1\33"+
-        "\3\uffff\1\12\2\uffff\1\27\1\24\4\uffff\1\11\1\17\1\20\2\uffff\1"+
-        "\6\2\uffff\1\34\1\7\2\uffff\1\26";
+        "\2\uffff\1\2\1\uffff\1\4\1\5\2\uffff\1\10\2\uffff\1\13\1\14\10"+
+        "\uffff\1\32\7\uffff\1\43\3\uffff\1\50\1\51\2\uffff\1\43\1\2\3\uffff"+
+        "\1\4\1\5\2\uffff\1\10\2\uffff\1\13\1\14\12\uffff\1\32\1\33\1\uffff"+
+        "\1\42\1\uffff\1\44\1\45\1\46\1\47\1\50\70\uffff\1\15\7\uffff\1\34"+
+        "\1\uffff\1\23\6\uffff\1\24\1\3\1\22\7\uffff\1\17\1\26\17\uffff\1"+
+        "\16\1\31\7\uffff\1\1\1\40\1\uffff\1\37\3\uffff\1\12\2\uffff\1\30"+
+        "\1\uffff\1\25\5\uffff\1\11\1\20\1\21\4\uffff\1\6\3\uffff\1\41\1"+
+        "\uffff\1\7\1\35\1\uffff\1\36\1\uffff\1\27";
     static final String DFA16_specialS =
-        "\1\1\33\uffff\1\2\1\0\u009f\uffff}>";
+        "\1\2\35\uffff\1\0\1\1\u00b9\uffff}>";
     static final String[] DFA16_transitionS = {
-            "\11\40\2\37\2\40\1\37\22\40\1\37\1\40\1\34\4\40\1\35\1\13\1"+
-            "\14\1\40\1\26\1\5\1\26\1\30\1\36\1\31\1\27\10\31\1\4\2\40\1"+
-            "\24\3\40\2\33\1\22\1\6\7\33\1\23\1\11\2\33\1\1\1\25\1\3\1\7"+
-            "\1\21\6\33\3\40\1\32\1\33\1\40\1\12\2\33\1\20\10\33\1\17\2\33"+
-            "\1\15\1\33\1\16\10\33\1\2\1\40\1\10\uff82\40",
-            "\1\42\20\uffff\1\41",
+            "\11\42\2\41\2\42\1\41\22\42\1\41\1\26\1\36\4\42\1\37\1\13\1"+
+            "\14\1\42\1\30\1\5\1\30\1\32\1\40\1\33\1\31\10\33\1\4\2\42\1"+
+            "\25\3\42\2\35\1\23\1\6\7\35\1\24\1\11\2\35\1\1\1\27\1\3\1\7"+
+            "\1\22\6\35\3\42\1\34\1\35\1\42\1\12\2\35\1\21\10\35\1\20\2\35"+
+            "\1\16\1\35\1\17\4\35\1\15\3\35\1\2\1\42\1\10\uff82\42",
+            "\1\44\20\uffff\1\43",
             "",
-            "\1\46\15\uffff\1\45",
+            "\1\50\3\uffff\1\51\11\uffff\1\47",
             "",
-            "",
-            "\1\51",
-            "\1\52",
             "",
             "\1\54",
             "\1\55",
             "",
+            "\1\57",
+            "\1\60",
             "",
-            "\1\60\2\uffff\1\61",
-            "\1\62",
+            "",
             "\1\63",
-            "\1\65\3\uffff\1\64",
+            "\1\64\2\uffff\1\65",
             "\1\66",
             "\1\67",
-            "\1\70",
-            "",
+            "\1\71\3\uffff\1\70",
             "\1\72",
-            "\1\73\1\uffff\12\73",
-            "\12\74",
-            "\12\73",
-            "\1\73\1\uffff\12\74",
-            "\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\73",
+            "\1\74",
             "",
-            "\0\76",
-            "\0\76",
-            "\1\77\4\uffff\1\100",
+            "\1\76",
+            "\1\77",
+            "\1\100\1\uffff\12\100",
+            "\12\101",
+            "\12\100",
+            "\1\100\1\uffff\12\101",
+            "\32\45\4\uffff\1\45\1\uffff\32\45",
             "",
-            "",
-            "\1\103\11\uffff\1\102",
-            "\1\104",
-            "",
-            "",
-            "\1\105",
-            "\1\106",
+            "\0\103",
+            "\0\103",
+            "\1\104\4\uffff\1\105",
             "",
             "",
-            "\1\107",
-            "\1\110",
-            "",
+            "\1\110\11\uffff\1\107",
             "\1\111",
+            "",
+            "",
             "\1\112",
-            "",
-            "",
             "\1\113",
             "\1\114",
-            "\1\115\5\uffff\1\116",
+            "",
+            "",
+            "\1\115",
+            "\1\116",
+            "",
             "\1\117",
-            "\1\120\4\uffff\1\121",
+            "\1\120",
+            "",
+            "",
+            "\1\121",
             "\1\122",
             "\1\123",
-            "\1\124",
-            "\1\125",
-            "",
+            "\1\124\5\uffff\1\125",
             "\1\126",
-            "",
-            "\1\73\1\uffff\12\74",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\127",
-            "\1\130",
+            "\1\127\4\uffff\1\130",
             "\1\131",
             "\1\132",
             "\1\133",
             "\1\134",
+            "",
+            "",
             "\1\135",
+            "",
+            "\1\100\1\uffff\12\101",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\136",
             "\1\137",
             "\1\140",
@@ -1783,91 +1935,123 @@ public class InternalStrategyLexer extends Lexer {
             "\1\171",
             "\1\172",
             "\1\173",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\174",
+            "\1\175",
             "\1\176",
-            "\1\177",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u0083",
+            "\1\u0084",
+            "\1\u0085",
             "\1\u0086",
-            "\1\u0087",
-            "\1\u0088",
-            "\1\u0089",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\21\45\1\u0088\10\45\4\uffff\1\45\1\uffff\32"+
+            "\45",
             "\1\u008a",
             "\1\u008b",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u008c",
+            "\1\u008d",
             "\1\u008e",
-            "\1\u008f",
-            "\1\u0090",
-            "",
-            "",
-            "\1\u0091",
-            "\1\u0092",
+            "\12\45\7\uffff\21\45\1\u008f\10\45\4\uffff\1\45\1\uffff\32"+
+            "\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\u0093",
             "\1\u0094",
             "\1\u0095",
-            "",
-            "",
-            "",
             "\1\u0096",
             "\1\u0097",
+            "",
             "\1\u0098",
             "\1\u0099",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "",
-            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\u009c",
             "\1\u009d",
             "\1\u009e",
+            "",
             "\1\u009f",
+            "",
             "\1\u00a0",
             "\1\u00a1",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\1\u00a2",
+            "\1\u00a3",
             "\1\u00a4",
             "\1\u00a5",
+            "",
+            "",
+            "",
             "\1\u00a6",
             "\1\u00a7",
-            "",
-            "",
             "\1\u00a8",
             "\1\u00a9",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\1\u00ac",
+            "\1\u00aa",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "",
             "\1\u00ad",
-            "",
-            "",
             "\1\u00ae",
             "\1\u00af",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "",
-            "",
+            "\1\u00b0",
+            "\1\u00b1",
+            "\1\u00b2",
             "\1\u00b3",
-            "\1\u00b4",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             "\1\u00b6",
-            "",
-            "",
-            "",
-            "\1\u00b7",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
-            "",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u00b8",
+            "\1\u00b9",
             "\1\u00ba",
-            "",
-            "",
             "\1\u00bb",
-            "\12\43\7\uffff\32\43\4\uffff\1\43\1\uffff\32\43",
+            "",
+            "",
+            "\1\u00bc",
+            "\1\u00bd",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u00bf",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u00c1",
+            "\1\u00c2",
+            "",
+            "",
+            "\1\u00c3",
+            "",
+            "\1\u00c4",
+            "\1\u00c5",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "\1\u00c9",
+            "",
+            "\1\u00ca",
+            "\1\u00cb",
+            "\1\u00cc",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u00ce",
+            "",
+            "",
+            "",
+            "\1\u00cf",
+            "\1\u00d0",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u00d2",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "\1\u00d5",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
+            "",
+            "",
+            "\1\u00d7",
+            "",
+            "\12\45\7\uffff\32\45\4\uffff\1\45\1\uffff\32\45",
             ""
     };
 
@@ -1901,23 +2085,33 @@ public class InternalStrategyLexer extends Lexer {
             this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | RULE_FLOAT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA16_29 = input.LA(1);
+                        int LA16_30 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA16_29>='\u0000' && LA16_29<='\uFFFF')) ) {s = 62;}
+                        if ( ((LA16_30>='\u0000' && LA16_30<='\uFFFF')) ) {s = 67;}
 
-                        else s = 32;
+                        else s = 34;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
+                        int LA16_31 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA16_31>='\u0000' && LA16_31<='\uFFFF')) ) {s = 67;}
+
+                        else s = 34;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA16_0 = input.LA(1);
 
                         s = -1;
@@ -1945,55 +2139,49 @@ public class InternalStrategyLexer extends Lexer {
 
                         else if ( (LA16_0==')') ) {s = 12;}
 
-                        else if ( (LA16_0=='p') ) {s = 13;}
+                        else if ( (LA16_0=='w') ) {s = 13;}
 
-                        else if ( (LA16_0=='r') ) {s = 14;}
+                        else if ( (LA16_0=='p') ) {s = 14;}
 
-                        else if ( (LA16_0=='m') ) {s = 15;}
+                        else if ( (LA16_0=='r') ) {s = 15;}
 
-                        else if ( (LA16_0=='d') ) {s = 16;}
+                        else if ( (LA16_0=='m') ) {s = 16;}
 
-                        else if ( (LA16_0=='T') ) {s = 17;}
+                        else if ( (LA16_0=='d') ) {s = 17;}
 
-                        else if ( (LA16_0=='C') ) {s = 18;}
+                        else if ( (LA16_0=='T') ) {s = 18;}
 
-                        else if ( (LA16_0=='L') ) {s = 19;}
+                        else if ( (LA16_0=='C') ) {s = 19;}
 
-                        else if ( (LA16_0=='=') ) {s = 20;}
+                        else if ( (LA16_0=='L') ) {s = 20;}
 
-                        else if ( (LA16_0=='Q') ) {s = 21;}
+                        else if ( (LA16_0=='=') ) {s = 21;}
 
-                        else if ( (LA16_0=='+'||LA16_0=='-') ) {s = 22;}
+                        else if ( (LA16_0=='!') ) {s = 22;}
 
-                        else if ( (LA16_0=='1') ) {s = 23;}
+                        else if ( (LA16_0=='Q') ) {s = 23;}
 
-                        else if ( (LA16_0=='.') ) {s = 24;}
+                        else if ( (LA16_0=='+'||LA16_0=='-') ) {s = 24;}
 
-                        else if ( (LA16_0=='0'||(LA16_0>='2' && LA16_0<='9')) ) {s = 25;}
+                        else if ( (LA16_0=='1') ) {s = 25;}
 
-                        else if ( (LA16_0=='^') ) {s = 26;}
+                        else if ( (LA16_0=='.') ) {s = 26;}
 
-                        else if ( ((LA16_0>='A' && LA16_0<='B')||(LA16_0>='E' && LA16_0<='K')||(LA16_0>='N' && LA16_0<='O')||(LA16_0>='U' && LA16_0<='Z')||LA16_0=='_'||(LA16_0>='b' && LA16_0<='c')||(LA16_0>='e' && LA16_0<='l')||(LA16_0>='n' && LA16_0<='o')||LA16_0=='q'||(LA16_0>='s' && LA16_0<='z')) ) {s = 27;}
+                        else if ( (LA16_0=='0'||(LA16_0>='2' && LA16_0<='9')) ) {s = 27;}
 
-                        else if ( (LA16_0=='\"') ) {s = 28;}
+                        else if ( (LA16_0=='^') ) {s = 28;}
 
-                        else if ( (LA16_0=='\'') ) {s = 29;}
+                        else if ( ((LA16_0>='A' && LA16_0<='B')||(LA16_0>='E' && LA16_0<='K')||(LA16_0>='N' && LA16_0<='O')||(LA16_0>='U' && LA16_0<='Z')||LA16_0=='_'||(LA16_0>='b' && LA16_0<='c')||(LA16_0>='e' && LA16_0<='l')||(LA16_0>='n' && LA16_0<='o')||LA16_0=='q'||(LA16_0>='s' && LA16_0<='v')||(LA16_0>='x' && LA16_0<='z')) ) {s = 29;}
 
-                        else if ( (LA16_0=='/') ) {s = 30;}
+                        else if ( (LA16_0=='\"') ) {s = 30;}
 
-                        else if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {s = 31;}
+                        else if ( (LA16_0=='\'') ) {s = 31;}
 
-                        else if ( ((LA16_0>='\u0000' && LA16_0<='\b')||(LA16_0>='\u000B' && LA16_0<='\f')||(LA16_0>='\u000E' && LA16_0<='\u001F')||LA16_0=='!'||(LA16_0>='#' && LA16_0<='&')||LA16_0=='*'||(LA16_0>=';' && LA16_0<='<')||(LA16_0>='>' && LA16_0<='@')||(LA16_0>='[' && LA16_0<=']')||LA16_0=='`'||LA16_0=='|'||(LA16_0>='~' && LA16_0<='\uFFFF')) ) {s = 32;}
+                        else if ( (LA16_0=='/') ) {s = 32;}
 
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA16_28 = input.LA(1);
+                        else if ( ((LA16_0>='\t' && LA16_0<='\n')||LA16_0=='\r'||LA16_0==' ') ) {s = 33;}
 
-                        s = -1;
-                        if ( ((LA16_28>='\u0000' && LA16_28<='\uFFFF')) ) {s = 62;}
-
-                        else s = 32;
+                        else if ( ((LA16_0>='\u0000' && LA16_0<='\b')||(LA16_0>='\u000B' && LA16_0<='\f')||(LA16_0>='\u000E' && LA16_0<='\u001F')||(LA16_0>='#' && LA16_0<='&')||LA16_0=='*'||(LA16_0>=';' && LA16_0<='<')||(LA16_0>='>' && LA16_0<='@')||(LA16_0>='[' && LA16_0<=']')||LA16_0=='`'||LA16_0=='|'||(LA16_0>='~' && LA16_0<='\uFFFF')) ) {s = 34;}
 
                         if ( s>=0 ) return s;
                         break;

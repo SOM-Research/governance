@@ -446,26 +446,31 @@ ruleFilter
     {
     	newLeafNode(otherlv_8, grammarAccess.getMajorityAccess().getRightParenthesisKeyword_6_2());
     }
-)?	otherlv_9='people' 
+)?	otherlv_9='when' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getMajorityAccess().getPeopleKeyword_7());
+    	newLeafNode(otherlv_9, grammarAccess.getMajorityAccess().getWhenKeyword_7());
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMajorityRule());
+		{ 
+	        newCompositeNode(grammarAccess.getMajorityAccess().getStageStageTypeEnumRuleCall_8_0()); 
+	    }
+		lv_stage_10_0=ruleStageType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMajorityRule());
 	        }
-        }
-	otherlv_10=RULE_ID
-	{
-		newLeafNode(otherlv_10, grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_8_0()); 
-	}
+       		set(
+       			$current, 
+       			"stage",
+        		lv_stage_10_0, 
+        		"StageType");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
-)(	otherlv_11=',' 
+)	otherlv_11='people' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getMajorityAccess().getCommaKeyword_9_0());
+    	newLeafNode(otherlv_11, grammarAccess.getMajorityAccess().getPeopleKeyword_9());
     }
 (
 (
@@ -476,57 +481,13 @@ ruleFilter
         }
 	otherlv_12=RULE_ID
 	{
-		newLeafNode(otherlv_12, grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_9_1_0()); 
+		newLeafNode(otherlv_12, grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_10_0()); 
 	}
 
 )
-))*	otherlv_13='range' 
+)(	otherlv_13=',' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getMajorityAccess().getRangeKeyword_10());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getMajorityAccess().getRangeRangeTypeEnumRuleCall_11_0()); 
-	    }
-		lv_range_14_0=ruleRangeType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMajorityRule());
-	        }
-       		set(
-       			$current, 
-       			"range",
-        		lv_range_14_0, 
-        		"RangeType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_15='minVotes' 
-    {
-    	newLeafNode(otherlv_15, grammarAccess.getMajorityAccess().getMinVotesKeyword_12_0());
-    }
-(
-(
-		lv_minVotes_16_0=RULE_INT
-		{
-			newLeafNode(lv_minVotes_16_0, grammarAccess.getMajorityAccess().getMinVotesINTTerminalRuleCall_12_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getMajorityRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"minVotes",
-        		lv_minVotes_16_0, 
-        		"INT");
-	    }
-
-)
-))?	otherlv_17='deadline' 
-    {
-    	newLeafNode(otherlv_17, grammarAccess.getMajorityAccess().getDeadlineKeyword_13());
+    	newLeafNode(otherlv_13, grammarAccess.getMajorityAccess().getCommaKeyword_11_0());
     }
 (
 (
@@ -535,15 +496,76 @@ ruleFilter
 	            $current = createModelElement(grammarAccess.getMajorityRule());
 	        }
         }
-	otherlv_18=RULE_ID
+	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_18, grammarAccess.getMajorityAccess().getDeadlineDeadlineCrossReference_14_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getMajorityAccess().getPeopleRoleCrossReference_11_1_0()); 
 	}
 
 )
-)	otherlv_19='}' 
+))*	otherlv_15='range' 
     {
-    	newLeafNode(otherlv_19, grammarAccess.getMajorityAccess().getRightCurlyBracketKeyword_15());
+    	newLeafNode(otherlv_15, grammarAccess.getMajorityAccess().getRangeKeyword_12());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMajorityAccess().getRangeRangeTypeEnumRuleCall_13_0()); 
+	    }
+		lv_range_16_0=ruleRangeType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMajorityRule());
+	        }
+       		set(
+       			$current, 
+       			"range",
+        		lv_range_16_0, 
+        		"RangeType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_17='minVotes' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getMajorityAccess().getMinVotesKeyword_14_0());
+    }
+(
+(
+		lv_minVotes_18_0=RULE_INT
+		{
+			newLeafNode(lv_minVotes_18_0, grammarAccess.getMajorityAccess().getMinVotesINTTerminalRuleCall_14_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMajorityRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"minVotes",
+        		lv_minVotes_18_0, 
+        		"INT");
+	    }
+
+)
+))?	otherlv_19='deadline' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getMajorityAccess().getDeadlineKeyword_15());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMajorityRule());
+	        }
+        }
+	otherlv_20=RULE_ID
+	{
+		newLeafNode(otherlv_20, grammarAccess.getMajorityAccess().getDeadlineDeadlineCrossReference_16_0()); 
+	}
+
+)
+)	otherlv_21='}' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getMajorityAccess().getRightCurlyBracketKeyword_17());
     }
 )
 ;
@@ -630,26 +652,31 @@ ruleFilter
     {
     	newLeafNode(otherlv_10, grammarAccess.getRatioMajorityAccess().getRightParenthesisKeyword_6_2());
     }
-)?	otherlv_11='people' 
+)?	otherlv_11='when' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getRatioMajorityAccess().getPeopleKeyword_7());
+    	newLeafNode(otherlv_11, grammarAccess.getRatioMajorityAccess().getWhenKeyword_7());
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
+		{ 
+	        newCompositeNode(grammarAccess.getRatioMajorityAccess().getStageStageTypeEnumRuleCall_8_0()); 
+	    }
+		lv_stage_12_0=ruleStageType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRatioMajorityRule());
 	        }
-        }
-	otherlv_12=RULE_ID
-	{
-		newLeafNode(otherlv_12, grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_8_0()); 
-	}
+       		set(
+       			$current, 
+       			"stage",
+        		lv_stage_12_0, 
+        		"StageType");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
-)(	otherlv_13=',' 
+)	otherlv_13='people' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getRatioMajorityAccess().getCommaKeyword_9_0());
+    	newLeafNode(otherlv_13, grammarAccess.getRatioMajorityAccess().getPeopleKeyword_9());
     }
 (
 (
@@ -660,79 +687,13 @@ ruleFilter
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_9_1_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_10_0()); 
 	}
 
 )
-))*	otherlv_15='range' 
+)(	otherlv_15=',' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getRatioMajorityAccess().getRangeKeyword_10());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getRatioMajorityAccess().getRangeRangeTypeEnumRuleCall_11_0()); 
-	    }
-		lv_range_16_0=ruleRangeType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getRatioMajorityRule());
-	        }
-       		set(
-       			$current, 
-       			"range",
-        		lv_range_16_0, 
-        		"RangeType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(	otherlv_17='minVotes' 
-    {
-    	newLeafNode(otherlv_17, grammarAccess.getRatioMajorityAccess().getMinVotesKeyword_12_0());
-    }
-(
-(
-		lv_minVotes_18_0=RULE_INT
-		{
-			newLeafNode(lv_minVotes_18_0, grammarAccess.getRatioMajorityAccess().getMinVotesINTTerminalRuleCall_12_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"minVotes",
-        		lv_minVotes_18_0, 
-        		"INT");
-	    }
-
-)
-))?	otherlv_19='ratio' 
-    {
-    	newLeafNode(otherlv_19, grammarAccess.getRatioMajorityAccess().getRatioKeyword_13());
-    }
-(
-(
-		lv_ratio_20_0=RULE_FLOAT
-		{
-			newLeafNode(lv_ratio_20_0, grammarAccess.getRatioMajorityAccess().getRatioFLOATTerminalRuleCall_14_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"ratio",
-        		lv_ratio_20_0, 
-        		"FLOAT");
-	    }
-
-)
-)	otherlv_21='deadline' 
-    {
-    	newLeafNode(otherlv_21, grammarAccess.getRatioMajorityAccess().getDeadlineKeyword_15());
+    	newLeafNode(otherlv_15, grammarAccess.getRatioMajorityAccess().getCommaKeyword_11_0());
     }
 (
 (
@@ -741,15 +702,98 @@ ruleFilter
 	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
 	        }
         }
-	otherlv_22=RULE_ID
+	otherlv_16=RULE_ID
 	{
-		newLeafNode(otherlv_22, grammarAccess.getRatioMajorityAccess().getDeadlineDeadlineCrossReference_16_0()); 
+		newLeafNode(otherlv_16, grammarAccess.getRatioMajorityAccess().getPeopleRoleCrossReference_11_1_0()); 
 	}
 
 )
-)	otherlv_23='}' 
+))*	otherlv_17='range' 
     {
-    	newLeafNode(otherlv_23, grammarAccess.getRatioMajorityAccess().getRightCurlyBracketKeyword_17());
+    	newLeafNode(otherlv_17, grammarAccess.getRatioMajorityAccess().getRangeKeyword_12());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRatioMajorityAccess().getRangeRangeTypeEnumRuleCall_13_0()); 
+	    }
+		lv_range_18_0=ruleRangeType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRatioMajorityRule());
+	        }
+       		set(
+       			$current, 
+       			"range",
+        		lv_range_18_0, 
+        		"RangeType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_19='minVotes' 
+    {
+    	newLeafNode(otherlv_19, grammarAccess.getRatioMajorityAccess().getMinVotesKeyword_14_0());
+    }
+(
+(
+		lv_minVotes_20_0=RULE_INT
+		{
+			newLeafNode(lv_minVotes_20_0, grammarAccess.getRatioMajorityAccess().getMinVotesINTTerminalRuleCall_14_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"minVotes",
+        		lv_minVotes_20_0, 
+        		"INT");
+	    }
+
+)
+))?	otherlv_21='ratio' 
+    {
+    	newLeafNode(otherlv_21, grammarAccess.getRatioMajorityAccess().getRatioKeyword_15());
+    }
+(
+(
+		lv_ratio_22_0=RULE_FLOAT
+		{
+			newLeafNode(lv_ratio_22_0, grammarAccess.getRatioMajorityAccess().getRatioFLOATTerminalRuleCall_16_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"ratio",
+        		lv_ratio_22_0, 
+        		"FLOAT");
+	    }
+
+)
+)	otherlv_23='deadline' 
+    {
+    	newLeafNode(otherlv_23, grammarAccess.getRatioMajorityAccess().getDeadlineKeyword_17());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRatioMajorityRule());
+	        }
+        }
+	otherlv_24=RULE_ID
+	{
+		newLeafNode(otherlv_24, grammarAccess.getRatioMajorityAccess().getDeadlineDeadlineCrossReference_18_0()); 
+	}
+
+)
+)	otherlv_25='}' 
+    {
+    	newLeafNode(otherlv_25, grammarAccess.getRatioMajorityAccess().getRightCurlyBracketKeyword_19());
     }
 )
 ;
@@ -846,26 +890,31 @@ ruleLeaderDriven returns [EObject current=null]
     {
     	newLeafNode(otherlv_10, grammarAccess.getLeaderDrivenAccess().getRightParenthesisKeyword_6_2());
     }
-)?	otherlv_11='default' 
+)?	otherlv_11='when' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getLeaderDrivenAccess().getDefaultKeyword_7());
+    	newLeafNode(otherlv_11, grammarAccess.getLeaderDrivenAccess().getWhenKeyword_7());
     }
 (
 (
-		{
-			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLeaderDrivenRule());
+		{ 
+	        newCompositeNode(grammarAccess.getLeaderDrivenAccess().getStageStageTypeEnumRuleCall_8_0()); 
+	    }
+		lv_stage_12_0=ruleStageType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLeaderDrivenRule());
 	        }
-        }
-	otherlv_12=RULE_ID
-	{
-		newLeafNode(otherlv_12, grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_8_0()); 
-	}
+       		set(
+       			$current, 
+       			"stage",
+        		lv_stage_12_0, 
+        		"StageType");
+	        afterParserOrEnumRuleCall();
+	    }
 
 )
-)	otherlv_13='deadline' 
+)	otherlv_13='default' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getLeaderDrivenAccess().getDeadlineKeyword_9());
+    	newLeafNode(otherlv_13, grammarAccess.getLeaderDrivenAccess().getDefaultKeyword_9());
     }
 (
 (
@@ -876,13 +925,30 @@ ruleLeaderDriven returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getLeaderDrivenAccess().getDeadlineDeadlineCrossReference_10_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0()); 
 	}
 
 )
-)	otherlv_15='}' 
+)	otherlv_15='deadline' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getLeaderDrivenAccess().getRightCurlyBracketKeyword_11());
+    	newLeafNode(otherlv_15, grammarAccess.getLeaderDrivenAccess().getDeadlineKeyword_11());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLeaderDrivenRule());
+	        }
+        }
+	otherlv_16=RULE_ID
+	{
+		newLeafNode(otherlv_16, grammarAccess.getLeaderDrivenAccess().getDeadlineDeadlineCrossReference_12_0()); 
+	}
+
+)
+)	otherlv_17='}' 
+    {
+    	newLeafNode(otherlv_17, grammarAccess.getLeaderDrivenAccess().getRightCurlyBracketKeyword_13());
     }
 )
 ;
@@ -992,18 +1058,25 @@ ruleFilter returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
     newLeafNode(this_ID_0, grammarAccess.getFilterAccess().getIDTerminalRuleCall_0_0()); 
     }
-
+(
 	kw='=' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getFilterAccess().getEqualsSignKeyword_0_1()); 
+        newLeafNode(kw, grammarAccess.getFilterAccess().getEqualsSignKeyword_0_1_0()); 
     }
-    this_ID_2=RULE_ID    {
-		$current.merge(this_ID_2);
+
+    |
+	kw='!=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getFilterAccess().getExclamationMarkEqualsSignKeyword_0_1_1()); 
+    }
+)    this_ID_3=RULE_ID    {
+		$current.merge(this_ID_3);
     }
 
     { 
-    newLeafNode(this_ID_2, grammarAccess.getFilterAccess().getIDTerminalRuleCall_0_2()); 
+    newLeafNode(this_ID_3, grammarAccess.getFilterAccess().getIDTerminalRuleCall_0_2()); 
     }
 )(
 	kw=',' 
@@ -1011,25 +1084,32 @@ ruleFilter returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getFilterAccess().getCommaKeyword_1_0()); 
     }
-    this_ID_4=RULE_ID    {
-		$current.merge(this_ID_4);
+    this_ID_5=RULE_ID    {
+		$current.merge(this_ID_5);
     }
 
     { 
-    newLeafNode(this_ID_4, grammarAccess.getFilterAccess().getIDTerminalRuleCall_1_1()); 
+    newLeafNode(this_ID_5, grammarAccess.getFilterAccess().getIDTerminalRuleCall_1_1()); 
     }
-
+(
 	kw='=' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getFilterAccess().getEqualsSignKeyword_1_2()); 
+        newLeafNode(kw, grammarAccess.getFilterAccess().getEqualsSignKeyword_1_2_0()); 
     }
-    this_ID_6=RULE_ID    {
-		$current.merge(this_ID_6);
+
+    |
+	kw='!=' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getFilterAccess().getExclamationMarkEqualsSignKeyword_1_2_1()); 
+    }
+)    this_ID_8=RULE_ID    {
+		$current.merge(this_ID_8);
     }
 
     { 
-    newLeafNode(this_ID_6, grammarAccess.getFilterAccess().getIDTerminalRuleCall_1_3()); 
+    newLeafNode(this_ID_8, grammarAccess.getFilterAccess().getIDTerminalRuleCall_1_3()); 
     }
 )?)
     ;
@@ -1269,6 +1349,31 @@ ruleCollaborationType returns [Enumerator current=null]
 	{
         $current = grammarAccess.getCollaborationTypeAccess().getCOMMENTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getCollaborationTypeAccess().getCOMMENTEnumLiteralDeclaration_2()); 
+    }
+));
+
+
+
+// Rule StageType
+ruleStageType returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='TaskReview' 
+	{
+        $current = grammarAccess.getStageTypeAccess().getTASK_REVIEWEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getStageTypeAccess().getTASK_REVIEWEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='PatchReview' 
+	{
+        $current = grammarAccess.getStageTypeAccess().getPATCH_REVIEWEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getStageTypeAccess().getPATCH_REVIEWEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='Release' 
+	{
+        $current = grammarAccess.getStageTypeAccess().getRELEASEEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getStageTypeAccess().getRELEASEEnumLiteralDeclaration_2()); 
     }
 ));
 
