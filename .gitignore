@@ -2,6 +2,6 @@ fr.inria.atlanmod.decision.collaboration/bin/**/*
 fr.inria.atlanmod.decision.strategy/bin/**/*
 fr.inria.atlanmod.decision.strategy.language/bin/**/*
 fr.inria.atlanmod.decision.strategy.language.sdk/bin/**/*
-fr.inria.atlanmod.decision.strategy.language.tests/build/**/*
+fr.inria.atlanmod.decision.strategy.language.tests/bin/**/*
 fr.inria.atlanmod.decision.strategy.language.ui/bin/**/*
 fr.inria.atlanmod.decision.ui/bin/**/*
