@@ -1,0 +1,235 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Governance DSL Survey</title>
+    <meta name="description" content="Governance DSL Survey">
+    <meta name="author" content="Javier Canovas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+<body ng-app="governanceSurvey">
+
+<div class="jumbotron">
+	<div class="container">
+		<h1>On the definition of a language for governance in OSS</h1>
+		<h2>Survey</h2>
+	</div>
+</div>
+
+<div class="container">
+
+	<h1>Motivation</h1>
+	
+	<p>We performed a recent survey to understand the problems people face when trying to contribute to open source projects (OSS). The results shown that the level of difficulty to contribute increases as the contribution task requires more implementation effort (e.g., submitting a patch) or communication between the people involved (e.g., knowing the status of your contribution).</p>
+
+	<p>To alleviate this problem we think of defining a tool which facilitates the definition of governance rules in software projects. The objective is to provide contributors a clear way to understand how the project is developed.</p>
+
+	<h1>The language</h1>
+    
+	<p>The language allows defining strategies to follow in the governance of a project. These strategies can be adapted to the very own nature of each particular project.</p>
+	
+	<div class="row">
+		<div class="col-md-4">
+			<h2>Strategies to make decisions</h2>
+			<img class="img-thumbnail" src="images/strategy.png"/>
+			<ul>
+				<li><strong>LeaderDriven</strong>: One or more people make the decision arbitrarily</li>
+				<li><strong>Democratic</strong>: Decisions are made by voting. The range considers those that are 
+				present or not in the moment of voting. The ratio of majority can also be set
+				<li><strong>Phased-based</strong>: Decisions are made in a phased fashion</li>
+			</ul>
+		</div>
+		
+		<div class="col-md-4">
+			<h2>Collaboration types</h2>
+			<img class="img-thumbnail" src="images/collaborationType.png"/>
+			<p>Main artefacts around which decisions are made in a development project</p>
+			<ul>
+				<li><strong>Bug</strong></li>
+				<li><strong>Enhancement</strong></li>
+				<li><strong>Comment</strong> (can become a bug or an enhancement)</li>
+			</ul>		
+		</div>
+		
+		<div class="col-md-4">
+			<h2>Planification</h2>
+			<img class="img-thumbnail" src="images/deadline.png"/>
+			<p>To avoid an endless decision processes, deadlines have to be met. They can be based on: </p>
+			<ul>
+				<li><strong>Time</strong> (hours, days, weeks, etc.)</li>
+				<li><strong>Who voted</strong></li>
+				<li><strong>A special condition</strong></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<h1>The survey</h1>
+
+	<div class ng-controller="formController">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Case 1
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p>The following code defines a strategy where the project leader is making all the decisions</p>
+<pre>
+strategy1: LeaderDriven {
+	applied to 	All               // All collaboration types
+	when 		TaskAcceptance
+	deadline	1 week
+	who		ProjectLeader
+}
+</pre>
+						<p>And will be verbalized as</p>
+						<div class="verb">All the bugs, enhancements and comments will be accepted or rejected in one week by the leader group.</div>
+
+					</div>
+					<div class="col-md-6">
+						<form>
+							<h2>Question 1</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="q1" type="radio" name="question1" id="question1A" value="1A">
+			    					Readable
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="q1" type="radio" name="question1" id="question1B" value="1B">
+				    				Like
+			  					</label>
+							</div>
+						</form>
+
+						<form>
+							<h2>Question 2</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="q1" type="radio" name="question1" id="question1A" value="1A">
+			    					Readable
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="q1" type="radio" name="question1" id="question1B" value="1B">
+				    				Like
+			  					</label>
+							</div>
+						</form>
+
+						<form>
+							<h2>Question 3</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="q1" type="radio" name="question1" id="question1A" value="1A">
+			    					Readable
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="q1" type="radio" name="question1" id="question1B" value="1B">
+				    				Like
+			  					</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Case 2
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<p>The following code defines a strategy where bugs are accepted if more than a half of the vote results agreed</p>
+<pre>
+strategy2: Majority {
+	applied to	Bug
+	when		TaskAceptance
+	deadline	1 month
+	who		Anyone	  // Anyone can vote
+	range		Present  // Participants present in the moment of voting
+	minVotes	2
+}
+</pre>
+						<p>And will be verbalized as</p>
+						<div class="verb">Bugs will be accepted or rejected in 1 month according to a majority voting process with at least two votes. Anyone can participate and only the total number of votes will be considered  to calculate the ratio.</div>
+
+					</div>
+					<div class="col-md-6">
+						<form>
+							<h2>Question 4</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="q1" type="radio" name="question1" id="question1A" value="1A">
+			    					Readable
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="q1" type="radio" name="question1" id="question1B" value="1B">
+				    				Like
+			  					</label>
+							</div>
+						</form>
+
+						<form>
+							<h2>Question 5</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="q1" type="radio" name="question1" id="question1A" value="1A">
+			    					Readable
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="q1" type="radio" name="question1" id="question1B" value="1B">
+				    				Like
+			  					</label>
+							</div>
+						</form>
+
+						<form>
+							<h2>Question 6</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="q1" type="radio" name="question1" id="question1A" value="1A">
+			    					Readable
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="q1" type="radio" name="question1" id="question1B" value="1B">
+				    				Like
+			  					</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<p class="text-center">
+			<button class="btn btn-primary" ng-click="submit()" ng-disabled="buttonDisabled">{{buttonText}}</button>
+		</p>
+	</div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/angularfire.js"></script>
+<script src="js/ui-bootstrap-tpls-0.6.0.js"></script>
+<script src="js/script.js"></script>
+
+
+</body>
+</html>
