@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.inria.atlanmod.governance.collaboration/src"
+    editDirectory="/fr.inria.atlanmod.governance.collaboration.edit/src" editorDirectory="/fr.inria.atlanmod.governance.collaboration.editor/src"
+    modelPluginID="fr.inria.atlanmod.governance.collaboration" modelName="Collaboration"
+    editPluginClass="fr.inria.atlanmod.governance.collaboration.Collaboration.provider.CollaborationEditPlugin"
+    editorPluginClass="fr.inria.atlanmod.governance.collaboration.Collaboration.presentation.CollaborationEditorPlugin"
+    testSuiteClass="fr.inria.atlanmod.governance.collaboration.Collaboration.tests.CollaborationAllTests"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    editPluginID="fr.inria.atlanmod.governance.collaboration.edit" editorPluginID="fr.inria.atlanmod.governance.collaboration.editor"
+    usedGenPackages="../../fr.inria.atlanmod.governance.strategy/model/strategy.genmodel#//strategy">
+  <foreignModel>collaboration.ecore</foreignModel>
+  <genPackages prefix="Collaboration" basePackage="fr.inria.atlanmod.decision.collaboration"
+      disposableProviderFactory="true" ecorePackage="collaboration.ecore#/">
+    <genClasses ecoreClass="collaboration.ecore#//Interactions">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference collaboration.ecore#//Interactions/users"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference collaboration.ecore#//Interactions/collaborations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference collaboration.ecore#//Interactions/decisions"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//Vote">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Vote/arePart"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Vote/votedBy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Vote/agreement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Vote/timeStamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Vote/rationale"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//User/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//User/votes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//User/leads"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//User/roles"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//Collaboration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference collaboration.ecore#//Collaboration/metadata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Collaboration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Collaboration/rationale"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Collaboration/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference collaboration.ecore#//Collaboration/votes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Collaboration/leader"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Collaboration/isDecided"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//Decision">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Decision/accepted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Decision/timeStamp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Decision/votes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Decision/decides"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference collaboration.ecore#//Decision/strategy"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//Metadata"/>
+    <genClasses ecoreClass="collaboration.ecore#//Priority">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Priority/value"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//TagBased">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference collaboration.ecore#//TagBased/tags"/>
+    </genClasses>
+    <genClasses ecoreClass="collaboration.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute collaboration.ecore#//Tag/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

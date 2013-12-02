@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="strategy" nsURI="http://atlanmod.fr/strategy" nsPrefix="strategy">
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategies" upperBound="-1"
+        eType="#//Strategy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        eType="#//Role" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deadlines" upperBound="-1"
+        eType="#//Deadline" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Role">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Strategy" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deadline" eType="#//Deadline"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="people" upperBound="-1"
+        eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="appliedTo" eType="#//CollaborationType"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" eType="#//StageType"
+        unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Majority" eSuperTypes="#//Strategy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="#//RangeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minVotes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RangeType">
+    <eLiterals name="PRESENT" literal="PRESENT"/>
+    <eLiterals name="QUALIFIED" value="1" literal="QUALIFIED"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RatioMajority" eSuperTypes="#//Majority">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ratio" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LeaderDriven" eSuperTypes="#//Strategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="default" lowerBound="1"
+        eType="#//Strategy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PhasedStrategy" eSuperTypes="#//Strategy">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phases" upperBound="-1"
+        eType="#//Strategy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Deadline" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Timer" eSuperTypes="#//Deadline">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeStamp" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OCLCondition" eSuperTypes="#//Deadline">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oclExpression" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WaitForVote" eSuperTypes="#//Deadline">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
+        eType="#//Role"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CollaborationType">
+    <eLiterals name="TASK" literal="TASK"/>
+    <eLiterals name="PATCH" value="1" literal="PATCH"/>
+    <eLiterals name="COMMENT" value="2" literal="COMMENT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StageType">
+    <eLiterals name="TASK_REVIEW" literal="TASK_REVIEW"/>
+    <eLiterals name="PATCH_REVIEW" value="1" literal="PATCH_REVIEW"/>
+    <eLiterals name="RELEASE" value="2" literal="RELEASE"/>
+  </eClassifiers>
+</ecore:EPackage>

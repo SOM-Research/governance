@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="fr.inria.atlanmod.governance.strategy.language.sdk"
+	label="Strategy SDK Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="fr.inria.atlanmod.governance.strategy.language"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="fr.inria.atlanmod.governance.strategy.language.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>
