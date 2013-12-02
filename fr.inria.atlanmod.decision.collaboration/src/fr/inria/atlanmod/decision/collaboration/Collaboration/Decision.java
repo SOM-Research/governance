@@ -2,7 +2,7 @@
  */
 package fr.inria.atlanmod.decision.collaboration.Collaboration;
 
-import fr.inria.atlanmod.decision.strategy.Strategy.Strategy;
+import fr.inria.atlanmod.governance.strategy.Strategy;
 
 import org.eclipse.emf.common.util.EList;
 

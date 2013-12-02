@@ -9,7 +9,7 @@ import fr.inria.atlanmod.decision.collaboration.Collaboration.Metadata;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.User;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Vote;
 
-import fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType;
+import fr.inria.atlanmod.governance.strategy.CollaborationType;
 
 import java.util.Collection;
 

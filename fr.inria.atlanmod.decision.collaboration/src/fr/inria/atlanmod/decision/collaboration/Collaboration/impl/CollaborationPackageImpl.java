@@ -14,7 +14,7 @@ import fr.inria.atlanmod.decision.collaboration.Collaboration.TagBased;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.User;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Vote;
 
-import fr.inria.atlanmod.decision.strategy.Strategy.StrategyPackage;
+import fr.inria.atlanmod.governance.strategy.StrategyPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;

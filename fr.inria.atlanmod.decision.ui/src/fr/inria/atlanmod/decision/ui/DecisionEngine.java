@@ -20,8 +20,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.swing.plaf.ListUI;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -37,18 +35,18 @@ import fr.inria.atlanmod.decision.collaboration.Collaboration.Decision;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Interactions;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.User;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Vote;
-import fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType;
-import fr.inria.atlanmod.decision.strategy.Strategy.Deadline;
-import fr.inria.atlanmod.decision.strategy.Strategy.LeaderDriven;
-import fr.inria.atlanmod.decision.strategy.Strategy.Majority;
-import fr.inria.atlanmod.decision.strategy.Strategy.OCLCondition;
-import fr.inria.atlanmod.decision.strategy.Strategy.PhasedStrategy;
-import fr.inria.atlanmod.decision.strategy.Strategy.Project;
-import fr.inria.atlanmod.decision.strategy.Strategy.RatioMajority;
-import fr.inria.atlanmod.decision.strategy.Strategy.Role;
-import fr.inria.atlanmod.decision.strategy.Strategy.Strategy;
-import fr.inria.atlanmod.decision.strategy.Strategy.Timer;
-import fr.inria.atlanmod.decision.strategy.Strategy.WaitForVote;
+import fr.inria.atlanmod.governance.strategy.CollaborationType;
+import fr.inria.atlanmod.governance.strategy.Deadline;
+import fr.inria.atlanmod.governance.strategy.LeaderDriven;
+import fr.inria.atlanmod.governance.strategy.Majority;
+import fr.inria.atlanmod.governance.strategy.OCLCondition;
+import fr.inria.atlanmod.governance.strategy.PhasedStrategy;
+import fr.inria.atlanmod.governance.strategy.Project;
+import fr.inria.atlanmod.governance.strategy.RatioMajority;
+import fr.inria.atlanmod.governance.strategy.Role;
+import fr.inria.atlanmod.governance.strategy.Strategy;
+import fr.inria.atlanmod.governance.strategy.Timer;
+import fr.inria.atlanmod.governance.strategy.WaitForVote;
 
 public class DecisionEngine {
 	public static DecisionEngine INSTANCE = new DecisionEngine();

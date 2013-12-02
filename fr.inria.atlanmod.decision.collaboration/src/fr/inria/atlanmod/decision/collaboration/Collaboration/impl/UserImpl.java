@@ -7,7 +7,7 @@ import fr.inria.atlanmod.decision.collaboration.Collaboration.CollaborationPacka
 import fr.inria.atlanmod.decision.collaboration.Collaboration.User;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Vote;
 
-import fr.inria.atlanmod.decision.strategy.Strategy.Role;
+import fr.inria.atlanmod.governance.strategy.Role;
 
 import java.util.Collection;
 

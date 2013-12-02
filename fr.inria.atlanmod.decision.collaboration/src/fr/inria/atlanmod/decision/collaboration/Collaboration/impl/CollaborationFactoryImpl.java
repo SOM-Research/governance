@@ -27,7 +27,7 @@ public class CollaborationFactoryImpl extends EFactoryImpl implements Collaborat
 	 */
 	public static CollaborationFactory init() {
 		try {
-			CollaborationFactory theCollaborationFactory = (CollaborationFactory)EPackage.Registry.INSTANCE.getEFactory("http://atlanmod.fr/collaboration"); 
+			CollaborationFactory theCollaborationFactory = (CollaborationFactory)EPackage.Registry.INSTANCE.getEFactory(CollaborationPackage.eNS_URI);
 			if (theCollaborationFactory != null) {
 				return theCollaborationFactory;
 			}

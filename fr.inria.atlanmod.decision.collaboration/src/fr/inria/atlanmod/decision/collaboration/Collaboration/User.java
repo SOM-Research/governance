@@ -2,7 +2,7 @@
  */
 package fr.inria.atlanmod.decision.collaboration.Collaboration;
 
-import fr.inria.atlanmod.decision.strategy.Strategy.Role;
+import fr.inria.atlanmod.governance.strategy.Role;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -92,7 +92,7 @@ public interface User extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' reference list.
-	 * The list contents are of type {@link fr.inria.atlanmod.decision.strategy.Strategy.Role}.
+	 * The list contents are of type {@link fr.inria.atlanmod.governance.strategy.Role}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Roles</em>' reference list isn't clear,

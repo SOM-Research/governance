@@ -2,7 +2,7 @@
  */
 package fr.inria.atlanmod.decision.collaboration.Collaboration;
 
-import fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType;
+import fr.inria.atlanmod.governance.strategy.CollaborationType;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -101,7 +101,7 @@ public interface Collaboration extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType}.
+	 * The literals are from the enumeration {@link fr.inria.atlanmod.governance.strategy.CollaborationType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -109,7 +109,7 @@ public interface Collaboration extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType
+	 * @see fr.inria.atlanmod.governance.strategy.CollaborationType
 	 * @see #setType(CollaborationType)
 	 * @see fr.inria.atlanmod.decision.collaboration.Collaboration.CollaborationPackage#getCollaboration_Type()
 	 * @model
@@ -122,7 +122,7 @@ public interface Collaboration extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see fr.inria.atlanmod.decision.strategy.Strategy.CollaborationType
+	 * @see fr.inria.atlanmod.governance.strategy.CollaborationType
 	 * @see #getType()
 	 * @generated
 	 */

@@ -25,14 +25,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="leads" upperBound="-1"
         eType="#//Collaboration" eOpposite="#//Collaboration/leader"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
-        eType="ecore:EClass ../../fr.inria.atlanmod.decision.strategy/model/strategy.ecore#//Role"/>
+        eType="ecore:EClass ../../fr.inria.atlanmod.governance.strategy/model/strategy.ecore#//Role"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Collaboration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" upperBound="-1"
         eType="#//Metadata" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../fr.inria.atlanmod.decision.strategy/model/strategy.ecore#//CollaborationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum ../../fr.inria.atlanmod.governance.strategy/model/strategy.ecore#//CollaborationType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="votes" upperBound="-1"
         eType="#//Vote" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="leader" eType="#//User"
@@ -47,7 +47,7 @@
         eType="#//Vote" eOpposite="#//Vote/arePart"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decides" eType="#//Collaboration"
         eOpposite="#//Collaboration/isDecided"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" eType="ecore:EClass ../../fr.inria.atlanmod.decision.strategy/model/strategy.ecore#//Strategy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" eType="ecore:EClass ../../fr.inria.atlanmod.governance.strategy/model/strategy.ecore#//Strategy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metadata"/>
   <eClassifiers xsi:type="ecore:EClass" name="Priority" eSuperTypes="#//Metadata">
