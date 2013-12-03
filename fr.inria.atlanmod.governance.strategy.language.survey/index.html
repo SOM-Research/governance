@@ -221,6 +221,119 @@ strategy2: Majority {
 			<button class="btn btn-primary" ng-click="submit()" ng-disabled="buttonDisabled">{{buttonText}}</button>
 		</p>
 	</div>
+
+	<h1>Build yours</h1>
+
+	<div ng-controller="genController">
+		<p>You can tell us how your project is being develop to automatically get the governance rules</p>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Governance Rule Generator
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<form>
+							<h2>To which collaboration type you want to define this governance rule?</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
+			    					Bug
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="Enhancement" value="Enhancement">
+				    				Enhancement
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="Comment" value="Comment">
+				    				Comment
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="All" value="All">
+				    				All
+			  					</label>
+							</div>
+
+							<h2>To which phase of the collaboration you want to apply this governance rule?</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
+			    					Collaboration Acceptance
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
+				    				Patch acceptance
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
+				    				Release Acceptance
+			  					</label>
+							</div>
+
+							<h2>How will grant the acceptance?</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="strategy" type="radio" name="strategy" id="Leader" value="Leader">
+			    					The leader (or leader commitee)
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="strategy" type="radio" name="strategy" id="Democracy" value="Democracy">
+				    				The community by means of votes
+			  					</label>
+							</div>
+
+
+							<h2>If the community...</h2>
+							<h2>...which range?</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="democracyRange" type="radio" name="democracyRange" id="Present" value="Present">
+			    					Present
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="democracyRange" type="radio" name="democracyRange" id="Qualified" value="Qualified">
+				    				Qualified
+			  					</label>
+							</div>
+							<h2>...which acceptance percentage?</h2>
+							<input type="text" ng-model="democracyRatio">
+							<h2>...which min number of votes?</h2>
+							<input type="text" ng-model="democracyMinVotes">
+							<p class="text-center">
+								<button class="btn btn-primary" ng-click="generate()">Generate Governance Rule</button>
+							</p>
+
+						</form>
+					</div>
+					<div class="col-md-6">
+						<p>This is the governance rule definition</p>
+						<pre>
+{{governanceGen}}
+						</pre>
+						<p>And this is its verbalization in english</p>
+						<div class="verb">
+							{{governanceEnGen}}
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script src="js/jquery.min.js"></script>

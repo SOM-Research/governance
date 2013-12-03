@@ -22,3 +22,15 @@ governanceSurveyModule.controller("formController", ["$scope",
         
     }
 ]);
+
+governanceSurveyModule.controller("genController", ["$scope",
+	function($scope) {
+		$scope.governanceGen = "";
+		$scope.governanceEnGen = "";
+
+		$scope.generate = function() {
+			$scope.governanceGen = "strategy1: LeaderDriven {\n\tapplied to\tAll\t// All collaboration types\n\twhen\tTaskAcceptance\n\tdeadline\t1 week\n\twho\tProjectLeader\n}"
+			$scope.governanceEnGen = "All the bugs, enhancements and comments will be accepted or rejected in one week by the leader group."
+		}		
+	}
+]);
