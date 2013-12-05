@@ -5,3 +5,6 @@ fr.inria.atlanmod.decision.strategy.language.sdk/bin/**/*
 fr.inria.atlanmod.decision.strategy.language.tests/bin/**/*
 fr.inria.atlanmod.decision.strategy.language.ui/bin/**/*
 fr.inria.atlanmod.decision.ui/bin/**/*
+fr.inria.atlanmod.governance.survey.web/.idea
+fr.inria.atlanmod.governance.survey.web/out
+fr.inria.atlanmod.governance.survey.web/.iml

@@ -1,0 +1,195 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <title>Governance DSL Survey</title>
+    <meta name="description" content="Governance DSL Survey">
+    <meta name="author" content="Javier Canovas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+<body ng-app="governanceSurvey">
+
+<div class="container">
+	<div ng-controller="genController">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Governance Rule Generator
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<form>
+							<h2 style="margin-top:0px;" ng-class="{ red : errorQ1 }">Q1. To which development task the rule will be applied?</h2>
+							<p>The rule will be applied to decide:</p>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
+			    					About bugs
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="Enhancement" value="Enhancement">
+				    				About enhancement
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="Comment" value="Comment">
+				    				About comment
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="All" value="All">
+				    				Any development task of the project
+			  					</label>
+							</div>
+
+							<h2 ng-class="{ red : errorQ2 }">Q2. In which phase the rule will be applied?</h2>
+							<p>We have identified three phases where decisions must be made. Select the one where the rule will be applied:</p>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
+			    					Task acceptance (to accept/reject new development tasks) 
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
+				    				Patch acceptance (to accept/reject patches solving development tasks)
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
+				    				Release inclusion (to accept/reject the patch in the next product release)
+			  					</label>
+							</div>
+
+							<h2 ng-class="{ red : errorQ3 }">Q3. Who will grant the acceptance?</h2>
+							<p>The result of the decision will depend on:
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="strategy" type="radio" name="strategy" id="Leader" value="leader">
+			    					The leader (or leader commitee)
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="strategy" type="radio" name="strategy" id="Democracy" value="democracy">
+				    				The community by means of votes
+			  					</label>
+							</div>
+							<div ng-show="strategy == 'democracy'">
+								<div class="tabbed">
+									<h2 ng-class="{ red : errorQ3A }"style="font-size: 100%; padding-top: 0px; margin-top: 0px;">Q3A. Does everyone have to vote?</h2>
+									<div class="radio">
+					  					<label>
+						    				<input ng-model="democracyRange" type="radio" name="democracyRange" id="Qualified" value="qualified">
+						    				Yes
+					  					</label>
+									</div>
+									<div class="radio">
+					  					<label>
+					    					<input ng-model="democracyRange" type="radio" name="democracyRange" id="Present" value="present">
+					    					No
+					  					</label>
+									</div>
+									<h2 ng-class="{ red : errorQ3B }"style="font-size: 100%;">Q3B. Which ratio of positive votes is required to be approved?</h2>
+									<input type="number" ng-model="democracyRatio" ng-value="50" min="0" max="100"> %
+									<h2 ng-class="{ red : errorQ3C }" style="font-size: 100%;">Q3C. Which is the minimum number of votes? (0 if everyone)</h2>
+									<input type="number" ng-model="democracyMinVotes" ng-value="0" min="0" max="9999"> votes
+								</div>
+							</div>
+
+							<h2 ng-class="{ red : errorQ4 }">Q4. When the rule will be applied?</h2>
+							<p>Your rule will be calculated by the following deadline:
+							<div class="row">
+								<div class="col-md-3">
+									<input type="number" ng-model="deadlineDays" ng-value="0" min="0" max="999"/> days
+								</div>
+								<div class="col-md-3">
+									<input type="number" ng-model="deadlineHours" ng-value="0" min="0" max="999"/> hours
+								</div>
+                                <div class="col-md-6">
+                                    <input type="checkbox" ng-model="noDeadline"> No deadline
+                                </div>
+							</div>
+
+							<p class="text-center">
+								<button class="btn btn-primary" ng-click="generate()">Generate Governance Rule</button>
+							</p>
+						</form>
+					</div>
+					<div class="col-md-6">
+                        <strong><div style="font-size: 150%; text-align: center; margin-bottom: 12px;">The process to govern</div></strong>
+                        <p class="text-center">
+                            <img class="img-thumbnail" style="padding: 20px 20px 20px 20px;" src="images/summary.png" alt="summary of the process">
+                        </p>
+					</div>
+				</div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Here it is your governance rule in English:</p>
+                        <div class="verb">
+                            {{governanceEnGen}}
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div ng-controller="surveyController">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Survey
+			</div>
+			<div class="panel-body">
+				<p>Thank you for playing with the governance rule generator. We would like to ask you some questions about the expresivity that can be reached with the tool.</p>
+				<p>Please, give us your input in the following questions:</p>
+				<form>
+					<h2 ng-class="{ red : errorQS1 }">We have identified three types of development tasks (see Q1). Do you find them enough?</h2>
+					<p>If so, just write "yes"</p>
+					<textarea ng-model="QS1" rows="5"></textarea>
+					
+					<h2 ng-class="{ red : errorQS2 }">Development tasks go through a three-phased decision process (see Q2). Do you think it is real?</h2>
+					<p>If so, just write "yes"</p>
+					<textarea ng-model="QS2" rows="5"></textarea>
+
+					<h2 ng-class="{ red : errorQS3 }">Two main strategies can be applied to make decisions: leader-driven and democratic. Do you think there are others?</h2>
+					<p>If not, just write "no"</p>
+					<textarea ng-model="QS3" rows="5"></textarea>
+
+					<h2 ng-class="{ red : errorQS4 }">Would you modify the way of defining the deadline?</h2>
+					<p>If not, just write "no"</p>
+					<textarea ng-model="QS4" rows="5"></textarea>
+
+					<h2 ng-class="{ red : errorQS5 }">In general, do you find there is something missing?</h2>
+					<p>If not, just leave it empty</p>
+					<textarea ng-model="QS5" rows="5"></textarea>
+
+					<p class="text-center">
+						<button class="btn btn-primary" ng-click="submit()" ng-disabled="buttonDisabled">{{buttonText}}</button>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/firebase.js"></script>
+<script src="js/angularfire.js"></script>
+<script src="js/ui-bootstrap-tpls-0.6.0.js"></script>
+<script src="js/script.js"></script>
+
+
+</body>
+</html>
