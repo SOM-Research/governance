@@ -119,8 +119,9 @@
                                 </div>
 							</div>
 
-							<p class="text-center">
-								<button class="btn btn-primary" ng-click="generate()">Generate Governance Rule</button>
+							<p style="margin-top: 20px;" class="text-center">
+								<button style="margin-right: 10px;" class="btn btn-primary" ng-click="generate()" ng-disabled="buttonGenerateDisabled">Generate Governance Rule</button>
+                                <button class="btn" ng-click="save()" ng-disabled="buttonSaveDisabled">Save</button>
 							</p>
 						</form>
 					</div>
@@ -151,9 +152,40 @@
 				Survey
 			</div>
 			<div class="panel-body">
-				<p>Thank you for playing with the governance rule generator. We would like to ask you some questions about the expresivity that can be reached with the tool.</p>
+				<p>Thank you for playing with the governance rule generator. These are the rule you have saved: </p>
+                <div ng-repeat="savedRule in savedRules">
+                    <div class="panel panel-default savedRule">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-11">{{savedRule.rule}}</div>
+                                <div class="col-md-1"><button class="btn btn-xs" ng-click="delete(savedRule)">Remove</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>We would like to ask you some questions about the expresivity that can be reached with the tool.</p>
 				<p>Please, give us your input in the following questions:</p>
 				<form>
+                    <h2 ng-class="{ red : errorQS0 }">Could you tell us which is your role in the project?</h2>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="leader" value="leader">
+                            Leader
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="contributor" value="contributor">
+                            Contributor
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="user" value="user">
+                            User (not contributor yet)
+                        </label>
+                    </div>
 					<h2 ng-class="{ red : errorQS1 }">We have identified three types of development tasks (see Q1). Do you find them enough?</h2>
 					<p>If so, just write "yes"</p>
 					<textarea ng-model="QS1" rows="5"></textarea>
@@ -174,7 +206,7 @@
 					<p>If not, just leave it empty</p>
 					<textarea ng-model="QS5" rows="5"></textarea>
 
-					<p class="text-center">
+					<p style="margin-top: 20px;" class="text-center">
 						<button class="btn btn-primary" ng-click="submit()" ng-disabled="buttonDisabled">{{buttonText}}</button>
 					</p>
 				</form>

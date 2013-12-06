@@ -8,40 +8,8 @@ governanceSurveyModule.config(["$httpProvider",
     }
 ]);
 
-governanceSurveyModule.controller("surveyController", ["$scope", "$http",
-    function($scope, $http) {
-    	$scope.buttonText = "Submit";
-
-        $scope.submit = function() {
-        	$scope.buttonDisabled = true;
-        	$scope.buttonText = "Thanks!";
-
-            result = {
-                q1 : $scope.QS1,
-                q2 : $scope.QS2,
-                q3 : $scope.QS3,
-                q4 : $scope.QS4,
-                q5 : $scope.QS5
-            }
-
-            dataToSend = $.param(result);
-
-            $http({
-                method : "POST",
-                url : "governanceSurvey",
-                data : dataToSend,
-                headers : { "Content-Type" : "application/x-www-form-urlencoded"}
-            }).success(function(data) {
-                console.log("Ok!");
-            }).error(function(data, status, headers, config) {
-                console.log("Ok!");
-            });
-        }
-    }
-]);
-
-governanceSurveyModule.controller("genController", ["$scope", "$http",
-	function($scope, $http) {
+governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootScope",
+	function($scope, $http, $rootScope) {
 		$scope.governanceGen = "";
 		$scope.governanceEnGen = "Fill first the form!";
 
@@ -49,6 +17,9 @@ governanceSurveyModule.controller("genController", ["$scope", "$http",
         $scope.deadlineHours = 0;
         $scope.democracyRatio = 50;
         $scope.democracyMinVotes = 0;
+
+        $scope.buttonGenerateDisabled = false;
+        $scope.buttonSaveDisabled = true;
 
 		$scope.generate = function() {
             if(!$scope.isValid()) 
@@ -75,10 +46,37 @@ governanceSurveyModule.controller("genController", ["$scope", "$http",
                 headers : { "Content-Type" : "application/x-www-form-urlencoded"}
             }).success(function(data) {
                 $scope.governanceEnGen = data;
+                $scope.buttonSaveDisabled = false;
             }).error(function(data, status, headers, config) {
                 $scope.governanceEnGen = "Ouch! There was an error generating the governance rule";
             });
 		};
+
+        $scope.save = function() {
+            if(!$scope.isValid())
+                return;
+
+            if(typeof $scope.governanceEnGen == 'undefined' || $scope.governanceEnGen == '')
+                $scope.generate();
+
+            toSave = {
+                q1 : $scope.collaborationType,
+                q2 : $scope.collaborationPhase,
+                q3 : $scope.strategy,
+                q3A: $scope.democracyRange,
+                q3B: $scope.democracyRatio,
+                q3C: $scope.democracyMinVotes,
+                q4A: $scope.deadlineDays,
+                q4B: $scope.deadlineHours,
+                q4C: $scope.noDeadline,
+                rule : $scope.governanceEnGen
+            }
+
+            $rootScope.$emit("saveRule", toSave);
+
+            $scope.buttonSaveDisabled = true;
+        }
+
 
 
         $scope.isValid = function() {
@@ -136,4 +134,65 @@ governanceSurveyModule.controller("genController", ["$scope", "$http",
                 return true;
         }
 	}
+]);
+
+
+governanceSurveyModule.controller("surveyController", ["$scope", "$http", "$rootScope",
+    function($scope, $http, $rootScope) {
+        $scope.buttonText = "Submit";
+        $scope.savedRules = [];
+
+        $scope.submit = function() {
+            if(!$scope.isValid())
+                return;
+
+            $scope.buttonDisabled = true;
+
+            result = {
+                q0 : $scope.QS0,
+                q1 : $scope.QS1,
+                q2 : $scope.QS2,
+                q3 : $scope.QS3,
+                q4 : $scope.QS4,
+                q5 : $scope.QS5,
+                examples : $scope.savedRules
+            }
+
+            dataToSend = $.param(result);
+
+            $http({
+                method : "POST",
+                url : "governanceSurvey",
+                data : dataToSend,
+                headers : { "Content-Type" : "application/x-www-form-urlencoded"}
+            }).success(function(data) {
+                    $scope.buttonText = "Thanks!";
+            }).error(function(data, status, headers, config) {
+                $scope.buttonText = "Ouch we had a problem. Could you try again?";
+                $scope.buttonDisabled = false;
+            });
+        }
+
+        $scope.delete = function(element) {
+            var index = $scope.savedRules.indexOf(element);
+            if(index > -1)
+                $scope.savedRules.splice(index, 1);
+        }
+
+        var unbind = $rootScope.$on("saveRule", function(event, data) {
+            $scope.savedRules.push(data);
+        });
+        $scope.$on("destroy", unbind);
+
+        $scope.isValid = function() {
+            if(typeof $scope.QS0 == 'undefined' || $scope.QS0 == "") {
+                $scope.errorQS0 = true;
+                return false;
+            } else {
+                $scope.errorQS0 = false;
+                return true;
+            }
+            return true;
+        }
+    }
 ]);
