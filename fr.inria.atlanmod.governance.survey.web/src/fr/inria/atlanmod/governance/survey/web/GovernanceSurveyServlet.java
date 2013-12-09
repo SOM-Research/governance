@@ -1,7 +1,6 @@
 package fr.inria.atlanmod.governance.survey.web;
 
 import com.firebase.client.Firebase;
-
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -10,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-@WebServlet("/governanceSurvey")
+@WebServlet("/survey")
 public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
     private static String paramsPattern = Pattern.quote("examples[") + "([a-zA-Z0-9]*)"+ Pattern.quote("][") + "[\\$a-zA-Z0-9]*" + Pattern.quote("]");
 
@@ -23,10 +22,9 @@ public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
         final String q5 = request.getParameter("q5");
 
         Pattern pattern = Pattern.compile(paramsPattern);
-        HashMap<String, HashMap<String, String>> examples = new HashMap<String, HashMap<String, String>>();
+        final HashMap<String, HashMap<String, String>> examples = new HashMap<String, HashMap<String, String>>();
         for (Enumeration<String> e = request.getParameterNames() ; e.hasMoreElements() ;) {
             String paramName = e.nextElement();
-            System.out.println("Checking " + paramName);
             Matcher matcher = pattern.matcher(paramName);
             if(matcher.find()) {
                 System.out.println("In!");
@@ -72,15 +70,28 @@ public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
         child.child("q5").setValue(q5);
         child.child("examples").setValue(examples);
 
-
-//        ref.auth("dDD4UvsXqA2kre4m0QRA6qByXwqEcqFHjmIQnvfU", new Firebase.AuthListener() {
+//        JSONObject payload = new JSONObject();
+//        try {
+//            payload.put("user", "servlet");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        TokenGenerator tokenGenerator = new TokenGenerator("dDD4UvsXqA2kre4m0QRA6qByXwqEcqFHjmIQnvfU");
+//        TokenOptions options = new TokenOptions();
+//        options.setAdmin(true);
+//        options.setDebug(true);
+//        String token = tokenGenerator.createToken(payload, options);
+//
+//        System.err.println("Authenticating");
+//        ref.auth(token, new Firebase.AuthListener() {
 //            @Override
 //            public void onAuthError(FirebaseError firebaseError) {
 //                System.err.println("Authentication in Firebase failed! " + firebaseError.getMessage());
 //            }
 //
 //            @Override
-//            public void onAuthSuccess(Object authData) {
+//            public void onAuthSuccess(Object o) {
+//                System.err.println("Authentication in Firebase succeed! " + o);
 //                Firebase child = ref.push();
 //
 //                Calendar now = Calendar.getInstance();
@@ -92,13 +103,15 @@ public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
 //                child.child("q3").setValue(q3);
 //                child.child("q4").setValue(q4);
 //                child.child("q5").setValue(q5);
+//                child.child("examples").setValue(examples);
 //            }
 //
 //            @Override
 //            public void onAuthRevoked(FirebaseError firebaseError) {
-//                System.err.println("Authentication in Firebase cancelled! " + firebaseError.getMessage());
+//                System.err.println("Authentication in Firebase revoked! " + firebaseError.getMessage());
 //            }
 //        });
+//        System.err.println("Unauthenticating");
 //        ref.unauth();
     }
 
