@@ -11,13 +11,17 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         String collaborationType = request.getParameter("q1");
         String collaborationPhase = request.getParameter("q2");
-        String strategy = request.getParameter("q3");
-        String democracyRange = request.getParameter("q3A");
-        String democracyRatio = request.getParameter("q3B");
-        String democracyMinVotes = request.getParameter("q3C");
-        String deadlineDays = request.getParameter("q4A");
-        String deadlineHours = request.getParameter("q4B");
-        String noDeadline = request.getParameter("q4C");
+        boolean leaderParticipation = (request.getParameter("q3A") != null && request.getParameter("q3A").equals("true")) ? true : false;
+        boolean projectBoardParticipation = (request.getParameter("q3B") != null && request.getParameter("q3B").equals("true")) ? true : false;
+        boolean contributorsParticipation = (request.getParameter("q3C") != null && request.getParameter("q3C").equals("true")) ? true : false;
+        boolean usersParticipation = (request.getParameter("q3D") != null && request.getParameter("q3D").equals("true")) ? true : false;
+        String strategy = request.getParameter("q4");
+        String democracyRange = request.getParameter("q4A");
+        String democracyRatio = request.getParameter("q4B");
+        String democracyMinVotes = request.getParameter("q4C");
+        String deadlineDays = request.getParameter("q5A");
+        String deadlineHours = request.getParameter("q5B");
+        String noDeadline = request.getParameter("q5C");
 
 
         if(collaborationType == null || collaborationPhase == null || strategy == null)
@@ -55,9 +59,24 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             result += "in " + deadlineHours + " hour" + (deadlineHours.equals("1") ? "" : "s") + " ";
         }
 
-        if(strategy.equals("leader")) {
-            result += "by the leader/s of the project.";
-        } else if(strategy.equals("democracy")) {
+        String participants = "by the ";
+        if(leaderParticipation) {
+            participants += "leader";
+        }
+        if(projectBoardParticipation) {
+            participants = participants + ((participants.equals("by the ")) ? "" : ((!contributorsParticipation && !usersParticipation) ? " and ": ", ")) + "the project board";
+        }
+        if(contributorsParticipation) {
+            participants = participants + ((participants.equals("by the ")) ? "" : ((!usersParticipation) ? " and ": ", ")) + "the contributors";
+        }
+        if(usersParticipation) {
+            participants = participants + " and the users";
+        }
+        result = result + participants + " of the project ";
+
+        if(strategy.equals("unanimous")) {
+            result += "unanimously";
+        } else if(strategy.equals("voting")) {
             result += "according to a majority voting process";
             if(democracyRatio.equals("100")) {
                 result += " where everyone agrees";
@@ -66,7 +85,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             }
 
             if(!democracyMinVotes.equals("0")) {
-                result += " and there are, at least, " + democracyMinVotes + " vote" + (democracyMinVotes.equals("1") ? "" : "s") + ".";
+                result += " and there" + (democracyMinVotes.equals("1") ? "is" : "are") + ", at least, " + democracyMinVotes + " vote" + (democracyMinVotes.equals("1") ? "" : "s") + ".";
             } else {
                 result += ".";
             }

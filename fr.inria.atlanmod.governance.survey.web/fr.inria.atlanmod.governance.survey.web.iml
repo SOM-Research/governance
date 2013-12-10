@@ -21,6 +21,7 @@
     <orderEntry type="library" scope="PROVIDED" name="TomEE 7.0.37" level="application_server_libraries" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="firebase-client-jvm-LATEST" level="project" />
+    <orderEntry type="library" name="gson-2.2.4" level="project" />
   </component>
 </module>
 

@@ -1,0 +1,83 @@
+body {
+  padding-bottom: 30px;
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #3136a8;
+}
+
+.btn:enabled {
+  background-color: #336699;
+  border-color: #336699;
+  color: white;
+}
+
+.btn-warning:enabled {
+  background-color: #336699;
+  border-color : #336699;
+  color: white;
+}
+
+.btn-info:enabled {
+  background-color: #336699;
+  border-color : #336699;
+  color: black;
+}
+
+.verb {
+  display: block;
+  padding: 9.5px;
+  margin: 10px 0 0 0px;
+  font-size: 13px;
+  line-height: 1.428571429;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.savedRule {
+    font-size: 13px;
+    color: #333333;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    font-style: italic;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 2px;
+  font-size: 115%;
+  font-weight: bold;
+}
+
+.panel-heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tabbed {
+  margin-left: 30px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  padding: 15px 15px 15px 15px;
+}
+
+.red {
+  color: red;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+}
+
+input {
+    width: 50px;
+}
+
+
+
