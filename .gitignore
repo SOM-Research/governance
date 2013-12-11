@@ -7,4 +7,4 @@ fr.inria.atlanmod.decision.strategy.language.ui/bin/**/*
 fr.inria.atlanmod.decision.ui/bin/**/*
 fr.inria.atlanmod.governance.survey.web/.idea
 fr.inria.atlanmod.governance.survey.web/out
-fr.inria.atlanmod.governance.survey.web/.iml
+fr.inria.atlanmod.governance.survey.web/*.iml
