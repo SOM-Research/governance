@@ -144,7 +144,7 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
 
             if($scope.errorQ1 == true || $scope.errorQ2 == true || $scope.errorQ3 == true || 
                $scope.errorQ4A == true || $scope.errorQ4B == true || $scope.errorQ4C == true ||
-               $scope.errorQ4 == true)
+               $scope.errorQ4 == true || $scope.errorQ5 == true)
                 return false;
             else
                 return true;

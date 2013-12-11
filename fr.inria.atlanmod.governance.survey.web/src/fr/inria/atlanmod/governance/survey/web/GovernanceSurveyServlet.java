@@ -104,7 +104,7 @@ public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
         // Writing to disk
         synchronized (this) {
             String fileName = "answer-" + Calendar.getInstance().getTimeInMillis();
-            String path = getServletContext().getRealPath("/WEB-INF/answers");
+            String path = getServletContext().getRealPath("/WEB-INF/");
             File resultFile = new File(path + File.separator + fileName + ".json");
             PrintWriter pw = new PrintWriter(resultFile);
             pw.print(result.toString());

@@ -101,7 +101,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
                 if(democracyRange.equals("present")) {
                     result += " To calculate the ratio, only the votes presented in the moment of applying the rule will be counted.";
                 } else if (democracyRange.equals("qualified")) {
-                    result += " To calculate the ratio, every member will be counted (if someone does ont vote it will count as negative). ";
+                    result += " To calculate the ratio, every member will be counted (if someone does not vote it will count as negative). ";
                 }
             }
         }
