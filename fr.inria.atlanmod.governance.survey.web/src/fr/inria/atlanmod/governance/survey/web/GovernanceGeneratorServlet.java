@@ -58,7 +58,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             }
 
             if(noDeadline) {
-                result += "without deadline ";
+                result += "with no deadline ";
             } else if(deadlineDays != null && (deadlineHours == null || (deadlineHours != null && deadlineHours.equals("0")))) {
                 result += "in " + deadlineDays + " day" + (deadlineDays.equals("1") ? "" : "s") + " ";
             } else if(deadlineDays != null && !deadlineDays.equals("0") && deadlineHours != null) {
@@ -99,9 +99,9 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
                 }
 
                 if(democracyRange.equals("present")) {
-                    result += " To calculate the ratio, only the votes presented in the moment of applying the rule will be counted.";
+                    result += " To calculate the ratio, only the votes issued at the moment of applying the rule will be counted.";
                 } else if (democracyRange.equals("qualified")) {
-                    result += " To calculate the ratio, every member will be counted (if someone does not vote it will count as negative). ";
+                    result += " To calculate the ratio, every member will be counted (if someone does not vote it will be counted as negative). ";
                 }
             }
         }

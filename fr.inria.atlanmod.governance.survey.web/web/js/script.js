@@ -42,7 +42,7 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 q5A: $scope.deadlineDays,
                 q5B: $scope.deadlineHours,
                 q5C: $scope.noDeadline
-            }
+            };
 
             dataToSend = $.param(result);
 
@@ -65,7 +65,7 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
             if(!$scope.isValid())
                 return;
 
-            if(typeof $scope.governanceEnGen == 'undefined' || $scope.governanceEnGen == '')
+            if(typeof $scope.governanceEnGen == 'undefined' || $scope.governanceEnGen === '')
                 $scope.generate();
 
             toSave = {
@@ -83,47 +83,47 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 q5B: $scope.deadlineHours,
                 q5C: $scope.noDeadline,
                 rule : $scope.governanceEnGen
-            }
+            };
             $rootScope.$emit("saveRule", toSave);
-        }
+        };
 
 
 
         $scope.isValid = function() {
             // I guess this can be done by AngularJS automatically but I prefer to 
             // practice a bit with JS
-            if(typeof $scope.collaborationType == 'undefined' || $scope.collaborationType == '') {
+            if(typeof $scope.collaborationType == 'undefined' || $scope.collaborationType === '') {
                 $scope.errorQ1 = true;
             } else {
                 $scope.errorQ1 = false;
             }
 
-            if(typeof $scope.collaborationPhase == 'undefined' || $scope.collaborationPhase == '') {
+            if(typeof $scope.collaborationPhase == 'undefined' || $scope.collaborationPhase === '') {
                 $scope.errorQ2 = true;
             } else {
                 $scope.errorQ2 = false;
             }
 
-            if($scope.leader == false && $scope.projectBoard == false && $scope.contributors == false && $scope.users == false) {
+            if($scope.leader === false && $scope.projectBoard === false && $scope.contributors === false && $scope.users === false) {
                 $scope.errorQ3 = true;
             } else {
                 $scope.errorQ3 = false;
             }
 
-            if(typeof $scope.strategy == 'undefined' || $scope.strategy == '') {
+            if(typeof $scope.strategy == 'undefined' || $scope.strategy === '') {
                 $scope.errorQ4 = true;
             } else {
                 $scope.errorQ4 = false;
             }
 
             if(typeof $scope.strategy !== 'undefined' && $scope.strategy == 'voting') {
-                if(typeof $scope.democracyRange == 'undefined' || $scope.democracyRange == '') {
+                if(typeof $scope.democracyRange == 'undefined' || $scope.democracyRange === '') {
                     $scope.errorQ4A = true;
                 } else {
                     $scope.errorQ4A = false;
                 }
 
-                if(typeof $scope.democracyRatio == 'undefined' || $scope.democracyRatio == '') {
+                if(typeof $scope.democracyRatio == 'undefined' || $scope.democracyRatio === '') {
                     $scope.errorQ4B = true;
                 } else {
                     $scope.errorQ4B = false;
@@ -136,19 +136,19 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 }
             } 
 
-            if(isNaN($scope.deadlineDays) || isNaN($scope.deadlineHours) || ($scope.deadlineHours == 0 && $scope.deadlineDays == 0 && $scope.noDeadline == false)) {
+            if(isNaN($scope.deadlineDays) || isNaN($scope.deadlineHours) || ($scope.deadlineHours === 0 && $scope.deadlineDays === 0 && $scope.noDeadline === false)) {
                 $scope.errorQ5= true;
             } else {
                 $scope.errorQ5 = false;
             }
 
-            if($scope.errorQ1 == true || $scope.errorQ2 == true || $scope.errorQ3 == true || 
-               $scope.errorQ4A == true || $scope.errorQ4B == true || $scope.errorQ4C == true ||
-               $scope.errorQ4 == true || $scope.errorQ5 == true)
+            if($scope.errorQ1 === true || $scope.errorQ2 === true || $scope.errorQ3 === true || 
+               $scope.errorQ4A === true || $scope.errorQ4B === true || $scope.errorQ4C === true ||
+               $scope.errorQ4 === true || $scope.errorQ5 === true)
                 return false;
             else
                 return true;
-        }
+        };
 	}
 ]);
 
@@ -174,7 +174,7 @@ governanceSurveyModule.controller("surveyController", ["$scope", "$http", "$root
                 q5 : $scope.QS5,
                 q6 : $scope.QS6,
                 examples : $scope.savedRules
-            }
+            };
 
             dataToSend = $.param(result);
 
@@ -191,13 +191,13 @@ governanceSurveyModule.controller("surveyController", ["$scope", "$http", "$root
                 $scope.buttonText = "Ouch we had a problem. Could you try again?";
                 $scope.buttonDisabled = false;
             });
-        }
+        };
 
         $scope.delete = function(element) {
             var index = $scope.savedRules.indexOf(element);
             if(index > -1)
                 $scope.savedRules.splice(index, 1);
-        }
+        };
 
         var unbind = $rootScope.$on("saveRule", function(event, data) {
             $scope.savedRules.push(data);
@@ -205,7 +205,7 @@ governanceSurveyModule.controller("surveyController", ["$scope", "$http", "$root
         $scope.$on("destroy", unbind);
 
         $scope.isValid = function() {
-            if(typeof $scope.QS0 == 'undefined' || $scope.QS0 == "") {
+            if(typeof $scope.QS0 == 'undefined' || $scope.QS0 === "") {
                 $scope.errorQS0 = true;
                 return false;
             } else {
@@ -213,6 +213,6 @@ governanceSurveyModule.controller("surveyController", ["$scope", "$http", "$root
                 return true;
             }
             return true;
-        }
+        };
     }
 ]);

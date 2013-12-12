@@ -27,7 +27,7 @@
                     </div>
 					<div class="col-md-6">
 						<form>
-							<h2 style="margin-top:0px;" ng-class="{ red : errorQ1 }">Q1. The rule will be applied to</h2>
+							<h2 style="margin-top:0px;" ng-class="{ red : errorQ1 }">Q1. The rule that you're going to create will be applied to</h2>
 							<div class="radio">
 			  					<label>
 			    					<input ng-model="collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
@@ -43,31 +43,31 @@
 							<div class="radio">
 			  					<label>
 				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="All" value="All">
-				    				Any development task of the project
+				    				Both
 			  					</label>
 							</div>
 
-							<h2 ng-class="{ red : errorQ2 }">Q2. Select the development phase to apply the rule:</h2>
+							<h2 ng-class="{ red : errorQ2 }">Q2. The rule will control the:</h2>
 							<div class="radio">
 			  					<label>
 			    					<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
-			    					Task acceptance (to accept/reject bugs/feature requests)
+			    					Task acceptance phase (to accept/reject bugs/feature requests)
 			  					</label>
 							</div>
 							<div class="radio">
 			  					<label>
 				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
-				    				Patch acceptance (to accept/reject patches for bugs/feature requests)
+				    				Patch acceptance phase (to accept/reject patches for bugs/feature requests)
 			  					</label>
 							</div>
 							<div class="radio">
 			  					<label>
 				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
-				    				Release inclusion (to accept/reject the patch in the next product release)
+				    				Release inclusion phase (to accept/reject the patch in the next product release)
 			  					</label>
 							</div>
 
-							<h2 ng-class="{ red : errorQ3 }">Q3. Who will participate?</h2>
+							<h2 ng-class="{ red : errorQ3 }">Q3. Who will be involved in the decision?</h2>
 							<div class="checkbox">
 			  					<label>
 			    					<input ng-model="leader" type="checkbox">
@@ -108,7 +108,7 @@
                             </div>
 							<div ng-show="strategy == 'voting'">
 								<div class="tabbed">
-									<h2 ng-class="{ red : errorQ4A }"style="font-size: 100%; padding-top: 0px; margin-top: 0px;">Q3A. Does everyone have to vote?</h2>
+									<h2 ng-class="{ red : errorQ4A }"style="font-size: 100%; padding-top: 0px; margin-top: 0px;">Q4A. Does everyone have to vote?</h2>
 									<div class="radio">
 					  					<label>
 						    				<input ng-model="democracyRange" type="radio" name="democracyRange" id="Qualified" value="qualified">
@@ -121,14 +121,14 @@
 					    					No
 					  					</label>
 									</div>
-									<h2 ng-class="{ red : errorQ4B }" style="font-size: 100%;">Q3B. Which ratio of positive votes is required to be approved?</h2>
+									<h2 ng-class="{ red : errorQ4B }" style="font-size: 100%;">Q4B. What ratio of positive votes is required to be approved?</h2>
 									<input type="number" ng-model="democracyRatio" ng-value="50" min="0" max="100"> %
-									<h2 ng-class="{ red : errorQ4C }" style="font-size: 100%;">Q3C. Which is the minimum number of votes? (0 if everyone)</h2>
+									<h2 ng-class="{ red : errorQ4C }" style="font-size: 100%;">Q4C. What is the minimum number of votes? (0 if everyone)</h2>
 									<input type="number" ng-model="democracyMinVotes" ng-value="0" min="0" max="9999"> votes
 								</div>
 							</div>
 
-							<h2 style="margin-bottom: 15px;" ng-class="{ red : errorQ5 }">Q5. When the rule will be applied?</h2>
+							<h2 style="margin-bottom: 15px;" ng-class="{ red : errorQ5 }">Q5. Is there a max deadline to take the decision?</h2>
 							<div class="row">
 								<div style="margin-bottom: 10px;" class="col-md-3">
 									<input type="number" ng-model="deadlineDays" ng-value="0" min="0" max="999"/> days
@@ -167,7 +167,8 @@
                 Survey
             </div>
             <div class="panel-body">
-                <p>Thank you for playing with the governance rule generator. These are the rules you have generated, please remove the ones that are non-sense or not applicable to your project: </p>
+                <p>Thank you for playing with the governance rule generator. These are the rules you have generated,
+                    please remove the ones that are non-sense or not applicable to your project: </p>
 
                 <div style="padding-bottom: 10px;" ng-show="savedRules.length == 0">
                     <div class="verb">
@@ -186,10 +187,10 @@
                     </div>
                 </div>
 
-                <p>We would like now to ask you some questions about your exprience with the tool.</p>
-                <p>Please, give us your input in the following questions:</p>
+                <p>We would like now to ask you some questions about your experience with the tool.</p>
+                <p>Please, give us your input on the following questions:</p>
                 <form>
-                    <h2 ng-class="{ red : errorQS0 }">Could you tell us which is your role in the project?</h2>
+                    <h2 ng-class="{ red : errorQS0 }">Which is your role in the project?</h2>
                     <div class="radio">
                         <label>
                             <input ng-model="QS0" type="radio" name="strategy" id="leader" value="leader">
@@ -214,23 +215,23 @@
                             User (not contributor yet)
                         </label>
                     </div>
-                    <h2 ng-class="{ red : errorQS1 }">Which project/s would follow these rules? (Optional)</h2>
+                    <h2 ng-class="{ red : errorQS1 }">Your answers are based on which project/s you participate in? (Optional)</h2>
                     <textarea ng-model="QS1" rows="1"></textarea>
 
-                    <h2 ng-class="{ red : errorQS2 }">Do you use other roles to identify people contributing in your project? (Optional)</h2>
+                    <h2 ng-class="{ red : errorQS2 }">Do the phases listed in Q2 apply to your project? If not, what the ones you follow? (Optional)</h2>
                     <textarea ng-model="QS2" rows="5"></textarea>
 
-                    <h2 ng-class="{ red : errorQS3 }">Does your project release plan follow the same three-phased process? (Optional)</h2>
+                    <h2 ng-class="{ red : errorQS3 }">Beyond those in Q3, does your project include other possible member roles? (Optional)</h2>
                     <textarea ng-model="QS3" rows="5"></textarea>
 
-                    <h2 ng-class="{ red : errorQS4 }">Could you express the strategy your project follows? (Optional)</h2>
+                    <h2 ng-class="{ red : errorQS4 }">Were you able to express all rules using this generator? If not, what was missing? (Optional)</h2>
                     <textarea ng-model="QS4" rows="5"></textarea>
 
-                    <h2 ng-class="{ red : errorQS5 }">In general, do you find there is something missing? (Optional)</h2>
+                    <h2 ng-class="{ red : errorQS5 }">Any other comments for us? (Optional)</h2>
                     <textarea ng-model="QS5" rows="5"></textarea>
 
                     <h2 ng-class="{ red : errorQS5 }">If you want to be contacted to discuss in more detail your experience please leave us your email. (Optional) </h2>
-                    <textarea ng-model="QS6" rows="5"></textarea>
+                    <textarea ng-model="QS6" rows="1"></textarea>
 
                     <p style="margin-top: 20px;" class="text-center">
                         <button class="btn btn-primary" ng-click="submit()" ng-disabled="buttonDisabled">{{buttonText}}</button>
