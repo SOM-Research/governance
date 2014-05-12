@@ -22,6 +22,11 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
         boolean projectBoardParticipation = (request.getParameter("q3B") != null && request.getParameter("q3B").equals("true")) ? true : false;
         boolean contributorsParticipation = (request.getParameter("q3C") != null && request.getParameter("q3C").equals("true")) ? true : false;
         boolean usersParticipation = (request.getParameter("q3D") != null && request.getParameter("q3D").equals("true")) ? true : false;
+        boolean otherParticipation = (request.getParameter("q3E") != null && request.getParameter("q3E").equals("true")) ? true : false;
+        String otherRoleParticipation = "";
+        if(otherParticipation) {
+        	otherRoleParticipation = request.getParameter("q3F");
+        }
 
         String strategy = request.getParameter("q4");
         String democracyRange = request.getParameter("q4A");
@@ -33,7 +38,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
 
         String result = "";
 
-        if(collaborationType == null || collaborationPhase == null || strategy == null || (!leaderParticipation && !projectBoardParticipation && !contributorsParticipation && !usersParticipation) || (deadlineDays == null && deadlineHours == null && !noDeadline))
+        if(collaborationType == null || collaborationPhase == null || strategy == null || (!leaderParticipation && !projectBoardParticipation && !contributorsParticipation && !usersParticipation && (!otherParticipation || (otherParticipation && otherRoleParticipation == null))) || (deadlineDays == null && deadlineHours == null && !noDeadline))
             result = "There is an error in the parameters";
         else {
             String prePhaseString = "";
@@ -67,18 +72,21 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
                 result += "in " + deadlineHours + " hour" + (deadlineHours.equals("1") ? "" : "s") + " ";
             }
 
-            String participants = "by the ";
+            String participants = "by ";
             if(leaderParticipation) {
-                participants += "leader";
+                participants += "the leader";
             }
             if(projectBoardParticipation) {
-                participants = participants + ((participants.equals("by the ")) ? "" : ((!contributorsParticipation && !usersParticipation) ? " and ": ", ")) + "the project board";
+                participants = participants + ((participants.equals("by ")) ? "" : ((!contributorsParticipation && !usersParticipation && !otherParticipation) ? " and ": ", ")) + "the project board";
             }
             if(contributorsParticipation) {
-                participants = participants + ((participants.equals("by the ")) ? "" : ((!usersParticipation) ? " and ": ", ")) + "the contributors";
+                participants = participants + ((participants.equals("by ")) ? "" : ((!usersParticipation && !otherParticipation) ? " and ": ", ")) + "the contributors";
             }
             if(usersParticipation) {
-                participants = participants + " and the users";
+                participants = participants + ((participants.equals("by ")) ? "" : ((!otherParticipation) ? " and ": ", ")) + "the users";
+            }
+            if(otherParticipation) {
+                participants = participants + ((participants.equals("by ")) ? "" : " and ") + "the group of " + otherRoleParticipation;
             }
             result = result + participants + " of the project ";
 

@@ -23,6 +23,8 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
         $scope.projectBoard = false;
         $scope.contributors = false;
         $scope.users = false;
+        $scope.other = false;
+        $scope.otherRole = '';
 
 		$scope.generate = function() {
             if(!$scope.isValid()) 
@@ -35,6 +37,8 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 q3B: $scope.projectBoard,
                 q3C: $scope.contributors,
                 q3D: $scope.users,
+                q3E: $scope.other,
+                q3F: $scope.otherRole,
                 q4 : $scope.strategy,
                 q4A: $scope.democracyRange,
                 q4B: $scope.democracyRatio,
@@ -75,6 +79,8 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 q3B: $scope.projectBoard,
                 q3C: $scope.contributors,
                 q3D: $scope.users,
+                q3E: $scope.other,
+                q3F: $scope.otherRole,
                 q4 : $scope.strategy,
                 q4A: $scope.democracyRange,
                 q4B: $scope.democracyRatio,
@@ -104,11 +110,19 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 $scope.errorQ2 = false;
             }
 
-            if($scope.leader === false && $scope.projectBoard === false && $scope.contributors === false && $scope.users === false) {
+            if($scope.leader === false && $scope.projectBoard === false && $scope.contributors === false && $scope.users === false && $scope.other === false) {
                 $scope.errorQ3 = true;
             } else {
                 $scope.errorQ3 = false;
             }
+
+            if($scope.errorQ3 === false) {
+            	if ($scope.other === true && $scope.otherRole === '') {
+                	$scope.errorQ3 = true;
+                } else {
+                	$scope.errorQ3 = false;
+                }
+            } 
 
             if(typeof $scope.strategy == 'undefined' || $scope.strategy === '') {
                 $scope.errorQ4 = true;
