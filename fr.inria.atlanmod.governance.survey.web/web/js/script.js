@@ -12,6 +12,7 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
 	function($scope, $http, $rootScope) {
 		$scope.governanceGen = "";
 		$scope.governanceEnGen = "Fill first the form!";
+		$scope.governanceDSLGen = "Fill first the form!";
 
         $scope.deadlineDays = 0;
         $scope.deadlineHours = 0;
@@ -31,6 +32,7 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 return;
 
             result = {
+            	language : "en",
                 q1 : $scope.collaborationType,
                 q2 : $scope.collaborationPhase,
                 q3A: $scope.leader,
@@ -62,6 +64,41 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
                 $scope.save();
             }).error(function(data, status, headers, config) {
                 $scope.governanceEnGen = "Ouch! There was an error generating the governance rule";
+            });
+            
+            resultDSL = {
+                	language : "dsl",
+                    q1 : $scope.collaborationType,
+                    q2 : $scope.collaborationPhase,
+                    q3A: $scope.leader,
+                    q3B: $scope.projectBoard,
+                    q3C: $scope.contributors,
+                    q3D: $scope.users,
+                    q3E: $scope.other,
+                    q3F: $scope.otherRole,
+                    q4 : $scope.strategy,
+                    q4A: $scope.democracyRange,
+                    q4B: $scope.democracyRatio,
+                    q4C: $scope.democracyMinVotes,
+                    q5A: $scope.deadlineDays,
+                    q5B: $scope.deadlineHours,
+                    q5C: $scope.noDeadline
+                };
+
+            dataToSend = $.param(resultDSL);
+
+            $http({
+                method : "POST",
+                //url : "http://atlanmodexp.info.emn.fr:8800/governanceSurvey/generator",
+                //url : "http://localhost:8080/generator",
+                url : "generator",
+                data : dataToSend,
+                headers : { "Content-Type" : "application/x-www-form-urlencoded"}
+            }).success(function(data) {
+                $scope.governanceDSLGen = data;
+                $scope.save();
+            }).error(function(data, status, headers, config) {
+                $scope.governanceDSLGen = "Ouch! There was an error generating the governance rule";
             });
 		};
 

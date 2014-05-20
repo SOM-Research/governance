@@ -13,7 +13,12 @@ import java.io.PrintWriter;
  */
 @WebServlet("/generator")
 public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
+	public final static String DEFAULT_LANGUAGE = "en"; 
+	
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+    	String language = request.getParameter("language");
+    	if(language == null) language = DEFAULT_LANGUAGE;
+    	
         String collaborationType = request.getParameter("q1");
         String collaborationPhase = request.getParameter("q2");
 
@@ -38,7 +43,38 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
 
         String result = "";
 
-        if(collaborationType == null || collaborationPhase == null || strategy == null || (!leaderParticipation && !projectBoardParticipation && !contributorsParticipation && !usersParticipation && (!otherParticipation || (otherParticipation && otherRoleParticipation == null))) || (deadlineDays == null && deadlineHours == null && !noDeadline))
+        if(language.equals("dsl")) {
+            result = generateDSL(collaborationType, collaborationPhase,
+    				leaderParticipation, projectBoardParticipation,
+    				contributorsParticipation, usersParticipation,
+    				otherParticipation, otherRoleParticipation, strategy,
+    				democracyRange, democracyRatio, democracyMinVotes,
+    				deadlineDays, deadlineHours, noDeadline);	
+        } else {
+            result = generateEnglish(collaborationType, collaborationPhase,
+    				leaderParticipation, projectBoardParticipation,
+    				contributorsParticipation, usersParticipation,
+    				otherParticipation, otherRoleParticipation, strategy,
+    				democracyRange, democracyRatio, democracyMinVotes,
+    				deadlineDays, deadlineHours, noDeadline);	
+        }
+        
+
+        PrintWriter out = response.getWriter();
+        out.print(result);
+    }
+
+	private String generateEnglish(String collaborationType,
+			String collaborationPhase, boolean leaderParticipation,
+			boolean projectBoardParticipation,
+			boolean contributorsParticipation, boolean usersParticipation,
+			boolean otherParticipation, String otherRoleParticipation,
+			String strategy, String democracyRange, String democracyRatio,
+			String democracyMinVotes, String deadlineDays,
+			String deadlineHours, boolean noDeadline) {
+		String result = "";
+		
+		if(collaborationType == null || collaborationPhase == null || strategy == null || (!leaderParticipation && !projectBoardParticipation && !contributorsParticipation && !usersParticipation && (!otherParticipation || (otherParticipation && otherRoleParticipation == null))) || (deadlineDays == null && deadlineHours == null && !noDeadline))
             result = "There is an error in the parameters";
         else {
             String prePhaseString = "";
@@ -113,8 +149,135 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
                 }
             }
         }
+		return result;
+	}
+	
+	/**
+	 * Generates the string conforming to our DSL. To simplify things, I don't use a model-based approach.
+	 * 
+	 * @param collaborationType
+	 * @param collaborationPhase
+	 * @param leaderParticipation
+	 * @param projectBoardParticipation
+	 * @param contributorsParticipation
+	 * @param usersParticipation
+	 * @param otherParticipation
+	 * @param otherRoleParticipation
+	 * @param strategy
+	 * @param democracyRange
+	 * @param democracyRatio
+	 * @param democracyMinVotes
+	 * @param deadlineDays
+	 * @param deadlineHours
+	 * @param noDeadline
+	 * @return
+	 */
+	private String generateDSL(String collaborationType,
+			String collaborationPhase, boolean leaderParticipation,
+			boolean projectBoardParticipation,
+			boolean contributorsParticipation, boolean usersParticipation,
+			boolean otherParticipation, String otherRoleParticipation,
+			String strategy, String democracyRange, String democracyRatio,
+			String democracyMinVotes, String deadlineDays,
+			String deadlineHours, boolean noDeadline) {
+		String result = "";
+		
+		if(collaborationType == null || collaborationPhase == null || strategy == null || (!leaderParticipation && !projectBoardParticipation && !contributorsParticipation && !usersParticipation && (!otherParticipation || (otherParticipation && otherRoleParticipation == null))) || (deadlineDays == null && deadlineHours == null && !noDeadline))
+            result = "There is an error in the parameters";
+        else {
+            String when = "";
 
-        PrintWriter out = response.getWriter();
-        out.print(result);
-    }
+            if(collaborationPhase.equals("CollaborationAcceptance")) {
+            	when = "Task";
+            } else if (collaborationPhase.equals("PatchAcceptance")) {
+            	when = "Patch";
+            } else if (collaborationPhase.equals("ReleaseAcceptance")) {
+            	when = "Release ";
+            }
+
+            String appliedTo = "";
+            if(collaborationType.equals("Bug")) {
+            	appliedTo = "Patch (tag = 'bug')";
+            } else if(collaborationType.equals("Enhancement")) {
+            	appliedTo = "Patch (tag = 'enhancemend')";
+            } else if(collaborationType.equals("Comment")) {
+            	appliedTo = "Comment";
+            } else if(collaborationType.equals("All")) {
+            	appliedTo = "Patch";
+            }
+            
+            String participants = "";
+            if(leaderParticipation) {
+                participants += "Leader";
+            }
+            if(projectBoardParticipation) {
+                participants = participants + (participants.equals("") ? "" : ", ") + "ProjectBoard";
+            }
+            if(contributorsParticipation) {
+                participants = participants + (participants.equals("") ? "" : ", ") + "Contributors";
+            }
+            if(usersParticipation) {
+                participants = participants + (participants.equals("") ? "" : ", ") + "Users";
+            }
+            if(otherParticipation) {
+                participants = participants + (participants.equals("") ? "" : ", ") + otherRoleParticipation;
+            }
+
+            String deadline = "";
+            if(noDeadline) {
+            	deadline += "None";
+            } else if(deadlineDays != null && (deadlineHours == null || (deadlineHours != null && deadlineHours.equals("0")))) {
+            	deadline += deadlineDays + " day" + (deadlineDays.equals("1") ? "" : "s") + " ";
+            } else if(deadlineDays != null && !deadlineDays.equals("0") && deadlineHours != null) {
+            	deadline += deadlineDays + " day" + (deadlineDays.equals("1") ? "" : "s") + "  and " + deadlineHours + " hour" + (deadlineHours.equals("1") ? "" : "s") + " ";
+            } else if((deadlineDays == null || deadlineDays.equals("0")) && deadlineHours != null) {
+            	deadline += deadlineHours + " hour" + (deadlineHours.equals("1") ? "" : "s") + " ";
+            }
+
+            String tab = "&nbsp;&nbsp;&nbsp;";
+            
+            String governanceRule = "";
+            if(strategy.equals("unanimous")) {
+            	governanceRule = tab + tab + "R1 : LeaderDriven { <br>" +
+            			tab + tab + tab + "applied to " + appliedTo + "<br>" + 
+            			tab + tab + tab + "when " + when + "<br>" +
+            			tab + tab + tab + "deafult None <br>" +
+            			tab + tab + tab + "deadline D1 <br>" +
+            			tab + tab + tab + "} <br>" +
+            			tab + tab + "}<br>";
+            } else if(strategy.equals("voting")) {
+                if(democracyRatio.equals("100")) {
+                	governanceRule = tab + tab + "R1 : Majority { <br>" +
+                			tab + tab + tab + "appliedTo " + appliedTo + "<br>" + 
+                			tab + tab + tab + "when " + when + "<br>" +
+                			tab + tab + tab + "participants " + participants + "<br>" +
+                			tab + tab + tab + "democracyRange " + democracyRange + "<br>" +
+                			tab + tab + tab + "minVotes " + (democracyMinVotes.equals("0") ? "All" : democracyMinVotes) + "<br>" +
+                			tab + tab + tab + "deadline D1 <br>" +
+                			tab + tab + tab + "} <br>" +
+                			tab + tab + "}<br>";
+                } else {
+                	governanceRule = tab + tab + "R1 : Ratio { <br>" +
+                			tab + tab + tab + "appliedTo " + appliedTo + "<br>" + 
+                			tab + tab + tab + "when " + when + "<br>" +
+                			tab + tab + tab + "participants " + participants + "<br>" +
+                			tab + tab + tab + "democracyRange " + democracyRange + "<br>" +
+                			tab + tab + tab + "minVotes " + (democracyMinVotes.equals("0") ? "All" : democracyMinVotes) + "<br>" +
+                			tab + tab + tab + "ratio " + democracyRatio + "<br>" +
+                			tab + tab + tab + "deadline D1 <br>" +
+                			tab + tab + tab + "} <br>" +
+                			tab + tab + "}<br>";
+                }
+            }
+
+            result = "Project YOUR_PROJECT { <br>" +
+            		tab + "Roles: " + participants + "<br>" + 
+            		tab + "Deadlines: <br>" +
+            		tab + tab + "D1 : " + deadline + "<br>" + 
+            		tab + "Strategies: <br> " + governanceRule;
+            	
+
+        }
+		return result;
+	}
 }

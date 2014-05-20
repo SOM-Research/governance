@@ -103,7 +103,7 @@
                             <div class="radio">
                                 <label>
                                     <input ng-model="strategy" type="radio" name="strategy" id="Unanimous" value="unanimous">
-                                    Unanimously
+                                    Unanimously (i.e., the leader)
                                 </label>
                             </div>
                             <div class="radio">
@@ -154,10 +154,18 @@
 					</div>
 				</div>
                 <div class="row">
-                    <div class="col-md-12">
+					<p></p>
+                    <div class="col-md-6">
                         <p>Here it is your governance rule in English:</p>
                         <div class="verb">
                             {{governanceEnGen}}
+                        </div>
+                    </div>
+					<p></p>
+                    <div class="col-md-6">
+                        <p>And our DSL definition:</p>
+                        <div class="verb">
+                            <div ng-bind-html-unsafe="governanceDSLGen"></div>
                         </div>
                     </div>
                 </div>
