@@ -54,9 +54,9 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
 
             $http({
                 method : "POST",
-                //url : "http://atlanmodexp.info.emn.fr:8800/governanceSurvey/generator",
+                url : "http://atlanmodexp.info.emn.fr:8800/governance/generator",
                 //url : "http://localhost:8080/generator",
-                url : "generator",
+                //url : "generator",
                 data : dataToSend,
                 headers : { "Content-Type" : "application/x-www-form-urlencoded"}
             }).success(function(data) {
@@ -89,9 +89,9 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
 
             $http({
                 method : "POST",
-                //url : "http://atlanmodexp.info.emn.fr:8800/governanceSurvey/generator",
+                url : "http://atlanmodexp.info.emn.fr:8800/governance/generator",
                 //url : "http://localhost:8080/generator",
-                url : "generator",
+                //url : "generator",
                 data : dataToSend,
                 headers : { "Content-Type" : "application/x-www-form-urlencoded"}
             }).success(function(data) {
@@ -231,9 +231,9 @@ governanceSurveyModule.controller("surveyController", ["$scope", "$http", "$root
 
             $http({
                 method : "POST",
-                //url : "http://atlanmodexp.info.emn.fr:8800/governanceSurvey/survey",
+                url : "http://atlanmodexp.info.emn.fr:8800/governance/generator",
                 //url : "http://localhost:8080/survey",
-                url : "survey",
+                //url : "survey",
                 data : dataToSend,
                 headers : { "Content-Type" : "application/x-www-form-urlencoded"}
             }).success(function(data) {

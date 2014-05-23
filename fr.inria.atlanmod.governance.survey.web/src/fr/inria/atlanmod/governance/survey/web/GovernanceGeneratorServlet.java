@@ -1,8 +1,12 @@
 package fr.inria.atlanmod.governance.survey.web;
 
-import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -181,6 +185,8 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
 			String democracyMinVotes, String deadlineDays,
 			String deadlineHours, boolean noDeadline) {
 		String result = "";
+		if(democracyRange != null && !democracyRange.equals(""))
+			democracyRange = democracyRange.substring(0,1).toUpperCase() + democracyRange.substring(1, democracyRange.length());
 		
 		if(collaborationType == null || collaborationPhase == null || strategy == null || (!leaderParticipation && !projectBoardParticipation && !contributorsParticipation && !usersParticipation && (!otherParticipation || (otherParticipation && otherRoleParticipation == null))) || (deadlineDays == null && deadlineHours == null && !noDeadline))
             result = "There is an error in the parameters";
@@ -197,9 +203,9 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
 
             String appliedTo = "";
             if(collaborationType.equals("Bug")) {
-            	appliedTo = "Patch (tag = 'bug')";
+            	appliedTo = "Task (tag = 'bug')";
             } else if(collaborationType.equals("Enhancement")) {
-            	appliedTo = "Patch (tag = 'enhancemend')";
+            	appliedTo = "Task (tag = 'enhancemend')";
             } else if(collaborationType.equals("Comment")) {
             	appliedTo = "Comment";
             } else if(collaborationType.equals("All")) {
@@ -251,7 +257,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
                 			tab + tab + tab + "appliedTo " + appliedTo + "<br>" + 
                 			tab + tab + tab + "when " + when + "<br>" +
                 			tab + tab + tab + "participants " + participants + "<br>" +
-                			tab + tab + tab + "democracyRange " + democracyRange + "<br>" +
+                			tab + tab + tab + "range " + democracyRange + "<br>" +
                 			tab + tab + tab + "minVotes " + (democracyMinVotes.equals("0") ? "All" : democracyMinVotes) + "<br>" +
                 			tab + tab + tab + "deadline D1 <br>" +
                 			tab + tab + tab + "} <br>" +
@@ -274,10 +280,19 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             		tab + "Roles: " + participants + "<br>" + 
             		tab + "Deadlines: <br>" +
             		tab + tab + "D1 : " + deadline + "<br>" + 
-            		tab + "Strategies: <br> " + governanceRule;
+            		tab + "Rules: <br> " + governanceRule;
             	
 
         }
 		return result;
+	}
+	
+	@Override
+	protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setHeader("Access-Control-Allow-Origin", "*");
+		response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+		response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+		super.doOptions(request, response);
+
 	}
 }

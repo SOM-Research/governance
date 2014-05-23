@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inherit-compiler-output="true" inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/fr.inria.atlanmod.governance.survey.web"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="TomEE 7.0.37" scope="PROVIDED"/>
+	<levels>
+		<level name="TomEE 7.0.37" value="application_server_libraries"/>
+		<level name="gson-2.2.4" value="project"/>
+	</levels>
+</component>
