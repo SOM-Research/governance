@@ -2,30 +2,29 @@
  */
 package fr.inria.atlanmod.governance.strategy.impl;
 
-import fr.inria.atlanmod.governance.strategy.CollaborationType;
-import fr.inria.atlanmod.governance.strategy.Deadline;
-import fr.inria.atlanmod.governance.strategy.LeaderDriven;
-import fr.inria.atlanmod.governance.strategy.Majority;
-import fr.inria.atlanmod.governance.strategy.OCLCondition;
-import fr.inria.atlanmod.governance.strategy.PhasedStrategy;
-import fr.inria.atlanmod.governance.strategy.Project;
-import fr.inria.atlanmod.governance.strategy.RangeType;
-import fr.inria.atlanmod.governance.strategy.RatioMajority;
-import fr.inria.atlanmod.governance.strategy.Role;
-import fr.inria.atlanmod.governance.strategy.StageType;
-import fr.inria.atlanmod.governance.strategy.Strategy;
-import fr.inria.atlanmod.governance.strategy.StrategyFactory;
-import fr.inria.atlanmod.governance.strategy.StrategyPackage;
-import fr.inria.atlanmod.governance.strategy.Timer;
-import fr.inria.atlanmod.governance.strategy.WaitForVote;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import fr.inria.atlanmod.governance.strategy.CollaborationType;
+import fr.inria.atlanmod.governance.strategy.Deadline;
+import fr.inria.atlanmod.governance.strategy.LeaderDriven;
+import fr.inria.atlanmod.governance.strategy.Majority;
+import fr.inria.atlanmod.governance.strategy.OCLCondition;
+import fr.inria.atlanmod.governance.strategy.PhasedRule;
+import fr.inria.atlanmod.governance.strategy.Project;
+import fr.inria.atlanmod.governance.strategy.RangeType;
+import fr.inria.atlanmod.governance.strategy.RatioMajority;
+import fr.inria.atlanmod.governance.strategy.Role;
+import fr.inria.atlanmod.governance.strategy.Rule;
+import fr.inria.atlanmod.governance.strategy.StageType;
+import fr.inria.atlanmod.governance.strategy.StrategyFactory;
+import fr.inria.atlanmod.governance.strategy.StrategyPackage;
+import fr.inria.atlanmod.governance.strategy.Timer;
+import fr.inria.atlanmod.governance.strategy.WaitForVote;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +52,7 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass strategyEClass = null;
+	private EClass ruleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,7 +80,7 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass phasedStrategyEClass = null;
+	private EClass phasedRuleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -216,7 +215,7 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProject_Strategies() {
+	public EReference getProject_Rules() {
 		return (EReference)projectEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -261,8 +260,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStrategy() {
-		return strategyEClass;
+	public EClass getRule() {
+		return ruleEClass;
 	}
 
 	/**
@@ -270,8 +269,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStrategy_Deadline() {
-		return (EReference)strategyEClass.getEStructuralFeatures().get(0);
+	public EReference getRule_Deadline() {
+		return (EReference)ruleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -279,8 +278,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_Filter() {
-		return (EAttribute)strategyEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRule_Filter() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -288,8 +287,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStrategy_People() {
-		return (EReference)strategyEClass.getEStructuralFeatures().get(2);
+	public EReference getRule_People() {
+		return (EReference)ruleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -297,8 +296,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_Name() {
-		return (EAttribute)strategyEClass.getEStructuralFeatures().get(3);
+	public EAttribute getRule_Name() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -306,8 +305,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_AppliedTo() {
-		return (EAttribute)strategyEClass.getEStructuralFeatures().get(4);
+	public EAttribute getRule_AppliedTo() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -315,8 +314,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getStrategy_Stage() {
-		return (EAttribute)strategyEClass.getEStructuralFeatures().get(5);
+	public EAttribute getRule_Stage() {
+		return (EAttribute)ruleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -387,8 +386,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPhasedStrategy() {
-		return phasedStrategyEClass;
+	public EClass getPhasedRule() {
+		return phasedRuleEClass;
 	}
 
 	/**
@@ -396,8 +395,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPhasedStrategy_Phases() {
-		return (EReference)phasedStrategyEClass.getEStructuralFeatures().get(0);
+	public EReference getPhasedRule_Phases() {
+		return (EReference)phasedRuleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -529,20 +528,20 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		// Create classes and their features
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__NAME);
-		createEReference(projectEClass, PROJECT__STRATEGIES);
+		createEReference(projectEClass, PROJECT__RULES);
 		createEReference(projectEClass, PROJECT__ROLES);
 		createEReference(projectEClass, PROJECT__DEADLINES);
 
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__NAME);
 
-		strategyEClass = createEClass(STRATEGY);
-		createEReference(strategyEClass, STRATEGY__DEADLINE);
-		createEAttribute(strategyEClass, STRATEGY__FILTER);
-		createEReference(strategyEClass, STRATEGY__PEOPLE);
-		createEAttribute(strategyEClass, STRATEGY__NAME);
-		createEAttribute(strategyEClass, STRATEGY__APPLIED_TO);
-		createEAttribute(strategyEClass, STRATEGY__STAGE);
+		ruleEClass = createEClass(RULE);
+		createEReference(ruleEClass, RULE__DEADLINE);
+		createEAttribute(ruleEClass, RULE__FILTER);
+		createEReference(ruleEClass, RULE__PEOPLE);
+		createEAttribute(ruleEClass, RULE__NAME);
+		createEAttribute(ruleEClass, RULE__APPLIED_TO);
+		createEAttribute(ruleEClass, RULE__STAGE);
 
 		majorityEClass = createEClass(MAJORITY);
 		createEAttribute(majorityEClass, MAJORITY__RANGE);
@@ -554,8 +553,8 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		leaderDrivenEClass = createEClass(LEADER_DRIVEN);
 		createEReference(leaderDrivenEClass, LEADER_DRIVEN__DEFAULT);
 
-		phasedStrategyEClass = createEClass(PHASED_STRATEGY);
-		createEReference(phasedStrategyEClass, PHASED_STRATEGY__PHASES);
+		phasedRuleEClass = createEClass(PHASED_RULE);
+		createEReference(phasedRuleEClass, PHASED_RULE__PHASES);
 
 		deadlineEClass = createEClass(DEADLINE);
 		createEAttribute(deadlineEClass, DEADLINE__NAME);
@@ -603,10 +602,10 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		majorityEClass.getESuperTypes().add(this.getStrategy());
+		majorityEClass.getESuperTypes().add(this.getRule());
 		ratioMajorityEClass.getESuperTypes().add(this.getMajority());
-		leaderDrivenEClass.getESuperTypes().add(this.getStrategy());
-		phasedStrategyEClass.getESuperTypes().add(this.getStrategy());
+		leaderDrivenEClass.getESuperTypes().add(this.getRule());
+		phasedRuleEClass.getESuperTypes().add(this.getRule());
 		timerEClass.getESuperTypes().add(this.getDeadline());
 		oclConditionEClass.getESuperTypes().add(this.getDeadline());
 		waitForVoteEClass.getESuperTypes().add(this.getDeadline());
@@ -614,20 +613,20 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		// Initialize classes and features; add operations and parameters
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProject_Name(), ecorePackage.getEString(), "name", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_Strategies(), this.getStrategy(), null, "strategies", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Rules(), this.getRule(), null, "rules", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Roles(), this.getRole(), null, "roles", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Deadlines(), this.getDeadline(), null, "deadlines", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(strategyEClass, Strategy.class, "Strategy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStrategy_Deadline(), this.getDeadline(), null, "deadline", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_Filter(), ecorePackage.getEString(), "filter", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStrategy_People(), this.getRole(), null, "people", null, 0, -1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_Name(), ecorePackage.getEString(), "name", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_AppliedTo(), this.getCollaborationType(), "appliedTo", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getStrategy_Stage(), this.getStageType(), "stage", null, 0, 1, Strategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ruleEClass, Rule.class, "Rule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRule_Deadline(), this.getDeadline(), null, "deadline", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Filter(), ecorePackage.getEString(), "filter", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_People(), this.getRole(), null, "people", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_AppliedTo(), this.getCollaborationType(), "appliedTo", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Stage(), this.getStageType(), "stage", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(majorityEClass, Majority.class, "Majority", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMajority_Range(), this.getRangeType(), "range", null, 1, 1, Majority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -637,10 +636,10 @@ public class StrategyPackageImpl extends EPackageImpl implements StrategyPackage
 		initEAttribute(getRatioMajority_Ratio(), ecorePackage.getEFloat(), "ratio", null, 1, 1, RatioMajority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(leaderDrivenEClass, LeaderDriven.class, "LeaderDriven", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLeaderDriven_Default(), this.getStrategy(), null, "default", null, 1, 1, LeaderDriven.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLeaderDriven_Default(), this.getRule(), null, "default", null, 1, 1, LeaderDriven.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(phasedStrategyEClass, PhasedStrategy.class, "PhasedStrategy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPhasedStrategy_Phases(), this.getStrategy(), null, "phases", null, 0, -1, PhasedStrategy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(phasedRuleEClass, PhasedRule.class, "PhasedRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPhasedRule_Phases(), this.getRule(), null, "phases", null, 0, -1, PhasedRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deadlineEClass, Deadline.class, "Deadline", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDeadline_Name(), ecorePackage.getEString(), "name", null, 0, 1, Deadline.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

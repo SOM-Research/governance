@@ -76,13 +76,13 @@ public interface StrategyPackage extends EPackage {
 	int PROJECT__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Strategies</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__STRATEGIES = 1;
+	int PROJECT__RULES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -140,14 +140,14 @@ public interface StrategyPackage extends EPackage {
 	int ROLE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.StrategyImpl <em>Strategy</em>}' class.
+	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.RuleImpl <em>Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyImpl
-	 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.impl.RuleImpl
+	 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getRule()
 	 * @generated
 	 */
-	int STRATEGY = 2;
+	int RULE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Deadline</b></em>' reference.
@@ -156,7 +156,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__DEADLINE = 0;
+	int RULE__DEADLINE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -165,7 +165,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__FILTER = 1;
+	int RULE__FILTER = 1;
 
 	/**
 	 * The feature id for the '<em><b>People</b></em>' reference list.
@@ -174,7 +174,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__PEOPLE = 2;
+	int RULE__PEOPLE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -183,7 +183,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__NAME = 3;
+	int RULE__NAME = 3;
 
 	/**
 	 * The feature id for the '<em><b>Applied To</b></em>' attribute.
@@ -192,7 +192,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__APPLIED_TO = 4;
+	int RULE__APPLIED_TO = 4;
 
 	/**
 	 * The feature id for the '<em><b>Stage</b></em>' attribute.
@@ -201,16 +201,16 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY__STAGE = 5;
+	int RULE__STAGE = 5;
 
 	/**
-	 * The number of structural features of the '<em>Strategy</em>' class.
+	 * The number of structural features of the '<em>Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRATEGY_FEATURE_COUNT = 6;
+	int RULE_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.MajorityImpl <em>Majority</em>}' class.
@@ -229,7 +229,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__DEADLINE = STRATEGY__DEADLINE;
+	int MAJORITY__DEADLINE = RULE__DEADLINE;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -238,7 +238,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__FILTER = STRATEGY__FILTER;
+	int MAJORITY__FILTER = RULE__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>People</b></em>' reference list.
@@ -247,7 +247,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__PEOPLE = STRATEGY__PEOPLE;
+	int MAJORITY__PEOPLE = RULE__PEOPLE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -256,7 +256,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__NAME = STRATEGY__NAME;
+	int MAJORITY__NAME = RULE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Applied To</b></em>' attribute.
@@ -265,7 +265,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__APPLIED_TO = STRATEGY__APPLIED_TO;
+	int MAJORITY__APPLIED_TO = RULE__APPLIED_TO;
 
 	/**
 	 * The feature id for the '<em><b>Stage</b></em>' attribute.
@@ -274,7 +274,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__STAGE = STRATEGY__STAGE;
+	int MAJORITY__STAGE = RULE__STAGE;
 
 	/**
 	 * The feature id for the '<em><b>Range</b></em>' attribute.
@@ -283,7 +283,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__RANGE = STRATEGY_FEATURE_COUNT + 0;
+	int MAJORITY__RANGE = RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Min Votes</b></em>' attribute.
@@ -292,7 +292,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY__MIN_VOTES = STRATEGY_FEATURE_COUNT + 1;
+	int MAJORITY__MIN_VOTES = RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Majority</em>' class.
@@ -301,7 +301,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORITY_FEATURE_COUNT = STRATEGY_FEATURE_COUNT + 2;
+	int MAJORITY_FEATURE_COUNT = RULE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.RatioMajorityImpl <em>Ratio Majority</em>}' class.
@@ -420,7 +420,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__DEADLINE = STRATEGY__DEADLINE;
+	int LEADER_DRIVEN__DEADLINE = RULE__DEADLINE;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -429,7 +429,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__FILTER = STRATEGY__FILTER;
+	int LEADER_DRIVEN__FILTER = RULE__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>People</b></em>' reference list.
@@ -438,7 +438,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__PEOPLE = STRATEGY__PEOPLE;
+	int LEADER_DRIVEN__PEOPLE = RULE__PEOPLE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -447,7 +447,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__NAME = STRATEGY__NAME;
+	int LEADER_DRIVEN__NAME = RULE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Applied To</b></em>' attribute.
@@ -456,7 +456,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__APPLIED_TO = STRATEGY__APPLIED_TO;
+	int LEADER_DRIVEN__APPLIED_TO = RULE__APPLIED_TO;
 
 	/**
 	 * The feature id for the '<em><b>Stage</b></em>' attribute.
@@ -465,7 +465,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__STAGE = STRATEGY__STAGE;
+	int LEADER_DRIVEN__STAGE = RULE__STAGE;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' reference.
@@ -474,7 +474,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN__DEFAULT = STRATEGY_FEATURE_COUNT + 0;
+	int LEADER_DRIVEN__DEFAULT = RULE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Leader Driven</em>' class.
@@ -483,17 +483,17 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LEADER_DRIVEN_FEATURE_COUNT = STRATEGY_FEATURE_COUNT + 1;
+	int LEADER_DRIVEN_FEATURE_COUNT = RULE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.PhasedStrategyImpl <em>Phased Strategy</em>}' class.
+	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.PhasedRuleImpl <em>Phased Rule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see fr.inria.atlanmod.governance.strategy.impl.PhasedStrategyImpl
-	 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getPhasedStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.impl.PhasedRuleImpl
+	 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getPhasedRule()
 	 * @generated
 	 */
-	int PHASED_STRATEGY = 6;
+	int PHASED_RULE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Deadline</b></em>' reference.
@@ -502,7 +502,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__DEADLINE = STRATEGY__DEADLINE;
+	int PHASED_RULE__DEADLINE = RULE__DEADLINE;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' attribute.
@@ -511,7 +511,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__FILTER = STRATEGY__FILTER;
+	int PHASED_RULE__FILTER = RULE__FILTER;
 
 	/**
 	 * The feature id for the '<em><b>People</b></em>' reference list.
@@ -520,7 +520,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__PEOPLE = STRATEGY__PEOPLE;
+	int PHASED_RULE__PEOPLE = RULE__PEOPLE;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -529,7 +529,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__NAME = STRATEGY__NAME;
+	int PHASED_RULE__NAME = RULE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Applied To</b></em>' attribute.
@@ -538,7 +538,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__APPLIED_TO = STRATEGY__APPLIED_TO;
+	int PHASED_RULE__APPLIED_TO = RULE__APPLIED_TO;
 
 	/**
 	 * The feature id for the '<em><b>Stage</b></em>' attribute.
@@ -547,7 +547,7 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__STAGE = STRATEGY__STAGE;
+	int PHASED_RULE__STAGE = RULE__STAGE;
 
 	/**
 	 * The feature id for the '<em><b>Phases</b></em>' reference list.
@@ -556,16 +556,16 @@ public interface StrategyPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY__PHASES = STRATEGY_FEATURE_COUNT + 0;
+	int PHASED_RULE__PHASES = RULE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Phased Strategy</em>' class.
+	 * The number of structural features of the '<em>Phased Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHASED_STRATEGY_FEATURE_COUNT = STRATEGY_FEATURE_COUNT + 1;
+	int PHASED_RULE_FEATURE_COUNT = RULE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link fr.inria.atlanmod.governance.strategy.impl.DeadlineImpl <em>Deadline</em>}' class.
@@ -759,15 +759,15 @@ public interface StrategyPackage extends EPackage {
 	EAttribute getProject_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link fr.inria.atlanmod.governance.strategy.Project#getStrategies <em>Strategies</em>}'.
+	 * Returns the meta object for the containment reference list '{@link fr.inria.atlanmod.governance.strategy.Project#getRules <em>Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Strategies</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Project#getStrategies()
+	 * @return the meta object for the containment reference list '<em>Rules</em>'.
+	 * @see fr.inria.atlanmod.governance.strategy.Project#getRules()
 	 * @see #getProject()
 	 * @generated
 	 */
-	EReference getProject_Strategies();
+	EReference getProject_Rules();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link fr.inria.atlanmod.governance.strategy.Project#getRoles <em>Roles</em>}'.
@@ -813,80 +813,80 @@ public interface StrategyPackage extends EPackage {
 	EAttribute getRole_Name();
 
 	/**
-	 * Returns the meta object for class '{@link fr.inria.atlanmod.governance.strategy.Strategy <em>Strategy</em>}'.
+	 * Returns the meta object for class '{@link fr.inria.atlanmod.governance.strategy.Rule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Strategy</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy
+	 * @return the meta object for class '<em>Rule</em>'.
+	 * @see fr.inria.atlanmod.governance.strategy.Rule
 	 * @generated
 	 */
-	EClass getStrategy();
+	EClass getRule();
 
 	/**
-	 * Returns the meta object for the reference '{@link fr.inria.atlanmod.governance.strategy.Strategy#getDeadline <em>Deadline</em>}'.
+	 * Returns the meta object for the reference '{@link fr.inria.atlanmod.governance.strategy.Rule#getDeadline <em>Deadline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Deadline</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy#getDeadline()
-	 * @see #getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.Rule#getDeadline()
+	 * @see #getRule()
 	 * @generated
 	 */
-	EReference getStrategy_Deadline();
+	EReference getRule_Deadline();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Strategy#getFilter <em>Filter</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Rule#getFilter <em>Filter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Filter</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy#getFilter()
-	 * @see #getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.Rule#getFilter()
+	 * @see #getRule()
 	 * @generated
 	 */
-	EAttribute getStrategy_Filter();
+	EAttribute getRule_Filter();
 
 	/**
-	 * Returns the meta object for the reference list '{@link fr.inria.atlanmod.governance.strategy.Strategy#getPeople <em>People</em>}'.
+	 * Returns the meta object for the reference list '{@link fr.inria.atlanmod.governance.strategy.Rule#getPeople <em>People</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>People</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy#getPeople()
-	 * @see #getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.Rule#getPeople()
+	 * @see #getRule()
 	 * @generated
 	 */
-	EReference getStrategy_People();
+	EReference getRule_People();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Strategy#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Rule#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy#getName()
-	 * @see #getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.Rule#getName()
+	 * @see #getRule()
 	 * @generated
 	 */
-	EAttribute getStrategy_Name();
+	EAttribute getRule_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Strategy#getAppliedTo <em>Applied To</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Rule#getAppliedTo <em>Applied To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Applied To</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy#getAppliedTo()
-	 * @see #getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.Rule#getAppliedTo()
+	 * @see #getRule()
 	 * @generated
 	 */
-	EAttribute getStrategy_AppliedTo();
+	EAttribute getRule_AppliedTo();
 
 	/**
-	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Strategy#getStage <em>Stage</em>}'.
+	 * Returns the meta object for the attribute '{@link fr.inria.atlanmod.governance.strategy.Rule#getStage <em>Stage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Stage</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy#getStage()
-	 * @see #getStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.Rule#getStage()
+	 * @see #getRule()
 	 * @generated
 	 */
-	EAttribute getStrategy_Stage();
+	EAttribute getRule_Stage();
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.atlanmod.governance.strategy.Majority <em>Majority</em>}'.
@@ -963,25 +963,25 @@ public interface StrategyPackage extends EPackage {
 	EReference getLeaderDriven_Default();
 
 	/**
-	 * Returns the meta object for class '{@link fr.inria.atlanmod.governance.strategy.PhasedStrategy <em>Phased Strategy</em>}'.
+	 * Returns the meta object for class '{@link fr.inria.atlanmod.governance.strategy.PhasedRule <em>Phased Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Phased Strategy</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.PhasedStrategy
+	 * @return the meta object for class '<em>Phased Rule</em>'.
+	 * @see fr.inria.atlanmod.governance.strategy.PhasedRule
 	 * @generated
 	 */
-	EClass getPhasedStrategy();
+	EClass getPhasedRule();
 
 	/**
-	 * Returns the meta object for the reference list '{@link fr.inria.atlanmod.governance.strategy.PhasedStrategy#getPhases <em>Phases</em>}'.
+	 * Returns the meta object for the reference list '{@link fr.inria.atlanmod.governance.strategy.PhasedRule#getPhases <em>Phases</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Phases</em>'.
-	 * @see fr.inria.atlanmod.governance.strategy.PhasedStrategy#getPhases()
-	 * @see #getPhasedStrategy()
+	 * @see fr.inria.atlanmod.governance.strategy.PhasedRule#getPhases()
+	 * @see #getPhasedRule()
 	 * @generated
 	 */
-	EReference getPhasedStrategy_Phases();
+	EReference getPhasedRule_Phases();
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.atlanmod.governance.strategy.Deadline <em>Deadline</em>}'.
@@ -1138,12 +1138,12 @@ public interface StrategyPackage extends EPackage {
 		EAttribute PROJECT__NAME = eINSTANCE.getProject_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Strategies</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROJECT__STRATEGIES = eINSTANCE.getProject_Strategies();
+		EReference PROJECT__RULES = eINSTANCE.getProject_Rules();
 
 		/**
 		 * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
@@ -1180,14 +1180,14 @@ public interface StrategyPackage extends EPackage {
 		EAttribute ROLE__NAME = eINSTANCE.getRole_Name();
 
 		/**
-		 * The meta object literal for the '{@link fr.inria.atlanmod.governance.strategy.impl.StrategyImpl <em>Strategy</em>}' class.
+		 * The meta object literal for the '{@link fr.inria.atlanmod.governance.strategy.impl.RuleImpl <em>Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyImpl
-		 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getStrategy()
+		 * @see fr.inria.atlanmod.governance.strategy.impl.RuleImpl
+		 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getRule()
 		 * @generated
 		 */
-		EClass STRATEGY = eINSTANCE.getStrategy();
+		EClass RULE = eINSTANCE.getRule();
 
 		/**
 		 * The meta object literal for the '<em><b>Deadline</b></em>' reference feature.
@@ -1195,7 +1195,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRATEGY__DEADLINE = eINSTANCE.getStrategy_Deadline();
+		EReference RULE__DEADLINE = eINSTANCE.getRule_Deadline();
 
 		/**
 		 * The meta object literal for the '<em><b>Filter</b></em>' attribute feature.
@@ -1203,7 +1203,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRATEGY__FILTER = eINSTANCE.getStrategy_Filter();
+		EAttribute RULE__FILTER = eINSTANCE.getRule_Filter();
 
 		/**
 		 * The meta object literal for the '<em><b>People</b></em>' reference list feature.
@@ -1211,7 +1211,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STRATEGY__PEOPLE = eINSTANCE.getStrategy_People();
+		EReference RULE__PEOPLE = eINSTANCE.getRule_People();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -1219,7 +1219,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRATEGY__NAME = eINSTANCE.getStrategy_Name();
+		EAttribute RULE__NAME = eINSTANCE.getRule_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Applied To</b></em>' attribute feature.
@@ -1227,7 +1227,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRATEGY__APPLIED_TO = eINSTANCE.getStrategy_AppliedTo();
+		EAttribute RULE__APPLIED_TO = eINSTANCE.getRule_AppliedTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Stage</b></em>' attribute feature.
@@ -1235,7 +1235,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute STRATEGY__STAGE = eINSTANCE.getStrategy_Stage();
+		EAttribute RULE__STAGE = eINSTANCE.getRule_Stage();
 
 		/**
 		 * The meta object literal for the '{@link fr.inria.atlanmod.governance.strategy.impl.MajorityImpl <em>Majority</em>}' class.
@@ -1300,14 +1300,14 @@ public interface StrategyPackage extends EPackage {
 		EReference LEADER_DRIVEN__DEFAULT = eINSTANCE.getLeaderDriven_Default();
 
 		/**
-		 * The meta object literal for the '{@link fr.inria.atlanmod.governance.strategy.impl.PhasedStrategyImpl <em>Phased Strategy</em>}' class.
+		 * The meta object literal for the '{@link fr.inria.atlanmod.governance.strategy.impl.PhasedRuleImpl <em>Phased Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see fr.inria.atlanmod.governance.strategy.impl.PhasedStrategyImpl
-		 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getPhasedStrategy()
+		 * @see fr.inria.atlanmod.governance.strategy.impl.PhasedRuleImpl
+		 * @see fr.inria.atlanmod.governance.strategy.impl.StrategyPackageImpl#getPhasedRule()
 		 * @generated
 		 */
-		EClass PHASED_STRATEGY = eINSTANCE.getPhasedStrategy();
+		EClass PHASED_RULE = eINSTANCE.getPhasedRule();
 
 		/**
 		 * The meta object literal for the '<em><b>Phases</b></em>' reference list feature.
@@ -1315,7 +1315,7 @@ public interface StrategyPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PHASED_STRATEGY__PHASES = eINSTANCE.getPhasedStrategy_Phases();
+		EReference PHASED_RULE__PHASES = eINSTANCE.getPhasedRule_Phases();
 
 		/**
 		 * The meta object literal for the '{@link fr.inria.atlanmod.governance.strategy.impl.DeadlineImpl <em>Deadline</em>}' class.

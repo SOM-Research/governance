@@ -62,7 +62,7 @@ public class StrategyFactoryImpl extends EFactoryImpl implements StrategyFactory
 			case StrategyPackage.MAJORITY: return createMajority();
 			case StrategyPackage.RATIO_MAJORITY: return createRatioMajority();
 			case StrategyPackage.LEADER_DRIVEN: return createLeaderDriven();
-			case StrategyPackage.PHASED_STRATEGY: return createPhasedStrategy();
+			case StrategyPackage.PHASED_RULE: return createPhasedRule();
 			case StrategyPackage.TIMER: return createTimer();
 			case StrategyPackage.OCL_CONDITION: return createOCLCondition();
 			case StrategyPackage.WAIT_FOR_VOTE: return createWaitForVote();
@@ -164,9 +164,9 @@ public class StrategyFactoryImpl extends EFactoryImpl implements StrategyFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PhasedStrategy createPhasedStrategy() {
-		PhasedStrategyImpl phasedStrategy = new PhasedStrategyImpl();
-		return phasedStrategy;
+	public PhasedRule createPhasedRule() {
+		PhasedRuleImpl phasedRule = new PhasedRuleImpl();
+		return phasedRule;
 	}
 
 	/**

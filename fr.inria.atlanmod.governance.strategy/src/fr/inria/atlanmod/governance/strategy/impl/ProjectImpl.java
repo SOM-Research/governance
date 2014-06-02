@@ -2,27 +2,23 @@
  */
 package fr.inria.atlanmod.governance.strategy.impl;
 
-import fr.inria.atlanmod.governance.strategy.Deadline;
-import fr.inria.atlanmod.governance.strategy.Project;
-import fr.inria.atlanmod.governance.strategy.Role;
-import fr.inria.atlanmod.governance.strategy.Strategy;
-import fr.inria.atlanmod.governance.strategy.StrategyPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import fr.inria.atlanmod.governance.strategy.Deadline;
+import fr.inria.atlanmod.governance.strategy.Project;
+import fr.inria.atlanmod.governance.strategy.Role;
+import fr.inria.atlanmod.governance.strategy.Rule;
+import fr.inria.atlanmod.governance.strategy.StrategyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.inria.atlanmod.governance.strategy.impl.ProjectImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.inria.atlanmod.governance.strategy.impl.ProjectImpl#getStrategies <em>Strategies</em>}</li>
+ *   <li>{@link fr.inria.atlanmod.governance.strategy.impl.ProjectImpl#getRules <em>Rules</em>}</li>
  *   <li>{@link fr.inria.atlanmod.governance.strategy.impl.ProjectImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link fr.inria.atlanmod.governance.strategy.impl.ProjectImpl#getDeadlines <em>Deadlines</em>}</li>
  * </ul>
@@ -62,14 +58,14 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStrategies() <em>Strategies</em>}' containment reference list.
+	 * The cached value of the '{@link #getRules() <em>Rules</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStrategies()
+	 * @see #getRules()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Strategy> strategies;
+	protected EList<Rule> rules;
 
 	/**
 	 * The cached value of the '{@link #getRoles() <em>Roles</em>}' containment reference list.
@@ -136,11 +132,11 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Strategy> getStrategies() {
-		if (strategies == null) {
-			strategies = new EObjectContainmentEList<Strategy>(Strategy.class, this, StrategyPackage.PROJECT__STRATEGIES);
+	public EList<Rule> getRules() {
+		if (rules == null) {
+			rules = new EObjectContainmentEList<Rule>(Rule.class, this, StrategyPackage.PROJECT__RULES);
 		}
-		return strategies;
+		return rules;
 	}
 
 	/**
@@ -175,8 +171,8 @@ public class ProjectImpl extends EObjectImpl implements Project {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StrategyPackage.PROJECT__STRATEGIES:
-				return ((InternalEList<?>)getStrategies()).basicRemove(otherEnd, msgs);
+			case StrategyPackage.PROJECT__RULES:
+				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
 			case StrategyPackage.PROJECT__ROLES:
 				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 			case StrategyPackage.PROJECT__DEADLINES:
@@ -195,8 +191,8 @@ public class ProjectImpl extends EObjectImpl implements Project {
 		switch (featureID) {
 			case StrategyPackage.PROJECT__NAME:
 				return getName();
-			case StrategyPackage.PROJECT__STRATEGIES:
-				return getStrategies();
+			case StrategyPackage.PROJECT__RULES:
+				return getRules();
 			case StrategyPackage.PROJECT__ROLES:
 				return getRoles();
 			case StrategyPackage.PROJECT__DEADLINES:
@@ -217,9 +213,9 @@ public class ProjectImpl extends EObjectImpl implements Project {
 			case StrategyPackage.PROJECT__NAME:
 				setName((String)newValue);
 				return;
-			case StrategyPackage.PROJECT__STRATEGIES:
-				getStrategies().clear();
-				getStrategies().addAll((Collection<? extends Strategy>)newValue);
+			case StrategyPackage.PROJECT__RULES:
+				getRules().clear();
+				getRules().addAll((Collection<? extends Rule>)newValue);
 				return;
 			case StrategyPackage.PROJECT__ROLES:
 				getRoles().clear();
@@ -244,8 +240,8 @@ public class ProjectImpl extends EObjectImpl implements Project {
 			case StrategyPackage.PROJECT__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case StrategyPackage.PROJECT__STRATEGIES:
-				getStrategies().clear();
+			case StrategyPackage.PROJECT__RULES:
+				getRules().clear();
 				return;
 			case StrategyPackage.PROJECT__ROLES:
 				getRoles().clear();
@@ -267,8 +263,8 @@ public class ProjectImpl extends EObjectImpl implements Project {
 		switch (featureID) {
 			case StrategyPackage.PROJECT__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case StrategyPackage.PROJECT__STRATEGIES:
-				return strategies != null && !strategies.isEmpty();
+			case StrategyPackage.PROJECT__RULES:
+				return rules != null && !rules.isEmpty();
 			case StrategyPackage.PROJECT__ROLES:
 				return roles != null && !roles.isEmpty();
 			case StrategyPackage.PROJECT__DEADLINES:

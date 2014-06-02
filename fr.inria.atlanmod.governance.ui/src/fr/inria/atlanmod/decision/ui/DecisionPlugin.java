@@ -15,6 +15,8 @@ package fr.inria.atlanmod.decision.ui;
 
 import java.net.URL;
 
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -76,11 +78,12 @@ public class DecisionPlugin extends AbstractUIPlugin {
 	
 	public static ImageDescriptor getImage(String relativePath) {
 		URL url = DecisionPlugin.getInstallURL();
-		ImageDescriptor descriptor= null;
+		ImageDescriptor descriptor= null; 
 		try {
-			descriptor = ImageDescriptor.createFromURL(new URL(url, relativePath));
+			descriptor = ImageDescriptor.createFromURL(FileLocator.find(getDefault().getBundle(), new Path(relativePath),null));
+			//descriptor = ImageDescriptor.createFromURL(new URL(url, relativePath)); 
 		} catch (Exception e) {
-			descriptor= ImageDescriptor.getMissingImageDescriptor();
+			descriptor = ImageDescriptor.getMissingImageDescriptor();
 		}
 		return descriptor;
 	}

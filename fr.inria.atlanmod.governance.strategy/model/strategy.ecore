@@ -3,8 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="strategy" nsURI="http://atlanmod.fr/strategy" nsPrefix="strategy">
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strategies" upperBound="-1"
-        eType="#//Strategy" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
         eType="#//Role" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="deadlines" upperBound="-1"
@@ -14,7 +14,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Strategy" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="deadline" eType="#//Deadline"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="filter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         unsettable="true"/>
@@ -26,7 +26,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" eType="#//StageType"
         unsettable="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Majority" eSuperTypes="#//Strategy">
+  <eClassifiers xsi:type="ecore:EClass" name="Majority" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="#//RangeType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minVotes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -37,13 +37,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="RatioMajority" eSuperTypes="#//Majority">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ratio" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LeaderDriven" eSuperTypes="#//Strategy">
+  <eClassifiers xsi:type="ecore:EClass" name="LeaderDriven" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="default" lowerBound="1"
-        eType="#//Strategy"/>
+        eType="#//Rule"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PhasedStrategy" eSuperTypes="#//Strategy">
+  <eClassifiers xsi:type="ecore:EClass" name="PhasedRule" eSuperTypes="#//Rule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="phases" upperBound="-1"
-        eType="#//Strategy"/>
+        eType="#//Rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Deadline" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

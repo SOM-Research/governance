@@ -37,7 +37,7 @@ public class StrategyParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getStrategyAccess().getAlternatives(), "rule__Strategy__Alternatives");
+					put(grammarAccess.getRuleAccess().getAlternatives(), "rule__Rule__Alternatives");
 					put(grammarAccess.getRatioMajorityAccess().getAlternatives_5(), "rule__RatioMajority__Alternatives_5");
 					put(grammarAccess.getLeaderDrivenAccess().getAlternatives_5(), "rule__LeaderDriven__Alternatives_5");
 					put(grammarAccess.getFilterAccess().getAlternatives_0_1(), "rule__Filter__Alternatives_0_1");
@@ -63,7 +63,7 @@ public class StrategyParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRatioMajorityAccess().getGroup_14(), "rule__RatioMajority__Group_14__0");
 					put(grammarAccess.getLeaderDrivenAccess().getGroup(), "rule__LeaderDriven__Group__0");
 					put(grammarAccess.getLeaderDrivenAccess().getGroup_6(), "rule__LeaderDriven__Group_6__0");
-					put(grammarAccess.getPhasedStrategyAccess().getGroup(), "rule__PhasedStrategy__Group__0");
+					put(grammarAccess.getPhasedRuleAccess().getGroup(), "rule__PhasedRule__Group__0");
 					put(grammarAccess.getFilterAccess().getGroup(), "rule__Filter__Group__0");
 					put(grammarAccess.getFilterAccess().getGroup_0(), "rule__Filter__Group_0__0");
 					put(grammarAccess.getFilterAccess().getGroup_1(), "rule__Filter__Group_1__0");
@@ -75,8 +75,8 @@ public class StrategyParser extends AbstractContentAssistParser {
 					put(grammarAccess.getProjectAccess().getRolesAssignment_4_3_1(), "rule__Project__RolesAssignment_4_3_1");
 					put(grammarAccess.getProjectAccess().getDeadlinesAssignment_5_2(), "rule__Project__DeadlinesAssignment_5_2");
 					put(grammarAccess.getProjectAccess().getDeadlinesAssignment_5_3_1(), "rule__Project__DeadlinesAssignment_5_3_1");
-					put(grammarAccess.getProjectAccess().getStrategiesAssignment_6_2(), "rule__Project__StrategiesAssignment_6_2");
-					put(grammarAccess.getProjectAccess().getStrategiesAssignment_6_3_1(), "rule__Project__StrategiesAssignment_6_3_1");
+					put(grammarAccess.getProjectAccess().getRulesAssignment_6_2(), "rule__Project__RulesAssignment_6_2");
+					put(grammarAccess.getProjectAccess().getRulesAssignment_6_3_1(), "rule__Project__RulesAssignment_6_3_1");
 					put(grammarAccess.getRoleAccess().getNameAssignment(), "rule__Role__NameAssignment");
 					put(grammarAccess.getMajorityAccess().getNameAssignment_0(), "rule__Majority__NameAssignment_0");
 					put(grammarAccess.getMajorityAccess().getAppliedToAssignment_5(), "rule__Majority__AppliedToAssignment_5");
@@ -99,8 +99,8 @@ public class StrategyParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLeaderDrivenAccess().getStageAssignment_8(), "rule__LeaderDriven__StageAssignment_8");
 					put(grammarAccess.getLeaderDrivenAccess().getDefaultAssignment_10(), "rule__LeaderDriven__DefaultAssignment_10");
 					put(grammarAccess.getLeaderDrivenAccess().getDeadlineAssignment_12(), "rule__LeaderDriven__DeadlineAssignment_12");
-					put(grammarAccess.getPhasedStrategyAccess().getNameAssignment_0(), "rule__PhasedStrategy__NameAssignment_0");
-					put(grammarAccess.getPhasedStrategyAccess().getPhasesAssignment_6(), "rule__PhasedStrategy__PhasesAssignment_6");
+					put(grammarAccess.getPhasedRuleAccess().getNameAssignment_0(), "rule__PhasedRule__NameAssignment_0");
+					put(grammarAccess.getPhasedRuleAccess().getPhasesAssignment_6(), "rule__PhasedRule__PhasesAssignment_6");
 					put(grammarAccess.getTimerAccess().getNameAssignment_1(), "rule__Timer__NameAssignment_1");
 					put(grammarAccess.getTimerAccess().getTimeStampAssignment_3(), "rule__Timer__TimeStampAssignment_3");
 					put(grammarAccess.getOCLConditionAccess().getOclExpressionAssignment(), "rule__OCLCondition__OclExpressionAssignment");

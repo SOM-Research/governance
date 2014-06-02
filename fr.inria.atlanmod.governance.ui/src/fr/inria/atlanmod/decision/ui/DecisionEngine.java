@@ -38,11 +38,11 @@ import fr.inria.atlanmod.governance.strategy.Deadline;
 import fr.inria.atlanmod.governance.strategy.LeaderDriven;
 import fr.inria.atlanmod.governance.strategy.Majority;
 import fr.inria.atlanmod.governance.strategy.OCLCondition;
-import fr.inria.atlanmod.governance.strategy.PhasedStrategy;
+import fr.inria.atlanmod.governance.strategy.PhasedRule;
 import fr.inria.atlanmod.governance.strategy.Project;
 import fr.inria.atlanmod.governance.strategy.RatioMajority;
 import fr.inria.atlanmod.governance.strategy.Role;
-import fr.inria.atlanmod.governance.strategy.Strategy;
+import fr.inria.atlanmod.governance.strategy.Rule;
 import fr.inria.atlanmod.governance.strategy.Timer;
 import fr.inria.atlanmod.governance.strategy.WaitForVote;
 
@@ -51,7 +51,7 @@ public class DecisionEngine {
 
 	private String user = "";
 	private HashMap<String, ProxyTask> tasks;
-	private Project strategies;
+	private Project rules;
 	private Interactions collaborations;
 
 	private File strategyFile;
@@ -88,40 +88,46 @@ public class DecisionEngine {
 
 	public void applyDecision() {
 		for(ProxyTask task : tasks.values()) {
-			Strategy strategy = findStrategyforTask(task);
-			Decision decision = applyStrategy(strategy, task);
+			Rule rule = findRuleforTask(task);
+			Decision decision = applyStrategy(rule, task);
 			task.setAccepted(decision.isAccepted());
 			if(collaborations != null) 
 				collaborations.getDecisions().add(decision);
+		}
+		
+		for(ProxyTask task : tasks.values()) {
+			Collaboration taskCollaboration = task.getCollaboration();
+			if(collaborations != null && taskCollaboration != null) 
+				collaborations.getCollaborations().add(taskCollaboration);
 		}
 		if(collaborations != null)
 			saveCollaboration();
 	}
 
-	private Strategy findStrategyforTask(ProxyTask task) {
-		if(strategies != null) 
-			for(Strategy strategy : strategies.getStrategies()) {
+	private Rule findRuleforTask(ProxyTask task) {
+		if(rules != null) 
+			for(Rule rule : rules.getRules()) {
 				// TODO Consider other values for CollaborationType
-				if(strategy.getAppliedTo().equals(CollaborationType.TASK)) {
-					if(isIncludedInFilter(strategy, task)) {
-						return strategy;
+				if(rule.getAppliedTo().equals(CollaborationType.TASK)) {
+					if(isIncludedInFilter(rule, task)) {
+						return rule;
 					}
 				}
 			}
 		return null;
 	}
 
-	private Decision applyStrategy(Strategy strategy, ProxyTask task) {
+	private Decision applyStrategy(Rule rule, ProxyTask task) {
 		Decision result = CollaborationFactory.eINSTANCE.createDecision();
-		result.setStrategy(strategy);
+		result.setRule(rule);
 		result.setDecides(task.getCollaboration());
 		result.setAccepted(false);
 
-		if (strategy instanceof Majority || strategy instanceof RatioMajority) {
-			Majority majority = (Majority) strategy;
+		if (rule instanceof Majority || rule instanceof RatioMajority) {
+			Majority majority = (Majority) rule;
 
-			if(deadlineMet(strategy, task)) {
-				int[] votes = getVotes(strategy, task);
+			if(deadlineMet(rule, task)) {
+				int[] votes = getVotes(rule, task);
 				int positiveVotes = votes[0];
 				int negativeVotes = votes[1];
 
@@ -149,10 +155,10 @@ public class DecisionEngine {
 					return result;
 				}
 			}
-		} else if (strategy instanceof LeaderDriven) {
-			LeaderDriven leaderDriven = (LeaderDriven) strategy;
+		} else if (rule instanceof LeaderDriven) {
+			LeaderDriven leaderDriven = (LeaderDriven) rule;
 			
-			if(deadlineMet(strategy, task)) {
+			if(deadlineMet(rule, task)) {
 				User leader = task.getCollaboration().getLeader();
 				List<Vote> votes = task.getCollaboration().getVotes();
 				for(Vote vote : votes) {
@@ -165,15 +171,15 @@ public class DecisionEngine {
 				return applyStrategy(leaderDriven.getDefault(), task);
 			}
 			
-		} else if (strategy instanceof PhasedStrategy) { 
-			PhasedStrategy phasedStrategy = (PhasedStrategy) strategy;
-			for(Strategy subStrategy : phasedStrategy.getPhases()) {
+		} else if (rule instanceof PhasedRule) { 
+			PhasedRule phasedRule = (PhasedRule) rule;
+			for(Rule subRule : phasedRule.getPhases()) {
 				boolean hasBeenDecided = false;
 				for(Decision decision : collaborations.getDecisions()) {
-					if(decision.getStrategy() == subStrategy) hasBeenDecided = true;
+					if(decision.getRule() == subRule) hasBeenDecided = true;
 				}
 				if(!hasBeenDecided) {
-					return applyStrategy(subStrategy, task);
+					return applyStrategy(subRule, task);
 				}
 			}
 		}
@@ -181,8 +187,8 @@ public class DecisionEngine {
 		return result;
 	}
 
-	private int[] getVotes(Strategy strategy, ProxyTask task) {
-		List<Vote> votes = calculateAllowedVotes(strategy, task);
+	private int[] getVotes(Rule rule, ProxyTask task) {
+		List<Vote> votes = calculateAllowedVotes(rule, task);
 		
 		int positiveResult = 0;
 		int negativeResult = 0;
@@ -195,9 +201,9 @@ public class DecisionEngine {
 		return result;
 	}
 
-	private List<Vote> calculateAllowedVotes(Strategy strategy, ProxyTask task) {
+	private List<Vote> calculateAllowedVotes(Rule rule, ProxyTask task) {
 		List<Vote> votes = task.getCollaboration().getVotes();
-		List<Role> allowedRoles = strategy.getPeople();
+		List<Role> allowedRoles = rule.getPeople();
 		
 		List<Vote> allowedVotes = new ArrayList<Vote>();
 		for(Vote vote : votes) {
@@ -222,8 +228,8 @@ public class DecisionEngine {
 		return allowedVotes;
 	}
 	
-	private boolean deadlineMet(Strategy strategy, ProxyTask task) {
-		Deadline deadline = strategy.getDeadline();
+	private boolean deadlineMet(Rule rule, ProxyTask task) {
+		Deadline deadline = rule.getDeadline();
 		if (deadline instanceof Timer) {
 			Timer timer = (Timer) deadline;
 			Date creationDate = task.getCreationDate();
@@ -278,8 +284,8 @@ public class DecisionEngine {
 		return true;
 	}
 
-	private boolean isIncludedInFilter(Strategy strategy, ProxyTask task) {
-		// TODO Dealing with filters
+	private boolean isIncludedInFilter(Rule rule, ProxyTask task) {
+		// TODO Dealing with filters 
 		return true;
 	}
 
@@ -304,7 +310,7 @@ public class DecisionEngine {
 
 		result = (Project) res.getContents().get(0);
 
-		strategies = result;	
+		rules = result;	
 	}
 
 	public void loadStrategyAndCollaboration(File strategyFile,	File collaborationFile) {
@@ -325,7 +331,7 @@ public class DecisionEngine {
 		}
 
 		project = (Project) resProject.getContents().get(0);
-		strategies = project;	
+		rules = project;	
 
 		Interactions interactions = null;
 		Resource resColl = rset.getResource(URI.createFileURI(collaborationFile.getAbsolutePath()), true);

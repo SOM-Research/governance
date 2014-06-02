@@ -106,8 +106,8 @@ public class DecisionView extends ViewPart implements ISelectionListener, IPartL
 			public void run() {
 				FileDialog dialogStrategy = new FileDialog(parent.getShell());
 				dialogStrategy.setText("Select file describing the strategy");
-				dialogStrategy.setFilterExtensions(new String[] { "*.strategy" });
-				dialogStrategy.setFilterNames(new String[] {"Strategy files(*.strategy)"});
+				dialogStrategy.setFilterExtensions(new String[] { "*.governance" });
+				dialogStrategy.setFilterNames(new String[] {"Governance files(*.governance)"});
 				String strategySelected = dialogStrategy.open();
 				File strategyFile = new File(strategySelected);				
 

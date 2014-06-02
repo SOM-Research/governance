@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalStrategyParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_FLOAT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Project'", "'{'", "'Roles'", "':'", "','", "'Deadlines'", "'Strategies'", "'}'", "'Majority'", "'applied to'", "'('", "')'", "'when'", "'people'", "'range'", "'minVotes'", "'deadline'", "'Ratio'", "'Task'", "'Patch'", "'Comment'", "'ratio'", "'LeaderDriven'", "'default'", "'phases'", "'='", "'!='", "'days'", "'TaskReview'", "'PatchReview'", "'Release'", "'Present'", "'Qualified'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_FLOAT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Project'", "'{'", "'Roles'", "':'", "','", "'Deadlines'", "'Rules'", "'}'", "'Majority'", "'applied to'", "'('", "')'", "'when'", "'people'", "'range'", "'minVotes'", "'deadline'", "'Ratio'", "'Task'", "'Patch'", "'Comment'", "'ratio'", "'LeaderDriven'", "'default'", "'phases'", "'='", "'!='", "'days'", "'TaskReview'", "'PatchReview'", "'Release'", "'Present'", "'Qualified'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -142,7 +142,7 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProject"
-    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:77:1: ruleProject returns [EObject current=null] : ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )* )? otherlv_19= '}' ) ;
+    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:77:1: ruleProject returns [EObject current=null] : ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )* )? otherlv_19= '}' ) ;
     public final EObject ruleProject() throws RecognitionException {
         EObject current = null;
 
@@ -167,19 +167,19 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
         EObject lv_deadlines_13_0 = null;
 
-        EObject lv_strategies_16_0 = null;
+        EObject lv_rules_16_0 = null;
 
-        EObject lv_strategies_18_0 = null;
+        EObject lv_rules_18_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:80:28: ( ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )* )? otherlv_19= '}' ) )
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:1: ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )* )? otherlv_19= '}' )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:80:28: ( ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )* )? otherlv_19= '}' ) )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:1: ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )* )? otherlv_19= '}' )
             {
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:1: ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )* )? otherlv_19= '}' )
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:2: () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )* )? otherlv_19= '}'
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:1: ( () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )* )? otherlv_19= '}' )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:2: () otherlv_1= 'Project' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' (otherlv_4= 'Roles' otherlv_5= ':' ( (lv_roles_6_0= ruleRole ) ) (otherlv_7= ',' ( (lv_roles_8_0= ruleRole ) ) )* )? (otherlv_9= 'Deadlines' otherlv_10= ':' ( (lv_deadlines_11_0= ruleDeadline ) ) (otherlv_12= ',' ( (lv_deadlines_13_0= ruleDeadline ) ) )* )? (otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )* )? otherlv_19= '}'
             {
             // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:81:2: ()
             // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:82:5: 
@@ -456,7 +456,7 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:209:6: (otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )* )?
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:209:6: (otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )* )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -465,27 +465,27 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:209:8: otherlv_14= 'Strategies' otherlv_15= ':' ( (lv_strategies_16_0= ruleStrategy ) ) (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )*
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:209:8: otherlv_14= 'Rules' otherlv_15= ':' ( (lv_rules_16_0= ruleRule ) ) (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )*
                     {
                     otherlv_14=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleProject346); 
 
-                        	newLeafNode(otherlv_14, grammarAccess.getProjectAccess().getStrategiesKeyword_6_0());
+                        	newLeafNode(otherlv_14, grammarAccess.getProjectAccess().getRulesKeyword_6_0());
                         
                     otherlv_15=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleProject358); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getProjectAccess().getColonKeyword_6_1());
                         
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:217:1: ( (lv_strategies_16_0= ruleStrategy ) )
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:218:1: (lv_strategies_16_0= ruleStrategy )
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:217:1: ( (lv_rules_16_0= ruleRule ) )
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:218:1: (lv_rules_16_0= ruleRule )
                     {
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:218:1: (lv_strategies_16_0= ruleStrategy )
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:219:3: lv_strategies_16_0= ruleStrategy
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:218:1: (lv_rules_16_0= ruleRule )
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:219:3: lv_rules_16_0= ruleRule
                     {
                      
-                    	        newCompositeNode(grammarAccess.getProjectAccess().getStrategiesStrategyParserRuleCall_6_2_0()); 
+                    	        newCompositeNode(grammarAccess.getProjectAccess().getRulesRuleParserRuleCall_6_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleStrategy_in_ruleProject379);
-                    lv_strategies_16_0=ruleStrategy();
+                    pushFollow(FollowSets000.FOLLOW_ruleRule_in_ruleProject379);
+                    lv_rules_16_0=ruleRule();
 
                     state._fsp--;
 
@@ -495,9 +495,9 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     	        }
                            		add(
                            			current, 
-                           			"strategies",
-                            		lv_strategies_16_0, 
-                            		"Strategy");
+                           			"rules",
+                            		lv_rules_16_0, 
+                            		"Rule");
                     	        afterParserOrEnumRuleCall();
                     	    
 
@@ -506,7 +506,7 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:235:2: (otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) ) )*
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:235:2: (otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) ) )*
                     loop5:
                     do {
                         int alt5=2;
@@ -519,23 +519,23 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:235:4: otherlv_17= ',' ( (lv_strategies_18_0= ruleStrategy ) )
+                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:235:4: otherlv_17= ',' ( (lv_rules_18_0= ruleRule ) )
                     	    {
                     	    otherlv_17=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleProject392); 
 
                     	        	newLeafNode(otherlv_17, grammarAccess.getProjectAccess().getCommaKeyword_6_3_0());
                     	        
-                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:239:1: ( (lv_strategies_18_0= ruleStrategy ) )
-                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:240:1: (lv_strategies_18_0= ruleStrategy )
+                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:239:1: ( (lv_rules_18_0= ruleRule ) )
+                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:240:1: (lv_rules_18_0= ruleRule )
                     	    {
-                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:240:1: (lv_strategies_18_0= ruleStrategy )
-                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:241:3: lv_strategies_18_0= ruleStrategy
+                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:240:1: (lv_rules_18_0= ruleRule )
+                    	    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:241:3: lv_rules_18_0= ruleRule
                     	    {
                     	     
-                    	    	        newCompositeNode(grammarAccess.getProjectAccess().getStrategiesStrategyParserRuleCall_6_3_1_0()); 
+                    	    	        newCompositeNode(grammarAccess.getProjectAccess().getRulesRuleParserRuleCall_6_3_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleStrategy_in_ruleProject413);
-                    	    lv_strategies_18_0=ruleStrategy();
+                    	    pushFollow(FollowSets000.FOLLOW_ruleRule_in_ruleProject413);
+                    	    lv_rules_18_0=ruleRule();
 
                     	    state._fsp--;
 
@@ -545,9 +545,9 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     	    	        }
                     	           		add(
                     	           			current, 
-                    	           			"strategies",
-                    	            		lv_strategies_18_0, 
-                    	            		"Strategy");
+                    	           			"rules",
+                    	            		lv_rules_18_0, 
+                    	            		"Rule");
                     	    	        afterParserOrEnumRuleCall();
                     	    	    
 
@@ -595,26 +595,26 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleProject"
 
 
-    // $ANTLR start "entryRuleStrategy"
-    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:269:1: entryRuleStrategy returns [EObject current=null] : iv_ruleStrategy= ruleStrategy EOF ;
-    public final EObject entryRuleStrategy() throws RecognitionException {
+    // $ANTLR start "entryRuleRule"
+    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:269:1: entryRuleRule returns [EObject current=null] : iv_ruleRule= ruleRule EOF ;
+    public final EObject entryRuleRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleStrategy = null;
+        EObject iv_ruleRule = null;
 
 
         try {
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:270:2: (iv_ruleStrategy= ruleStrategy EOF )
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:271:2: iv_ruleStrategy= ruleStrategy EOF
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:270:2: (iv_ruleRule= ruleRule EOF )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:271:2: iv_ruleRule= ruleRule EOF
             {
-             newCompositeNode(grammarAccess.getStrategyRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleStrategy_in_entryRuleStrategy465);
-            iv_ruleStrategy=ruleStrategy();
+             newCompositeNode(grammarAccess.getRuleRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleRule_in_entryRuleRule465);
+            iv_ruleRule=ruleRule();
 
             state._fsp--;
 
-             current =iv_ruleStrategy; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleStrategy475); 
+             current =iv_ruleRule; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRule475); 
 
             }
 
@@ -628,12 +628,12 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleStrategy"
+    // $ANTLR end "entryRuleRule"
 
 
-    // $ANTLR start "ruleStrategy"
-    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:278:1: ruleStrategy returns [EObject current=null] : (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedStrategy_3= rulePhasedStrategy ) ;
-    public final EObject ruleStrategy() throws RecognitionException {
+    // $ANTLR start "ruleRule"
+    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:278:1: ruleRule returns [EObject current=null] : (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedRule_3= rulePhasedRule ) ;
+    public final EObject ruleRule() throws RecognitionException {
         EObject current = null;
 
         EObject this_Majority_0 = null;
@@ -642,16 +642,16 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
         EObject this_LeaderDriven_2 = null;
 
-        EObject this_PhasedStrategy_3 = null;
+        EObject this_PhasedRule_3 = null;
 
 
          enterRule(); 
             
         try {
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:281:28: ( (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedStrategy_3= rulePhasedStrategy ) )
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:282:1: (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedStrategy_3= rulePhasedStrategy )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:281:28: ( (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedRule_3= rulePhasedRule ) )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:282:1: (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedRule_3= rulePhasedRule )
             {
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:282:1: (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedStrategy_3= rulePhasedStrategy )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:282:1: (this_Majority_0= ruleMajority | this_RatioMajority_1= ruleRatioMajority | this_LeaderDriven_2= ruleLeaderDriven | this_PhasedRule_3= rulePhasedRule )
             int alt7=4;
             int LA7_0 = input.LA(1);
 
@@ -724,9 +724,9 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:283:5: this_Majority_0= ruleMajority
                     {
                      
-                            newCompositeNode(grammarAccess.getStrategyAccess().getMajorityParserRuleCall_0()); 
+                            newCompositeNode(grammarAccess.getRuleAccess().getMajorityParserRuleCall_0()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleMajority_in_ruleStrategy522);
+                    pushFollow(FollowSets000.FOLLOW_ruleMajority_in_ruleRule522);
                     this_Majority_0=ruleMajority();
 
                     state._fsp--;
@@ -742,9 +742,9 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:293:5: this_RatioMajority_1= ruleRatioMajority
                     {
                      
-                            newCompositeNode(grammarAccess.getStrategyAccess().getRatioMajorityParserRuleCall_1()); 
+                            newCompositeNode(grammarAccess.getRuleAccess().getRatioMajorityParserRuleCall_1()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleRatioMajority_in_ruleStrategy549);
+                    pushFollow(FollowSets000.FOLLOW_ruleRatioMajority_in_ruleRule549);
                     this_RatioMajority_1=ruleRatioMajority();
 
                     state._fsp--;
@@ -760,9 +760,9 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:303:5: this_LeaderDriven_2= ruleLeaderDriven
                     {
                      
-                            newCompositeNode(grammarAccess.getStrategyAccess().getLeaderDrivenParserRuleCall_2()); 
+                            newCompositeNode(grammarAccess.getRuleAccess().getLeaderDrivenParserRuleCall_2()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleLeaderDriven_in_ruleStrategy576);
+                    pushFollow(FollowSets000.FOLLOW_ruleLeaderDriven_in_ruleRule576);
                     this_LeaderDriven_2=ruleLeaderDriven();
 
                     state._fsp--;
@@ -775,18 +775,18 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:313:5: this_PhasedStrategy_3= rulePhasedStrategy
+                    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:313:5: this_PhasedRule_3= rulePhasedRule
                     {
                      
-                            newCompositeNode(grammarAccess.getStrategyAccess().getPhasedStrategyParserRuleCall_3()); 
+                            newCompositeNode(grammarAccess.getRuleAccess().getPhasedRuleParserRuleCall_3()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_rulePhasedStrategy_in_ruleStrategy603);
-                    this_PhasedStrategy_3=rulePhasedStrategy();
+                    pushFollow(FollowSets000.FOLLOW_rulePhasedRule_in_ruleRule603);
+                    this_PhasedRule_3=rulePhasedRule();
 
                     state._fsp--;
 
                      
-                            current = this_PhasedStrategy_3; 
+                            current = this_PhasedRule_3; 
                             afterParserOrEnumRuleCall();
                         
 
@@ -809,7 +809,7 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleStrategy"
+    // $ANTLR end "ruleRule"
 
 
     // $ANTLR start "entryRuleRole"
@@ -2093,7 +2093,7 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                     
             otherlv_14=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleLeaderDriven1896); 
 
-            		newLeafNode(otherlv_14, grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0()); 
+            		newLeafNode(otherlv_14, grammarAccess.getLeaderDrivenAccess().getDefaultRuleCrossReference_10_0()); 
             	
 
             }
@@ -2150,26 +2150,26 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleLeaderDriven"
 
 
-    // $ANTLR start "entryRulePhasedStrategy"
-    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:961:1: entryRulePhasedStrategy returns [EObject current=null] : iv_rulePhasedStrategy= rulePhasedStrategy EOF ;
-    public final EObject entryRulePhasedStrategy() throws RecognitionException {
+    // $ANTLR start "entryRulePhasedRule"
+    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:961:1: entryRulePhasedRule returns [EObject current=null] : iv_rulePhasedRule= rulePhasedRule EOF ;
+    public final EObject entryRulePhasedRule() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_rulePhasedStrategy = null;
+        EObject iv_rulePhasedRule = null;
 
 
         try {
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:962:2: (iv_rulePhasedStrategy= rulePhasedStrategy EOF )
-            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:963:2: iv_rulePhasedStrategy= rulePhasedStrategy EOF
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:962:2: (iv_rulePhasedRule= rulePhasedRule EOF )
+            // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:963:2: iv_rulePhasedRule= rulePhasedRule EOF
             {
-             newCompositeNode(grammarAccess.getPhasedStrategyRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulePhasedStrategy_in_entryRulePhasedStrategy1976);
-            iv_rulePhasedStrategy=rulePhasedStrategy();
+             newCompositeNode(grammarAccess.getPhasedRuleRule()); 
+            pushFollow(FollowSets000.FOLLOW_rulePhasedRule_in_entryRulePhasedRule1976);
+            iv_rulePhasedRule=rulePhasedRule();
 
             state._fsp--;
 
-             current =iv_rulePhasedStrategy; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePhasedStrategy1986); 
+             current =iv_rulePhasedRule; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePhasedRule1986); 
 
             }
 
@@ -2183,12 +2183,12 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRulePhasedStrategy"
+    // $ANTLR end "entryRulePhasedRule"
 
 
-    // $ANTLR start "rulePhasedStrategy"
-    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:970:1: rulePhasedStrategy returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' otherlv_2= 'Ratio' otherlv_3= '{' otherlv_4= 'phases' otherlv_5= '{' ( (otherlv_6= RULE_ID ) )* otherlv_7= '}' otherlv_8= '}' ) ;
-    public final EObject rulePhasedStrategy() throws RecognitionException {
+    // $ANTLR start "rulePhasedRule"
+    // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:970:1: rulePhasedRule returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ':' otherlv_2= 'Ratio' otherlv_3= '{' otherlv_4= 'phases' otherlv_5= '{' ( (otherlv_6= RULE_ID ) )* otherlv_7= '}' otherlv_8= '}' ) ;
+    public final EObject rulePhasedRule() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_0_0=null;
@@ -2216,13 +2216,13 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
             // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:975:1: (lv_name_0_0= RULE_ID )
             // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:976:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePhasedStrategy2028); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePhasedRule2028); 
 
-            			newLeafNode(lv_name_0_0, grammarAccess.getPhasedStrategyAccess().getNameIDTerminalRuleCall_0_0()); 
+            			newLeafNode(lv_name_0_0, grammarAccess.getPhasedRuleAccess().getNameIDTerminalRuleCall_0_0()); 
             		
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getPhasedStrategyRule());
+            	            current = createModelElement(grammarAccess.getPhasedRuleRule());
             	        }
                    		setWithLastConsumed(
                    			current, 
@@ -2236,25 +2236,25 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,15,FollowSets000.FOLLOW_15_in_rulePhasedStrategy2045); 
+            otherlv_1=(Token)match(input,15,FollowSets000.FOLLOW_15_in_rulePhasedRule2045); 
 
-                	newLeafNode(otherlv_1, grammarAccess.getPhasedStrategyAccess().getColonKeyword_1());
+                	newLeafNode(otherlv_1, grammarAccess.getPhasedRuleAccess().getColonKeyword_1());
                 
-            otherlv_2=(Token)match(input,29,FollowSets000.FOLLOW_29_in_rulePhasedStrategy2057); 
+            otherlv_2=(Token)match(input,29,FollowSets000.FOLLOW_29_in_rulePhasedRule2057); 
 
-                	newLeafNode(otherlv_2, grammarAccess.getPhasedStrategyAccess().getRatioKeyword_2());
+                	newLeafNode(otherlv_2, grammarAccess.getPhasedRuleAccess().getRatioKeyword_2());
                 
-            otherlv_3=(Token)match(input,13,FollowSets000.FOLLOW_13_in_rulePhasedStrategy2069); 
+            otherlv_3=(Token)match(input,13,FollowSets000.FOLLOW_13_in_rulePhasedRule2069); 
 
-                	newLeafNode(otherlv_3, grammarAccess.getPhasedStrategyAccess().getLeftCurlyBracketKeyword_3());
+                	newLeafNode(otherlv_3, grammarAccess.getPhasedRuleAccess().getLeftCurlyBracketKeyword_3());
                 
-            otherlv_4=(Token)match(input,36,FollowSets000.FOLLOW_36_in_rulePhasedStrategy2081); 
+            otherlv_4=(Token)match(input,36,FollowSets000.FOLLOW_36_in_rulePhasedRule2081); 
 
-                	newLeafNode(otherlv_4, grammarAccess.getPhasedStrategyAccess().getPhasesKeyword_4());
+                	newLeafNode(otherlv_4, grammarAccess.getPhasedRuleAccess().getPhasesKeyword_4());
                 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_rulePhasedStrategy2093); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_rulePhasedRule2093); 
 
-                	newLeafNode(otherlv_5, grammarAccess.getPhasedStrategyAccess().getLeftCurlyBracketKeyword_5());
+                	newLeafNode(otherlv_5, grammarAccess.getPhasedRuleAccess().getLeftCurlyBracketKeyword_5());
                 
             // ../fr.inria.atlanmod.governance.strategy.language/src-gen/fr/inria/atlanmod/governance/parser/antlr/internal/InternalStrategy.g:1012:1: ( (otherlv_6= RULE_ID ) )*
             loop17:
@@ -2276,12 +2276,12 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
             	    {
 
             	    			if (current==null) {
-            	    	            current = createModelElement(grammarAccess.getPhasedStrategyRule());
+            	    	            current = createModelElement(grammarAccess.getPhasedRuleRule());
             	    	        }
             	            
-            	    otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePhasedStrategy2113); 
+            	    otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePhasedRule2113); 
 
-            	    		newLeafNode(otherlv_6, grammarAccess.getPhasedStrategyAccess().getPhasesStrategyCrossReference_6_0()); 
+            	    		newLeafNode(otherlv_6, grammarAccess.getPhasedRuleAccess().getPhasesRuleCrossReference_6_0()); 
             	    	
 
             	    }
@@ -2295,13 +2295,13 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_7=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulePhasedStrategy2126); 
+            otherlv_7=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulePhasedRule2126); 
 
-                	newLeafNode(otherlv_7, grammarAccess.getPhasedStrategyAccess().getRightCurlyBracketKeyword_7());
+                	newLeafNode(otherlv_7, grammarAccess.getPhasedRuleAccess().getRightCurlyBracketKeyword_7());
                 
-            otherlv_8=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulePhasedStrategy2138); 
+            otherlv_8=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulePhasedRule2138); 
 
-                	newLeafNode(otherlv_8, grammarAccess.getPhasedStrategyAccess().getRightCurlyBracketKeyword_8());
+                	newLeafNode(otherlv_8, grammarAccess.getPhasedRuleAccess().getRightCurlyBracketKeyword_8());
                 
 
             }
@@ -2320,7 +2320,7 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulePhasedStrategy"
+    // $ANTLR end "rulePhasedRule"
 
 
     // $ANTLR start "entryRuleFilter"
@@ -3414,16 +3414,16 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_ruleDeadline_in_ruleProject329 = new BitSet(new long[]{0x00000000000D0000L});
         public static final BitSet FOLLOW_18_in_ruleProject346 = new BitSet(new long[]{0x0000000000008000L});
         public static final BitSet FOLLOW_15_in_ruleProject358 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleStrategy_in_ruleProject379 = new BitSet(new long[]{0x0000000000090000L});
+        public static final BitSet FOLLOW_ruleRule_in_ruleProject379 = new BitSet(new long[]{0x0000000000090000L});
         public static final BitSet FOLLOW_16_in_ruleProject392 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleStrategy_in_ruleProject413 = new BitSet(new long[]{0x0000000000090000L});
+        public static final BitSet FOLLOW_ruleRule_in_ruleProject413 = new BitSet(new long[]{0x0000000000090000L});
         public static final BitSet FOLLOW_19_in_ruleProject429 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleStrategy_in_entryRuleStrategy465 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleStrategy475 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMajority_in_ruleStrategy522 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRatioMajority_in_ruleStrategy549 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleLeaderDriven_in_ruleStrategy576 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePhasedStrategy_in_ruleStrategy603 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRule_in_entryRuleRule465 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRule475 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMajority_in_ruleRule522 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRatioMajority_in_ruleRule549 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleLeaderDriven_in_ruleRule576 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePhasedRule_in_ruleRule603 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleRole_in_entryRuleRole638 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleRole648 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_ID_in_ruleRole689 = new BitSet(new long[]{0x0000000000000002L});
@@ -3499,17 +3499,17 @@ public class InternalStrategyParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_28_in_ruleLeaderDriven1908 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_RULE_ID_in_ruleLeaderDriven1928 = new BitSet(new long[]{0x0000000000080000L});
         public static final BitSet FOLLOW_19_in_ruleLeaderDriven1940 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePhasedStrategy_in_entryRulePhasedStrategy1976 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulePhasedStrategy1986 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulePhasedStrategy2028 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_rulePhasedStrategy2045 = new BitSet(new long[]{0x0000000020000000L});
-        public static final BitSet FOLLOW_29_in_rulePhasedStrategy2057 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_rulePhasedStrategy2069 = new BitSet(new long[]{0x0000001000000000L});
-        public static final BitSet FOLLOW_36_in_rulePhasedStrategy2081 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_rulePhasedStrategy2093 = new BitSet(new long[]{0x0000000000080010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulePhasedStrategy2113 = new BitSet(new long[]{0x0000000000080010L});
-        public static final BitSet FOLLOW_19_in_rulePhasedStrategy2126 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_rulePhasedStrategy2138 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePhasedRule_in_entryRulePhasedRule1976 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePhasedRule1986 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulePhasedRule2028 = new BitSet(new long[]{0x0000000000008000L});
+        public static final BitSet FOLLOW_15_in_rulePhasedRule2045 = new BitSet(new long[]{0x0000000020000000L});
+        public static final BitSet FOLLOW_29_in_rulePhasedRule2057 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_rulePhasedRule2069 = new BitSet(new long[]{0x0000001000000000L});
+        public static final BitSet FOLLOW_36_in_rulePhasedRule2081 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_rulePhasedRule2093 = new BitSet(new long[]{0x0000000000080010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulePhasedRule2113 = new BitSet(new long[]{0x0000000000080010L});
+        public static final BitSet FOLLOW_19_in_rulePhasedRule2126 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_rulePhasedRule2138 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleFilter_in_entryRuleFilter2175 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleFilter2186 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_RULE_ID_in_ruleFilter2227 = new BitSet(new long[]{0x0000006000000000L});

@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/fr/inria/atlanmod/governance/Strategy.xtext"
-var file.extensions = "strategy"
+var file.extensions = "governance"
 var projectName = "fr.inria.atlanmod.governance.strategy.language"
 var runtimeProject = "../${projectName}"
 

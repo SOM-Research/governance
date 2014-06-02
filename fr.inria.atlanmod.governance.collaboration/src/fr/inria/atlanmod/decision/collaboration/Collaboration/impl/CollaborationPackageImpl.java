@@ -414,7 +414,7 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDecision_Strategy() {
+	public EReference getDecision_Rule() {
 		return (EReference)decisionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -541,7 +541,7 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		createEAttribute(decisionEClass, DECISION__TIME_STAMP);
 		createEReference(decisionEClass, DECISION__VOTES);
 		createEReference(decisionEClass, DECISION__DECIDES);
-		createEReference(decisionEClass, DECISION__STRATEGY);
+		createEReference(decisionEClass, DECISION__RULE);
 
 		metadataEClass = createEClass(METADATA);
 
@@ -622,7 +622,7 @@ public class CollaborationPackageImpl extends EPackageImpl implements Collaborat
 		initEAttribute(getDecision_TimeStamp(), ecorePackage.getEString(), "timeStamp", null, 0, 1, Decision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDecision_Votes(), this.getVote(), this.getVote_ArePart(), "votes", null, 0, -1, Decision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDecision_Decides(), this.getCollaboration(), this.getCollaboration_IsDecided(), "decides", null, 0, 1, Decision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDecision_Strategy(), theStrategyPackage.getStrategy(), null, "strategy", null, 0, 1, Decision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDecision_Rule(), theStrategyPackage.getRule(), null, "rule", null, 0, 1, Decision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(metadataEClass, Metadata.class, "Metadata", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

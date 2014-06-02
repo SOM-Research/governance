@@ -67,13 +67,13 @@ public interface StrategyFactory extends EFactory {
 	LeaderDriven createLeaderDriven();
 
 	/**
-	 * Returns a new object of class '<em>Phased Strategy</em>'.
+	 * Returns a new object of class '<em>Phased Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Phased Strategy</em>'.
+	 * @return a new object of class '<em>Phased Rule</em>'.
 	 * @generated
 	 */
-	PhasedStrategy createPhasedStrategy();
+	PhasedRule createPhasedRule();
 
 	/**
 	 * Returns a new object of class '<em>Timer</em>'.

@@ -32,12 +32,12 @@ protected class ThisRootNode extends RootToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Project_Group(this, this, 0, inst);
-			case 1: return new Strategy_Alternatives(this, this, 1, inst);
+			case 1: return new Rule_Alternatives(this, this, 1, inst);
 			case 2: return new Role_NameAssignment(this, this, 2, inst);
 			case 3: return new Majority_Group(this, this, 3, inst);
 			case 4: return new RatioMajority_Group(this, this, 4, inst);
 			case 5: return new LeaderDriven_Group(this, this, 5, inst);
-			case 6: return new PhasedStrategy_Group(this, this, 6, inst);
+			case 6: return new PhasedRule_Group(this, this, 6, inst);
 			case 7: return new Deadline_Alternatives(this, this, 7, inst);
 			case 8: return new Timer_Group(this, this, 8, inst);
 			case 9: return new OCLCondition_OclExpressionAssignment(this, this, 9, inst);
@@ -54,13 +54,13 @@ protected class ThisRootNode extends RootToken {
  * 
  * 	{Project} "Project" name=ID "{" ("Roles" ":" roles+=Role ("," roles+=Role)*)? ("Deadlines" ":" deadlines+=Deadline
  * 
- * 	("," deadlines+=Deadline)*)? ("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)? "}";
+ * 	("," deadlines+=Deadline)*)? ("Rules" ":" rules+=Rule ("," rules+=Rule)*)? "}";
  *
  **/
 
 // {Project} "Project" name=ID "{" ("Roles" ":" roles+=Role ("," roles+=Role)*)? ("Deadlines" ":" deadlines+=Deadline (","
 // 
-// deadlines+=Deadline)*)? ("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)? "}"
+// deadlines+=Deadline)*)? ("Rules" ":" rules+=Rule ("," rules+=Rule)*)? "}"
 protected class Project_Group extends GroupToken {
 	
 	public Project_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -606,7 +606,7 @@ protected class Project_DeadlinesAssignment_5_3_1 extends AssignmentToken  {
 
 
 
-// ("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)?
+// ("Rules" ":" rules+=Rule ("," rules+=Rule)*)?
 protected class Project_Group_6 extends GroupToken {
 	
 	public Project_Group_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -622,23 +622,23 @@ protected class Project_Group_6 extends GroupToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Project_Group_6_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Project_StrategiesAssignment_6_2(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new Project_RulesAssignment_6_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// "Strategies"
-protected class Project_StrategiesKeyword_6_0 extends KeywordToken  {
+// "Rules"
+protected class Project_RulesKeyword_6_0 extends KeywordToken  {
 	
-	public Project_StrategiesKeyword_6_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Project_RulesKeyword_6_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getProjectAccess().getStrategiesKeyword_6_0();
+		return grammarAccess.getProjectAccess().getRulesKeyword_6_0();
 	}
 
     @Override
@@ -668,42 +668,42 @@ protected class Project_ColonKeyword_6_1 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Project_StrategiesKeyword_6_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Project_RulesKeyword_6_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// strategies+=Strategy
-protected class Project_StrategiesAssignment_6_2 extends AssignmentToken  {
+// rules+=Rule
+protected class Project_RulesAssignment_6_2 extends AssignmentToken  {
 	
-	public Project_StrategiesAssignment_6_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Project_RulesAssignment_6_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProjectAccess().getStrategiesAssignment_6_2();
+		return grammarAccess.getProjectAccess().getRulesAssignment_6_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Strategy_Alternatives(this, this, 0, inst);
+			case 0: return new Rule_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("strategies",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("strategies");
+		if((value = eObjectConsumer.getConsumable("rules",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("rules");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getStrategyRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRuleRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getProjectAccess().getStrategiesStrategyParserRuleCall_6_2_0(); 
+				element = grammarAccess.getProjectAccess().getRulesRuleParserRuleCall_6_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -721,7 +721,7 @@ protected class Project_StrategiesAssignment_6_2 extends AssignmentToken  {
 	}	
 }
 
-// ("," strategies+=Strategy)*
+// ("," rules+=Rule)*
 protected class Project_Group_6_3 extends GroupToken {
 	
 	public Project_Group_6_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -736,7 +736,7 @@ protected class Project_Group_6_3 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Project_StrategiesAssignment_6_3_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Project_RulesAssignment_6_3_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -759,42 +759,42 @@ protected class Project_CommaKeyword_6_3_0 extends KeywordToken  {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new Project_Group_6_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Project_StrategiesAssignment_6_2(lastRuleCallOrigin, this, 1, inst);
+			case 1: return new Project_RulesAssignment_6_2(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// strategies+=Strategy
-protected class Project_StrategiesAssignment_6_3_1 extends AssignmentToken  {
+// rules+=Rule
+protected class Project_RulesAssignment_6_3_1 extends AssignmentToken  {
 	
-	public Project_StrategiesAssignment_6_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Project_RulesAssignment_6_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getProjectAccess().getStrategiesAssignment_6_3_1();
+		return grammarAccess.getProjectAccess().getRulesAssignment_6_3_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Strategy_Alternatives(this, this, 0, inst);
+			case 0: return new Rule_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("strategies",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("strategies");
+		if((value = eObjectConsumer.getConsumable("rules",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("rules");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getStrategyRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getRuleRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getProjectAccess().getStrategiesStrategyParserRuleCall_6_3_1_0(); 
+				element = grammarAccess.getProjectAccess().getRulesRuleParserRuleCall_6_3_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -843,33 +843,33 @@ protected class Project_RightCurlyBracketKeyword_7 extends KeywordToken  {
 /************ end Rule Project ****************/
 
 
-/************ begin Rule Strategy ****************
+/************ begin Rule Rule ****************
  *
- * Strategy:
+ * Rule:
  * 
- * 	Majority | RatioMajority | LeaderDriven | PhasedStrategy;
+ * 	Majority | RatioMajority | LeaderDriven | PhasedRule;
  *
  **/
 
-// Majority | RatioMajority | LeaderDriven | PhasedStrategy
-protected class Strategy_Alternatives extends AlternativesToken {
+// Majority | RatioMajority | LeaderDriven | PhasedRule
+protected class Rule_Alternatives extends AlternativesToken {
 
-	public Strategy_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Rule_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getStrategyAccess().getAlternatives();
+		return grammarAccess.getRuleAccess().getAlternatives();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Strategy_MajorityParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Strategy_RatioMajorityParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new Strategy_LeaderDrivenParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new Strategy_PhasedStrategyParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
+			case 0: return new Rule_MajorityParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Rule_RatioMajorityParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Rule_LeaderDrivenParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new Rule_PhasedRuleParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
@@ -878,7 +878,7 @@ protected class Strategy_Alternatives extends AlternativesToken {
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getLeaderDrivenRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getMajorityRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPhasedStrategyRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getPhasedRuleRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getRatioMajorityRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -887,15 +887,15 @@ protected class Strategy_Alternatives extends AlternativesToken {
 }
 
 // Majority
-protected class Strategy_MajorityParserRuleCall_0 extends RuleCallToken {
+protected class Rule_MajorityParserRuleCall_0 extends RuleCallToken {
 	
-	public Strategy_MajorityParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Rule_MajorityParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getStrategyAccess().getMajorityParserRuleCall_0();
+		return grammarAccess.getRuleAccess().getMajorityParserRuleCall_0();
 	}
 
     @Override
@@ -923,15 +923,15 @@ protected class Strategy_MajorityParserRuleCall_0 extends RuleCallToken {
 }
 
 // RatioMajority
-protected class Strategy_RatioMajorityParserRuleCall_1 extends RuleCallToken {
+protected class Rule_RatioMajorityParserRuleCall_1 extends RuleCallToken {
 	
-	public Strategy_RatioMajorityParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Rule_RatioMajorityParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getStrategyAccess().getRatioMajorityParserRuleCall_1();
+		return grammarAccess.getRuleAccess().getRatioMajorityParserRuleCall_1();
 	}
 
     @Override
@@ -959,15 +959,15 @@ protected class Strategy_RatioMajorityParserRuleCall_1 extends RuleCallToken {
 }
 
 // LeaderDriven
-protected class Strategy_LeaderDrivenParserRuleCall_2 extends RuleCallToken {
+protected class Rule_LeaderDrivenParserRuleCall_2 extends RuleCallToken {
 	
-	public Strategy_LeaderDrivenParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Rule_LeaderDrivenParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getStrategyAccess().getLeaderDrivenParserRuleCall_2();
+		return grammarAccess.getRuleAccess().getLeaderDrivenParserRuleCall_2();
 	}
 
     @Override
@@ -994,31 +994,31 @@ protected class Strategy_LeaderDrivenParserRuleCall_2 extends RuleCallToken {
 	}	
 }
 
-// PhasedStrategy
-protected class Strategy_PhasedStrategyParserRuleCall_3 extends RuleCallToken {
+// PhasedRule
+protected class Rule_PhasedRuleParserRuleCall_3 extends RuleCallToken {
 	
-	public Strategy_PhasedStrategyParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Rule_PhasedRuleParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getStrategyAccess().getPhasedStrategyParserRuleCall_3();
+		return grammarAccess.getRuleAccess().getPhasedRuleParserRuleCall_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_Group(this, this, 0, inst);
+			case 0: return new PhasedRule_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getPhasedStrategyRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getPhasedRuleRule().getType().getClassifier())
 			return null;
-		if(checkForRecursion(PhasedStrategy_Group.class, eObjectConsumer)) return null;
+		if(checkForRecursion(PhasedRule_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	
@@ -1031,7 +1031,7 @@ protected class Strategy_PhasedStrategyParserRuleCall_3 extends RuleCallToken {
 }
 
 
-/************ end Rule Strategy ****************/
+/************ end Rule Rule ****************/
 
 
 /************ begin Rule Role ****************
@@ -2393,13 +2393,13 @@ protected class RatioMajority_RightCurlyBracketKeyword_19 extends KeywordToken  
  * 
  * 	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
  * 
- * 	stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}";
+ * 	stage=StageType "default" default=[Rule] "deadline" deadline=[Deadline] "}";
  *
  **/
 
 // name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 // 
-// stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}"
+// stage=StageType "default" default=[Rule] "deadline" deadline=[Deadline] "}"
 protected class LeaderDriven_Group extends GroupToken {
 	
 	public LeaderDriven_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2774,7 +2774,7 @@ protected class LeaderDriven_DefaultKeyword_9 extends KeywordToken  {
 
 }
 
-// default=[Strategy]
+// default=[Rule]
 protected class LeaderDriven_DefaultAssignment_10 extends AssignmentToken  {
 	
 	public LeaderDriven_DefaultAssignment_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2800,9 +2800,9 @@ protected class LeaderDriven_DefaultAssignment_10 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("default");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getLeaderDrivenAccess().getDefaultRuleCrossReference_10_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0(); 
+				element = grammarAccess.getLeaderDrivenAccess().getDefaultRuleCrossReference_10_0(); 
 				return obj;
 			}
 		}
@@ -2896,37 +2896,37 @@ protected class LeaderDriven_RightCurlyBracketKeyword_13 extends KeywordToken  {
 /************ end Rule LeaderDriven ****************/
 
 
-/************ begin Rule PhasedStrategy ****************
+/************ begin Rule PhasedRule ****************
  *
- * PhasedStrategy:
+ * PhasedRule:
  * 
- * 	name=ID ":" "Ratio" "{" "phases" "{" phases+=[Strategy]* "}" "}";
+ * 	name=ID ":" "Ratio" "{" "phases" "{" phases+=[Rule]* "}" "}";
  *
  **/
 
-// name=ID ":" "Ratio" "{" "phases" "{" phases+=[Strategy]* "}" "}"
-protected class PhasedStrategy_Group extends GroupToken {
+// name=ID ":" "Ratio" "{" "phases" "{" phases+=[Rule]* "}" "}"
+protected class PhasedRule_Group extends GroupToken {
 	
-	public PhasedStrategy_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getGroup();
+		return grammarAccess.getPhasedRuleAccess().getGroup();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_RightCurlyBracketKeyword_8(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_RightCurlyBracketKeyword_8(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getPhasedStrategyRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getPhasedRuleRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
@@ -2934,15 +2934,15 @@ protected class PhasedStrategy_Group extends GroupToken {
 }
 
 // name=ID
-protected class PhasedStrategy_NameAssignment_0 extends AssignmentToken  {
+protected class PhasedRule_NameAssignment_0 extends AssignmentToken  {
 	
-	public PhasedStrategy_NameAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_NameAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getNameAssignment_0();
+		return grammarAccess.getPhasedRuleAccess().getNameAssignment_0();
 	}
 
     @Override
@@ -2956,9 +2956,9 @@ protected class PhasedStrategy_NameAssignment_0 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPhasedStrategyAccess().getNameIDTerminalRuleCall_0_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPhasedRuleAccess().getNameIDTerminalRuleCall_0_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getPhasedStrategyAccess().getNameIDTerminalRuleCall_0_0();
+			element = grammarAccess.getPhasedRuleAccess().getNameIDTerminalRuleCall_0_0();
 			return obj;
 		}
 		return null;
@@ -2967,21 +2967,21 @@ protected class PhasedStrategy_NameAssignment_0 extends AssignmentToken  {
 }
 
 // ":"
-protected class PhasedStrategy_ColonKeyword_1 extends KeywordToken  {
+protected class PhasedRule_ColonKeyword_1 extends KeywordToken  {
 	
-	public PhasedStrategy_ColonKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_ColonKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getColonKeyword_1();
+		return grammarAccess.getPhasedRuleAccess().getColonKeyword_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_NameAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_NameAssignment_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2989,21 +2989,21 @@ protected class PhasedStrategy_ColonKeyword_1 extends KeywordToken  {
 }
 
 // "Ratio"
-protected class PhasedStrategy_RatioKeyword_2 extends KeywordToken  {
+protected class PhasedRule_RatioKeyword_2 extends KeywordToken  {
 	
-	public PhasedStrategy_RatioKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_RatioKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getRatioKeyword_2();
+		return grammarAccess.getPhasedRuleAccess().getRatioKeyword_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_ColonKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_ColonKeyword_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -3011,21 +3011,21 @@ protected class PhasedStrategy_RatioKeyword_2 extends KeywordToken  {
 }
 
 // "{"
-protected class PhasedStrategy_LeftCurlyBracketKeyword_3 extends KeywordToken  {
+protected class PhasedRule_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 	
-	public PhasedStrategy_LeftCurlyBracketKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_LeftCurlyBracketKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getLeftCurlyBracketKeyword_3();
+		return grammarAccess.getPhasedRuleAccess().getLeftCurlyBracketKeyword_3();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_RatioKeyword_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_RatioKeyword_2(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -3033,21 +3033,21 @@ protected class PhasedStrategy_LeftCurlyBracketKeyword_3 extends KeywordToken  {
 }
 
 // "phases"
-protected class PhasedStrategy_PhasesKeyword_4 extends KeywordToken  {
+protected class PhasedRule_PhasesKeyword_4 extends KeywordToken  {
 	
-	public PhasedStrategy_PhasesKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_PhasesKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getPhasesKeyword_4();
+		return grammarAccess.getPhasedRuleAccess().getPhasesKeyword_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_LeftCurlyBracketKeyword_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -3055,44 +3055,44 @@ protected class PhasedStrategy_PhasesKeyword_4 extends KeywordToken  {
 }
 
 // "{"
-protected class PhasedStrategy_LeftCurlyBracketKeyword_5 extends KeywordToken  {
+protected class PhasedRule_LeftCurlyBracketKeyword_5 extends KeywordToken  {
 	
-	public PhasedStrategy_LeftCurlyBracketKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_LeftCurlyBracketKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getLeftCurlyBracketKeyword_5();
+		return grammarAccess.getPhasedRuleAccess().getLeftCurlyBracketKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_PhasesKeyword_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_PhasesKeyword_4(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// phases+=[Strategy]*
-protected class PhasedStrategy_PhasesAssignment_6 extends AssignmentToken  {
+// phases+=[Rule]*
+protected class PhasedRule_PhasesAssignment_6 extends AssignmentToken  {
 	
-	public PhasedStrategy_PhasesAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_PhasesAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getPhasesAssignment_6();
+		return grammarAccess.getPhasedRuleAccess().getPhasesAssignment_6();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_PhasesAssignment_6(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new PhasedStrategy_LeftCurlyBracketKeyword_5(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new PhasedRule_PhasesAssignment_6(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new PhasedRule_LeftCurlyBracketKeyword_5(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -3103,9 +3103,9 @@ protected class PhasedStrategy_PhasesAssignment_6 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("phases");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::CrossReferenceImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPhasedStrategyAccess().getPhasesStrategyCrossReference_6_0().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getPhasedRuleAccess().getPhasesRuleCrossReference_6_0().getType().getClassifier())) {
 				type = AssignmentType.CROSS_REFERENCE;
-				element = grammarAccess.getPhasedStrategyAccess().getPhasesStrategyCrossReference_6_0(); 
+				element = grammarAccess.getPhasedRuleAccess().getPhasesRuleCrossReference_6_0(); 
 				return obj;
 			}
 		}
@@ -3115,22 +3115,22 @@ protected class PhasedStrategy_PhasesAssignment_6 extends AssignmentToken  {
 }
 
 // "}"
-protected class PhasedStrategy_RightCurlyBracketKeyword_7 extends KeywordToken  {
+protected class PhasedRule_RightCurlyBracketKeyword_7 extends KeywordToken  {
 	
-	public PhasedStrategy_RightCurlyBracketKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_RightCurlyBracketKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getRightCurlyBracketKeyword_7();
+		return grammarAccess.getPhasedRuleAccess().getRightCurlyBracketKeyword_7();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_PhasesAssignment_6(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new PhasedStrategy_LeftCurlyBracketKeyword_5(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new PhasedRule_PhasesAssignment_6(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new PhasedRule_LeftCurlyBracketKeyword_5(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -3138,21 +3138,21 @@ protected class PhasedStrategy_RightCurlyBracketKeyword_7 extends KeywordToken  
 }
 
 // "}"
-protected class PhasedStrategy_RightCurlyBracketKeyword_8 extends KeywordToken  {
+protected class PhasedRule_RightCurlyBracketKeyword_8 extends KeywordToken  {
 	
-	public PhasedStrategy_RightCurlyBracketKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public PhasedRule_RightCurlyBracketKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getPhasedStrategyAccess().getRightCurlyBracketKeyword_8();
+		return grammarAccess.getPhasedRuleAccess().getRightCurlyBracketKeyword_8();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new PhasedStrategy_RightCurlyBracketKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new PhasedRule_RightCurlyBracketKeyword_7(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -3160,7 +3160,7 @@ protected class PhasedStrategy_RightCurlyBracketKeyword_8 extends KeywordToken  
 }
 
 
-/************ end Rule PhasedStrategy ****************/
+/************ end Rule PhasedRule ****************/
 
 
 

@@ -46,26 +46,26 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDeadlinesAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
 		private final RuleCall cDeadlinesDeadlineParserRuleCall_5_3_1_0 = (RuleCall)cDeadlinesAssignment_5_3_1.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cStrategiesKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Keyword cRulesKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Keyword cColonKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
-		private final Assignment cStrategiesAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cStrategiesStrategyParserRuleCall_6_2_0 = (RuleCall)cStrategiesAssignment_6_2.eContents().get(0);
+		private final Assignment cRulesAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
+		private final RuleCall cRulesRuleParserRuleCall_6_2_0 = (RuleCall)cRulesAssignment_6_2.eContents().get(0);
 		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
 		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cStrategiesAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cStrategiesStrategyParserRuleCall_6_3_1_0 = (RuleCall)cStrategiesAssignment_6_3_1.eContents().get(0);
+		private final Assignment cRulesAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
+		private final RuleCall cRulesRuleParserRuleCall_6_3_1_0 = (RuleCall)cRulesAssignment_6_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Project:
 		//
 		//	{Project} "Project" name=ID "{" ("Roles" ":" roles+=Role ("," roles+=Role)*)? ("Deadlines" ":" deadlines+=Deadline
 		//
-		//	("," deadlines+=Deadline)*)? ("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)? "}";
+		//	("," deadlines+=Deadline)*)? ("Rules" ":" rules+=Rule ("," rules+=Rule)*)? "}";
 		public ParserRule getRule() { return rule; }
 
 		//{Project} "Project" name=ID "{" ("Roles" ":" roles+=Role ("," roles+=Role)*)? ("Deadlines" ":" deadlines+=Deadline (","
 		//
-		//deadlines+=Deadline)*)? ("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)? "}"
+		//deadlines+=Deadline)*)? ("Rules" ":" rules+=Rule ("," rules+=Rule)*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{Project}
@@ -137,51 +137,51 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//Deadline
 		public RuleCall getDeadlinesDeadlineParserRuleCall_5_3_1_0() { return cDeadlinesDeadlineParserRuleCall_5_3_1_0; }
 
-		//("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)?
+		//("Rules" ":" rules+=Rule ("," rules+=Rule)*)?
 		public Group getGroup_6() { return cGroup_6; }
 
-		//"Strategies"
-		public Keyword getStrategiesKeyword_6_0() { return cStrategiesKeyword_6_0; }
+		//"Rules"
+		public Keyword getRulesKeyword_6_0() { return cRulesKeyword_6_0; }
 
 		//":"
 		public Keyword getColonKeyword_6_1() { return cColonKeyword_6_1; }
 
-		//strategies+=Strategy
-		public Assignment getStrategiesAssignment_6_2() { return cStrategiesAssignment_6_2; }
+		//rules+=Rule
+		public Assignment getRulesAssignment_6_2() { return cRulesAssignment_6_2; }
 
-		//Strategy
-		public RuleCall getStrategiesStrategyParserRuleCall_6_2_0() { return cStrategiesStrategyParserRuleCall_6_2_0; }
+		//Rule
+		public RuleCall getRulesRuleParserRuleCall_6_2_0() { return cRulesRuleParserRuleCall_6_2_0; }
 
-		//("," strategies+=Strategy)*
+		//("," rules+=Rule)*
 		public Group getGroup_6_3() { return cGroup_6_3; }
 
 		//","
 		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
 
-		//strategies+=Strategy
-		public Assignment getStrategiesAssignment_6_3_1() { return cStrategiesAssignment_6_3_1; }
+		//rules+=Rule
+		public Assignment getRulesAssignment_6_3_1() { return cRulesAssignment_6_3_1; }
 
-		//Strategy
-		public RuleCall getStrategiesStrategyParserRuleCall_6_3_1_0() { return cStrategiesStrategyParserRuleCall_6_3_1_0; }
+		//Rule
+		public RuleCall getRulesRuleParserRuleCall_6_3_1_0() { return cRulesRuleParserRuleCall_6_3_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
-	public class StrategyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Strategy");
+	public class RuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Rule");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cMajorityParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cRatioMajorityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cLeaderDrivenParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cPhasedStrategyParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPhasedRuleParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//Strategy:
+		//Rule:
 		//
-		//	Majority | RatioMajority | LeaderDriven | PhasedStrategy;
+		//	Majority | RatioMajority | LeaderDriven | PhasedRule;
 		public ParserRule getRule() { return rule; }
 
-		//Majority | RatioMajority | LeaderDriven | PhasedStrategy
+		//Majority | RatioMajority | LeaderDriven | PhasedRule
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Majority
@@ -193,8 +193,8 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//LeaderDriven
 		public RuleCall getLeaderDrivenParserRuleCall_2() { return cLeaderDrivenParserRuleCall_2; }
 
-		//PhasedStrategy
-		public RuleCall getPhasedStrategyParserRuleCall_3() { return cPhasedStrategyParserRuleCall_3; }
+		//PhasedRule
+		public RuleCall getPhasedRuleParserRuleCall_3() { return cPhasedRuleParserRuleCall_3; }
 	}
 
 	public class RoleElements extends AbstractParserRuleElementFinder {
@@ -587,8 +587,8 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStageStageTypeEnumRuleCall_8_0 = (RuleCall)cStageAssignment_8.eContents().get(0);
 		private final Keyword cDefaultKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		private final Assignment cDefaultAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final CrossReference cDefaultStrategyCrossReference_10_0 = (CrossReference)cDefaultAssignment_10.eContents().get(0);
-		private final RuleCall cDefaultStrategyIDTerminalRuleCall_10_0_1 = (RuleCall)cDefaultStrategyCrossReference_10_0.eContents().get(1);
+		private final CrossReference cDefaultRuleCrossReference_10_0 = (CrossReference)cDefaultAssignment_10.eContents().get(0);
+		private final RuleCall cDefaultRuleIDTerminalRuleCall_10_0_1 = (RuleCall)cDefaultRuleCrossReference_10_0.eContents().get(1);
 		private final Keyword cDeadlineKeyword_11 = (Keyword)cGroup.eContents().get(11);
 		private final Assignment cDeadlineAssignment_12 = (Assignment)cGroup.eContents().get(12);
 		private final CrossReference cDeadlineDeadlineCrossReference_12_0 = (CrossReference)cDeadlineAssignment_12.eContents().get(0);
@@ -599,12 +599,12 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		//	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 		//
-		//	stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}";
+		//	stage=StageType "default" default=[Rule] "deadline" deadline=[Deadline] "}";
 		public ParserRule getRule() { return rule; }
 
 		//name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 		//
-		//stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}"
+		//stage=StageType "default" default=[Rule] "deadline" deadline=[Deadline] "}"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -664,14 +664,14 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//"default"
 		public Keyword getDefaultKeyword_9() { return cDefaultKeyword_9; }
 
-		//default=[Strategy]
+		//default=[Rule]
 		public Assignment getDefaultAssignment_10() { return cDefaultAssignment_10; }
 
-		//[Strategy]
-		public CrossReference getDefaultStrategyCrossReference_10_0() { return cDefaultStrategyCrossReference_10_0; }
+		//[Rule]
+		public CrossReference getDefaultRuleCrossReference_10_0() { return cDefaultRuleCrossReference_10_0; }
 
 		//ID
-		public RuleCall getDefaultStrategyIDTerminalRuleCall_10_0_1() { return cDefaultStrategyIDTerminalRuleCall_10_0_1; }
+		public RuleCall getDefaultRuleIDTerminalRuleCall_10_0_1() { return cDefaultRuleIDTerminalRuleCall_10_0_1; }
 
 		//"deadline"
 		public Keyword getDeadlineKeyword_11() { return cDeadlineKeyword_11; }
@@ -689,8 +689,8 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
 	}
 
-	public class PhasedStrategyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PhasedStrategy");
+	public class PhasedRuleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PhasedRule");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
@@ -700,17 +700,17 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPhasesKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cPhasesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cPhasesStrategyCrossReference_6_0 = (CrossReference)cPhasesAssignment_6.eContents().get(0);
-		private final RuleCall cPhasesStrategyIDTerminalRuleCall_6_0_1 = (RuleCall)cPhasesStrategyCrossReference_6_0.eContents().get(1);
+		private final CrossReference cPhasesRuleCrossReference_6_0 = (CrossReference)cPhasesAssignment_6.eContents().get(0);
+		private final RuleCall cPhasesRuleIDTerminalRuleCall_6_0_1 = (RuleCall)cPhasesRuleCrossReference_6_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//PhasedStrategy:
+		//PhasedRule:
 		//
-		//	name=ID ":" "Ratio" "{" "phases" "{" phases+=[Strategy]* "}" "}";
+		//	name=ID ":" "Ratio" "{" "phases" "{" phases+=[Rule]* "}" "}";
 		public ParserRule getRule() { return rule; }
 
-		//name=ID ":" "Ratio" "{" "phases" "{" phases+=[Strategy]* "}" "}"
+		//name=ID ":" "Ratio" "{" "phases" "{" phases+=[Rule]* "}" "}"
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -734,14 +734,14 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 
-		//phases+=[Strategy]*
+		//phases+=[Rule]*
 		public Assignment getPhasesAssignment_6() { return cPhasesAssignment_6; }
 
-		//[Strategy]
-		public CrossReference getPhasesStrategyCrossReference_6_0() { return cPhasesStrategyCrossReference_6_0; }
+		//[Rule]
+		public CrossReference getPhasesRuleCrossReference_6_0() { return cPhasesRuleCrossReference_6_0; }
 
 		//ID
-		public RuleCall getPhasesStrategyIDTerminalRuleCall_6_0_1() { return cPhasesStrategyIDTerminalRuleCall_6_0_1; }
+		public RuleCall getPhasesRuleIDTerminalRuleCall_6_0_1() { return cPhasesRuleIDTerminalRuleCall_6_0_1; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
@@ -1048,12 +1048,12 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	private ProjectElements pProject;
-	private StrategyElements pStrategy;
+	private RuleElements pRule;
 	private RoleElements pRole;
 	private MajorityElements pMajority;
 	private RatioMajorityElements pRatioMajority;
 	private LeaderDrivenElements pLeaderDriven;
-	private PhasedStrategyElements pPhasedStrategy;
+	private PhasedRuleElements pPhasedRule;
 	private FilterElements pFilter;
 	private DeadlineElements pDeadline;
 	private TimerElements pTimer;
@@ -1106,7 +1106,7 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	{Project} "Project" name=ID "{" ("Roles" ":" roles+=Role ("," roles+=Role)*)? ("Deadlines" ":" deadlines+=Deadline
 	//
-	//	("," deadlines+=Deadline)*)? ("Strategies" ":" strategies+=Strategy ("," strategies+=Strategy)*)? "}";
+	//	("," deadlines+=Deadline)*)? ("Rules" ":" rules+=Rule ("," rules+=Rule)*)? "}";
 	public ProjectElements getProjectAccess() {
 		return (pProject != null) ? pProject : (pProject = new ProjectElements());
 	}
@@ -1115,15 +1115,15 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		return getProjectAccess().getRule();
 	}
 
-	//Strategy:
+	//Rule:
 	//
-	//	Majority | RatioMajority | LeaderDriven | PhasedStrategy;
-	public StrategyElements getStrategyAccess() {
-		return (pStrategy != null) ? pStrategy : (pStrategy = new StrategyElements());
+	//	Majority | RatioMajority | LeaderDriven | PhasedRule;
+	public RuleElements getRuleAccess() {
+		return (pRule != null) ? pRule : (pRule = new RuleElements());
 	}
 	
-	public ParserRule getStrategyRule() {
-		return getStrategyAccess().getRule();
+	public ParserRule getRuleRule() {
+		return getRuleAccess().getRule();
 	}
 
 	//Role:
@@ -1171,7 +1171,7 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	name=ID ":" "LeaderDriven" "{" "applied to" ("Task" | "Patch" | "Comment") ("(" filter=Filter ")")? "when"
 	//
-	//	stage=StageType "default" default=[Strategy] "deadline" deadline=[Deadline] "}";
+	//	stage=StageType "default" default=[Rule] "deadline" deadline=[Deadline] "}";
 	public LeaderDrivenElements getLeaderDrivenAccess() {
 		return (pLeaderDriven != null) ? pLeaderDriven : (pLeaderDriven = new LeaderDrivenElements());
 	}
@@ -1180,15 +1180,15 @@ public class StrategyGrammarAccess extends AbstractGrammarElementFinder {
 		return getLeaderDrivenAccess().getRule();
 	}
 
-	//PhasedStrategy:
+	//PhasedRule:
 	//
-	//	name=ID ":" "Ratio" "{" "phases" "{" phases+=[Strategy]* "}" "}";
-	public PhasedStrategyElements getPhasedStrategyAccess() {
-		return (pPhasedStrategy != null) ? pPhasedStrategy : (pPhasedStrategy = new PhasedStrategyElements());
+	//	name=ID ":" "Ratio" "{" "phases" "{" phases+=[Rule]* "}" "}";
+	public PhasedRuleElements getPhasedRuleAccess() {
+		return (pPhasedRule != null) ? pPhasedRule : (pPhasedRule = new PhasedRuleElements());
 	}
 	
-	public ParserRule getPhasedStrategyRule() {
-		return getPhasedStrategyAccess().getRule();
+	public ParserRule getPhasedRuleRule() {
+		return getPhasedRuleAccess().getRule();
 	}
 
 	//Filter:

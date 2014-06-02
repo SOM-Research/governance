@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<strategy:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:strategy="http://atlanmod.fr/strategy"
+    name="myProject">
+  <strategies
+      xsi:type="strategy:Majority"
+      deadline="//@deadlines.0"
+      people="//@roles.0"
+      name="myMajorityStrategy"/>
+  <roles name="Committers"/>
+  <deadlines
+      xsi:type="strategy:Timer"
+      name="myDeadline"
+      timeStamp="7"/>
+</strategy:Project>

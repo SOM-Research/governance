@@ -7,7 +7,7 @@ import fr.inria.atlanmod.decision.collaboration.Collaboration.CollaborationPacka
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Decision;
 import fr.inria.atlanmod.decision.collaboration.Collaboration.Vote;
 
-import fr.inria.atlanmod.governance.strategy.Strategy;
+import fr.inria.atlanmod.governance.strategy.Rule;
 
 import java.util.Collection;
 
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.impl.DecisionImpl#getTimeStamp <em>Time Stamp</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.impl.DecisionImpl#getVotes <em>Votes</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.impl.DecisionImpl#getDecides <em>Decides</em>}</li>
- *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.impl.DecisionImpl#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.impl.DecisionImpl#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,14 +104,14 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	protected Collaboration decides;
 
 	/**
-	 * The cached value of the '{@link #getStrategy() <em>Strategy</em>}' reference.
+	 * The cached value of the '{@link #getRule() <em>Rule</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStrategy()
+	 * @see #getRule()
 	 * @generated
 	 * @ordered
 	 */
-	protected Strategy strategy;
+	protected Rule rule;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -251,16 +251,16 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Strategy getStrategy() {
-		if (strategy != null && strategy.eIsProxy()) {
-			InternalEObject oldStrategy = (InternalEObject)strategy;
-			strategy = (Strategy)eResolveProxy(oldStrategy);
-			if (strategy != oldStrategy) {
+	public Rule getRule() {
+		if (rule != null && rule.eIsProxy()) {
+			InternalEObject oldRule = (InternalEObject)rule;
+			rule = (Rule)eResolveProxy(oldRule);
+			if (rule != oldRule) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CollaborationPackage.DECISION__STRATEGY, oldStrategy, strategy));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CollaborationPackage.DECISION__RULE, oldRule, rule));
 			}
 		}
-		return strategy;
+		return rule;
 	}
 
 	/**
@@ -268,8 +268,8 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Strategy basicGetStrategy() {
-		return strategy;
+	public Rule basicGetRule() {
+		return rule;
 	}
 
 	/**
@@ -277,11 +277,11 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStrategy(Strategy newStrategy) {
-		Strategy oldStrategy = strategy;
-		strategy = newStrategy;
+	public void setRule(Rule newRule) {
+		Rule oldRule = rule;
+		rule = newRule;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CollaborationPackage.DECISION__STRATEGY, oldStrategy, strategy));
+			eNotify(new ENotificationImpl(this, Notification.SET, CollaborationPackage.DECISION__RULE, oldRule, rule));
 	}
 
 	/**
@@ -336,9 +336,9 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 			case CollaborationPackage.DECISION__DECIDES:
 				if (resolve) return getDecides();
 				return basicGetDecides();
-			case CollaborationPackage.DECISION__STRATEGY:
-				if (resolve) return getStrategy();
-				return basicGetStrategy();
+			case CollaborationPackage.DECISION__RULE:
+				if (resolve) return getRule();
+				return basicGetRule();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,8 +365,8 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 			case CollaborationPackage.DECISION__DECIDES:
 				setDecides((Collaboration)newValue);
 				return;
-			case CollaborationPackage.DECISION__STRATEGY:
-				setStrategy((Strategy)newValue);
+			case CollaborationPackage.DECISION__RULE:
+				setRule((Rule)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -392,8 +392,8 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 			case CollaborationPackage.DECISION__DECIDES:
 				setDecides((Collaboration)null);
 				return;
-			case CollaborationPackage.DECISION__STRATEGY:
-				setStrategy((Strategy)null);
+			case CollaborationPackage.DECISION__RULE:
+				setRule((Rule)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -415,8 +415,8 @@ public class DecisionImpl extends EObjectImpl implements Decision {
 				return votes != null && !votes.isEmpty();
 			case CollaborationPackage.DECISION__DECIDES:
 				return decides != null;
-			case CollaborationPackage.DECISION__STRATEGY:
-				return strategy != null;
+			case CollaborationPackage.DECISION__RULE:
+				return rule != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -9,12 +9,12 @@ Project returns Project:
 	'Project' name=ID '{'
 	('Roles' ':' roles+=Role ( "," roles+=Role)*  )?
 	('Deadlines' ':' deadlines+=Deadline ( "," deadlines+=Deadline)*  )?
-	('Strategies' ':' strategies+=Strategy ( "," strategies+=Strategy)*)?
+	('Rules' ':' rules+=Rule ( "," rules+=Rule)*)?
 	'}' 
-	;  
-
-Strategy returns Strategy: 
-	Majority | RatioMajority | LeaderDriven | PhasedStrategy;
+	;      
+ 
+Rule returns Rule: 
+	Majority | RatioMajority | LeaderDriven | PhasedRule;
   
 Role returns Role: 
 	name=ID  
@@ -48,14 +48,14 @@ LeaderDriven returns LeaderDriven:
 	'{' 
 		'applied to' ('Task' | 'Patch' | 'Comment') ('(' filter=Filter ')')?
 		'when' stage=StageType
-		'default' default=[Strategy|ID]
+		'default' default=[Rule|ID]
 		'deadline' deadline=[Deadline|ID]
 	'}';	
 	 
-PhasedStrategy returns PhasedStrategy: 
+PhasedRule returns PhasedRule: 
 	name=ID ':' 'Ratio'
 	'{' 
-		'phases' '{' phases+=[Strategy|ID]* '}'
+		'phases' '{' phases+=[Rule|ID]* '}'
 	'}';	
 		 
 Filter:

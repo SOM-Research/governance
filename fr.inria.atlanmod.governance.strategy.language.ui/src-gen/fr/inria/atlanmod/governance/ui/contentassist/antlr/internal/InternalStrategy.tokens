@@ -45,6 +45,7 @@ RULE_WS=10
 'days'=44
 'Project'=22
 'LeaderDriven'=41
+'Rules'=29
 'deadline'=35
 '='=15
 ')'=37
@@ -54,7 +55,6 @@ RULE_WS=10
 'people'=33
 'minVotes'=38
 '}'=24
-'Strategies'=29
 'Present'=20
 'ratio'=40
 '{'=23

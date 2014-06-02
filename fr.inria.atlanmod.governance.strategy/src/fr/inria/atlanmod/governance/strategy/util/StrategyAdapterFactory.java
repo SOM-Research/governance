@@ -76,8 +76,8 @@ public class StrategyAdapterFactory extends AdapterFactoryImpl {
 				return createRoleAdapter();
 			}
 			@Override
-			public Adapter caseStrategy(Strategy object) {
-				return createStrategyAdapter();
+			public Adapter caseRule(Rule object) {
+				return createRuleAdapter();
 			}
 			@Override
 			public Adapter caseMajority(Majority object) {
@@ -92,8 +92,8 @@ public class StrategyAdapterFactory extends AdapterFactoryImpl {
 				return createLeaderDrivenAdapter();
 			}
 			@Override
-			public Adapter casePhasedStrategy(PhasedStrategy object) {
-				return createPhasedStrategyAdapter();
+			public Adapter casePhasedRule(PhasedRule object) {
+				return createPhasedRuleAdapter();
 			}
 			@Override
 			public Adapter caseDeadline(Deadline object) {
@@ -160,16 +160,16 @@ public class StrategyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.atlanmod.governance.strategy.Strategy <em>Strategy</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.inria.atlanmod.governance.strategy.Rule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.inria.atlanmod.governance.strategy.Strategy
+	 * @see fr.inria.atlanmod.governance.strategy.Rule
 	 * @generated
 	 */
-	public Adapter createStrategyAdapter() {
+	public Adapter createRuleAdapter() {
 		return null;
 	}
 
@@ -216,16 +216,16 @@ public class StrategyAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link fr.inria.atlanmod.governance.strategy.PhasedStrategy <em>Phased Strategy</em>}'.
+	 * Creates a new adapter for an object of class '{@link fr.inria.atlanmod.governance.strategy.PhasedRule <em>Phased Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see fr.inria.atlanmod.governance.strategy.PhasedStrategy
+	 * @see fr.inria.atlanmod.governance.strategy.PhasedRule
 	 * @generated
 	 */
-	public Adapter createPhasedStrategyAdapter() {
+	public Adapter createPhasedRuleAdapter() {
 		return null;
 	}
 

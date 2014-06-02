@@ -20,7 +20,7 @@ package fr.inria.atlanmod.governance.strategy;
  * @model
  * @generated
  */
-public interface Majority extends Strategy {
+public interface Majority extends Rule {
 	/**
 	 * Returns the value of the '<em><b>Range</b></em>' attribute.
 	 * The literals are from the enumeration {@link fr.inria.atlanmod.governance.strategy.RangeType}.

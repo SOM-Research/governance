@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.inria.atlanmod.governance.strategy.Project#getName <em>Name</em>}</li>
- *   <li>{@link fr.inria.atlanmod.governance.strategy.Project#getStrategies <em>Strategies</em>}</li>
+ *   <li>{@link fr.inria.atlanmod.governance.strategy.Project#getRules <em>Rules</em>}</li>
  *   <li>{@link fr.inria.atlanmod.governance.strategy.Project#getRoles <em>Roles</em>}</li>
  *   <li>{@link fr.inria.atlanmod.governance.strategy.Project#getDeadlines <em>Deadlines</em>}</li>
  * </ul>
@@ -53,20 +53,20 @@ public interface Project extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Strategies</b></em>' containment reference list.
-	 * The list contents are of type {@link fr.inria.atlanmod.governance.strategy.Strategy}.
+	 * Returns the value of the '<em><b>Rules</b></em>' containment reference list.
+	 * The list contents are of type {@link fr.inria.atlanmod.governance.strategy.Rule}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Strategies</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Rules</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Strategies</em>' containment reference list.
-	 * @see fr.inria.atlanmod.governance.strategy.StrategyPackage#getProject_Strategies()
+	 * @return the value of the '<em>Rules</em>' containment reference list.
+	 * @see fr.inria.atlanmod.governance.strategy.StrategyPackage#getProject_Rules()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Strategy> getStrategies();
+	EList<Rule> getRules();
 
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' containment reference list.

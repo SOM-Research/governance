@@ -66,9 +66,9 @@ public class ProxyTask {
 		this.collaboration = collaboration;
 		collaboration.setName(getTaskId());
 
-		String owner = getOwner();
-		User user = locateUser(owner);
-		collaboration.setLeader(user);
+//		String owner = getOwner();
+//		User user = locateUser(owner);
+//		collaboration.setLeader(user);
 	}
 	
 	
@@ -148,18 +148,20 @@ public class ProxyTask {
 				for(User user : interactions.getUsers()) {
 					if(user.getName().equals(name)) return user;
 				}
+			} 
+			else {
+				User newUser = CollaborationFactory.eINSTANCE.createUser();
+				newUser.setName(name);
+				if (collaboration.eContainer() instanceof Interactions) {
+					Interactions interactions = (Interactions) collaboration.eContainer();
+					interactions.getUsers().add(newUser);
+				}
+				return newUser;
 			}
 			
-			User newUser = CollaborationFactory.eINSTANCE.createUser();
-			newUser.setName(name);
-			if (collaboration.eContainer() instanceof Interactions) {
-				Interactions interactions = (Interactions) collaboration.eContainer();
-				interactions.getUsers().add(newUser);
-			}
-			return newUser;
-		} else {
-			return null;
-		}
+		} 
+		return null;
+		
 	}
 
 }

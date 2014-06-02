@@ -2,16 +2,14 @@
  */
 package fr.inria.atlanmod.governance.strategy.impl;
 
-import fr.inria.atlanmod.governance.strategy.LeaderDriven;
-import fr.inria.atlanmod.governance.strategy.Strategy;
-import fr.inria.atlanmod.governance.strategy.StrategyPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import fr.inria.atlanmod.governance.strategy.LeaderDriven;
+import fr.inria.atlanmod.governance.strategy.Rule;
+import fr.inria.atlanmod.governance.strategy.StrategyPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
+public class LeaderDrivenImpl extends RuleImpl implements LeaderDriven {
 	/**
 	 * The cached value of the '{@link #getDefault() <em>Default</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -35,7 +33,7 @@ public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
 	 * @generated
 	 * @ordered
 	 */
-	protected Strategy default_;
+	protected Rule default_;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,10 +59,10 @@ public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Strategy getDefault() {
+	public Rule getDefault() {
 		if (default_ != null && default_.eIsProxy()) {
 			InternalEObject oldDefault = (InternalEObject)default_;
-			default_ = (Strategy)eResolveProxy(oldDefault);
+			default_ = (Rule)eResolveProxy(oldDefault);
 			if (default_ != oldDefault) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, StrategyPackage.LEADER_DRIVEN__DEFAULT, oldDefault, default_));
@@ -78,7 +76,7 @@ public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Strategy basicGetDefault() {
+	public Rule basicGetDefault() {
 		return default_;
 	}
 
@@ -87,8 +85,8 @@ public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDefault(Strategy newDefault) {
-		Strategy oldDefault = default_;
+	public void setDefault(Rule newDefault) {
+		Rule oldDefault = default_;
 		default_ = newDefault;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, StrategyPackage.LEADER_DRIVEN__DEFAULT, oldDefault, default_));
@@ -118,7 +116,7 @@ public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case StrategyPackage.LEADER_DRIVEN__DEFAULT:
-				setDefault((Strategy)newValue);
+				setDefault((Rule)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,7 +131,7 @@ public class LeaderDrivenImpl extends StrategyImpl implements LeaderDriven {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case StrategyPackage.LEADER_DRIVEN__DEFAULT:
-				setDefault((Strategy)null);
+				setDefault((Rule)null);
 				return;
 		}
 		super.eUnset(featureID);

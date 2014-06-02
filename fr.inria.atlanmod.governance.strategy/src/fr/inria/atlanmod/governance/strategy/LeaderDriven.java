@@ -19,7 +19,7 @@ package fr.inria.atlanmod.governance.strategy;
  * @model
  * @generated
  */
-public interface LeaderDriven extends Strategy {
+public interface LeaderDriven extends Rule {
 	/**
 	 * Returns the value of the '<em><b>Default</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -29,12 +29,12 @@ public interface LeaderDriven extends Strategy {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default</em>' reference.
-	 * @see #setDefault(Strategy)
+	 * @see #setDefault(Rule)
 	 * @see fr.inria.atlanmod.governance.strategy.StrategyPackage#getLeaderDriven_Default()
 	 * @model required="true"
 	 * @generated
 	 */
-	Strategy getDefault();
+	Rule getDefault();
 
 	/**
 	 * Sets the value of the '{@link fr.inria.atlanmod.governance.strategy.LeaderDriven#getDefault <em>Default</em>}' reference.
@@ -44,6 +44,6 @@ public interface LeaderDriven extends Strategy {
 	 * @see #getDefault()
 	 * @generated
 	 */
-	void setDefault(Strategy value);
+	void setDefault(Rule value);
 
 } // LeaderDriven

@@ -1,0 +1,7 @@
+Project myProject {
+	Roles : Committers Deadlines : myDeadline : 7 days Strategies :
+	myMajorityStrategy : Majority {
+		applied to Task when TaskReview people Committers range Present deadline
+		myDeadline
+	}
+}

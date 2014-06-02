@@ -9,7 +9,7 @@
             class="fr.inria.atlanmod.governance.ui.StrategyExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="strategy"
+            extensions="governance"
             id="fr.inria.atlanmod.governance.Strategy"
             name="Strategy Editor">
         </editor>
@@ -140,7 +140,7 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="fr.inria.atlanmod.governance.ui.StrategyExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="strategy">
+			type="governance">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">

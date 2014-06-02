@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MajorityImpl extends StrategyImpl implements Majority {
+public class MajorityImpl extends RuleImpl implements Majority {
 	/**
 	 * The default value of the '{@link #getRange() <em>Range</em>}' attribute.
 	 * <!-- begin-user-doc -->

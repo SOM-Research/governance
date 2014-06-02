@@ -47,7 +47,7 @@
         eType="#//Vote" eOpposite="#//Vote/arePart"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="decides" eType="#//Collaboration"
         eOpposite="#//Collaboration/isDecided"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="strategy" eType="ecore:EClass ../../fr.inria.atlanmod.governance.strategy/model/strategy.ecore#//Strategy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" eType="ecore:EClass ../../fr.inria.atlanmod.governance.strategy/model/strategy.ecore#//Rule"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metadata"/>
   <eClassifiers xsi:type="ecore:EClass" name="Priority" eSuperTypes="#//Metadata">

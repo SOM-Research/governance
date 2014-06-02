@@ -349,13 +349,13 @@ public interface CollaborationPackage extends EPackage {
 	int DECISION__DECIDES = 3;
 
 	/**
-	 * The feature id for the '<em><b>Strategy</b></em>' reference.
+	 * The feature id for the '<em><b>Rule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DECISION__STRATEGY = 4;
+	int DECISION__RULE = 4;
 
 	/**
 	 * The number of structural features of the '<em>Decision</em>' class.
@@ -774,15 +774,15 @@ public interface CollaborationPackage extends EPackage {
 	EReference getDecision_Decides();
 
 	/**
-	 * Returns the meta object for the reference '{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getStrategy <em>Strategy</em>}'.
+	 * Returns the meta object for the reference '{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getRule <em>Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Strategy</em>'.
-	 * @see fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getStrategy()
+	 * @return the meta object for the reference '<em>Rule</em>'.
+	 * @see fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getRule()
 	 * @see #getDecision()
 	 * @generated
 	 */
-	EReference getDecision_Strategy();
+	EReference getDecision_Rule();
 
 	/**
 	 * Returns the meta object for class '{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Metadata <em>Metadata</em>}'.
@@ -1114,12 +1114,12 @@ public interface CollaborationPackage extends EPackage {
 		EReference DECISION__DECIDES = eINSTANCE.getDecision_Decides();
 
 		/**
-		 * The meta object literal for the '<em><b>Strategy</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Rule</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DECISION__STRATEGY = eINSTANCE.getDecision_Strategy();
+		EReference DECISION__RULE = eINSTANCE.getDecision_Rule();
 
 		/**
 		 * The meta object literal for the '{@link fr.inria.atlanmod.decision.collaboration.Collaboration.impl.MetadataImpl <em>Metadata</em>}' class.

@@ -2,7 +2,7 @@
  */
 package fr.inria.atlanmod.decision.collaboration.Collaboration;
 
-import fr.inria.atlanmod.governance.strategy.Strategy;
+import fr.inria.atlanmod.governance.strategy.Rule;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getTimeStamp <em>Time Stamp</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getVotes <em>Votes</em>}</li>
  *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getDecides <em>Decides</em>}</li>
- *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getStrategy <em>Strategy</em>}</li>
+ *   <li>{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getRule <em>Rule</em>}</li>
  * </ul>
  * </p>
  *
@@ -128,29 +128,29 @@ public interface Decision extends EObject {
 	void setDecides(Collaboration value);
 
 	/**
-	 * Returns the value of the '<em><b>Strategy</b></em>' reference.
+	 * Returns the value of the '<em><b>Rule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Strategy</em>' reference isn't clear,
+	 * If the meaning of the '<em>Rule</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Strategy</em>' reference.
-	 * @see #setStrategy(Strategy)
-	 * @see fr.inria.atlanmod.decision.collaboration.Collaboration.CollaborationPackage#getDecision_Strategy()
+	 * @return the value of the '<em>Rule</em>' reference.
+	 * @see #setRule(Rule)
+	 * @see fr.inria.atlanmod.decision.collaboration.Collaboration.CollaborationPackage#getDecision_Rule()
 	 * @model
 	 * @generated
 	 */
-	Strategy getStrategy();
+	Rule getRule();
 
 	/**
-	 * Sets the value of the '{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getStrategy <em>Strategy</em>}' reference.
+	 * Sets the value of the '{@link fr.inria.atlanmod.decision.collaboration.Collaboration.Decision#getRule <em>Rule</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Strategy</em>' reference.
-	 * @see #getStrategy()
+	 * @param value the new value of the '<em>Rule</em>' reference.
+	 * @see #getRule()
 	 * @generated
 	 */
-	void setStrategy(Strategy value);
+	void setRule(Rule value);
 
 } // Decision

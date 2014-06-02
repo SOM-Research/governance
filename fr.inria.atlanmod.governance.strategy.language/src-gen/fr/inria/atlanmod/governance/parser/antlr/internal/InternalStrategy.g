@@ -206,9 +206,9 @@ ruleProject returns [EObject current=null]
 	    }
 
 )
-))*)?(	otherlv_14='Strategies' 
+))*)?(	otherlv_14='Rules' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getProjectAccess().getStrategiesKeyword_6_0());
+    	newLeafNode(otherlv_14, grammarAccess.getProjectAccess().getRulesKeyword_6_0());
     }
 	otherlv_15=':' 
     {
@@ -217,17 +217,17 @@ ruleProject returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProjectAccess().getStrategiesStrategyParserRuleCall_6_2_0()); 
+	        newCompositeNode(grammarAccess.getProjectAccess().getRulesRuleParserRuleCall_6_2_0()); 
 	    }
-		lv_strategies_16_0=ruleStrategy		{
+		lv_rules_16_0=ruleRule		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProjectRule());
 	        }
        		add(
        			$current, 
-       			"strategies",
-        		lv_strategies_16_0, 
-        		"Strategy");
+       			"rules",
+        		lv_rules_16_0, 
+        		"Rule");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -239,17 +239,17 @@ ruleProject returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProjectAccess().getStrategiesStrategyParserRuleCall_6_3_1_0()); 
+	        newCompositeNode(grammarAccess.getProjectAccess().getRulesRuleParserRuleCall_6_3_1_0()); 
 	    }
-		lv_strategies_18_0=ruleStrategy		{
+		lv_rules_18_0=ruleRule		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getProjectRule());
 	        }
        		add(
        			$current, 
-       			"strategies",
-        		lv_strategies_18_0, 
-        		"Strategy");
+       			"rules",
+        		lv_rules_18_0, 
+        		"Rule");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -265,23 +265,23 @@ ruleProject returns [EObject current=null]
 
 
 
-// Entry rule entryRuleStrategy
-entryRuleStrategy returns [EObject current=null] 
+// Entry rule entryRuleRule
+entryRuleRule returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getStrategyRule()); }
-	 iv_ruleStrategy=ruleStrategy 
-	 { $current=$iv_ruleStrategy.current; } 
+	{ newCompositeNode(grammarAccess.getRuleRule()); }
+	 iv_ruleRule=ruleRule 
+	 { $current=$iv_ruleRule.current; } 
 	 EOF 
 ;
 
-// Rule Strategy
-ruleStrategy returns [EObject current=null] 
+// Rule Rule
+ruleRule returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getStrategyAccess().getMajorityParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getRuleAccess().getMajorityParserRuleCall_0()); 
     }
     this_Majority_0=ruleMajority
     { 
@@ -291,7 +291,7 @@ ruleStrategy returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getStrategyAccess().getRatioMajorityParserRuleCall_1()); 
+        newCompositeNode(grammarAccess.getRuleAccess().getRatioMajorityParserRuleCall_1()); 
     }
     this_RatioMajority_1=ruleRatioMajority
     { 
@@ -301,7 +301,7 @@ ruleStrategy returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getStrategyAccess().getLeaderDrivenParserRuleCall_2()); 
+        newCompositeNode(grammarAccess.getRuleAccess().getLeaderDrivenParserRuleCall_2()); 
     }
     this_LeaderDriven_2=ruleLeaderDriven
     { 
@@ -311,11 +311,11 @@ ruleStrategy returns [EObject current=null]
 
     |
     { 
-        newCompositeNode(grammarAccess.getStrategyAccess().getPhasedStrategyParserRuleCall_3()); 
+        newCompositeNode(grammarAccess.getRuleAccess().getPhasedRuleParserRuleCall_3()); 
     }
-    this_PhasedStrategy_3=rulePhasedStrategy
+    this_PhasedRule_3=rulePhasedRule
     { 
-        $current = $this_PhasedStrategy_3.current; 
+        $current = $this_PhasedRule_3.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -925,7 +925,7 @@ ruleLeaderDriven returns [EObject current=null]
         }
 	otherlv_14=RULE_ID
 	{
-		newLeafNode(otherlv_14, grammarAccess.getLeaderDrivenAccess().getDefaultStrategyCrossReference_10_0()); 
+		newLeafNode(otherlv_14, grammarAccess.getLeaderDrivenAccess().getDefaultRuleCrossReference_10_0()); 
 	}
 
 )
@@ -957,17 +957,17 @@ ruleLeaderDriven returns [EObject current=null]
 
 
 
-// Entry rule entryRulePhasedStrategy
-entryRulePhasedStrategy returns [EObject current=null] 
+// Entry rule entryRulePhasedRule
+entryRulePhasedRule returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getPhasedStrategyRule()); }
-	 iv_rulePhasedStrategy=rulePhasedStrategy 
-	 { $current=$iv_rulePhasedStrategy.current; } 
+	{ newCompositeNode(grammarAccess.getPhasedRuleRule()); }
+	 iv_rulePhasedRule=rulePhasedRule 
+	 { $current=$iv_rulePhasedRule.current; } 
 	 EOF 
 ;
 
-// Rule PhasedStrategy
-rulePhasedStrategy returns [EObject current=null] 
+// Rule PhasedRule
+rulePhasedRule returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
@@ -975,11 +975,11 @@ rulePhasedStrategy returns [EObject current=null]
 (
 		lv_name_0_0=RULE_ID
 		{
-			newLeafNode(lv_name_0_0, grammarAccess.getPhasedStrategyAccess().getNameIDTerminalRuleCall_0_0()); 
+			newLeafNode(lv_name_0_0, grammarAccess.getPhasedRuleAccess().getNameIDTerminalRuleCall_0_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPhasedStrategyRule());
+	            $current = createModelElement(grammarAccess.getPhasedRuleRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -991,44 +991,44 @@ rulePhasedStrategy returns [EObject current=null]
 )
 )	otherlv_1=':' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getPhasedStrategyAccess().getColonKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getPhasedRuleAccess().getColonKeyword_1());
     }
 	otherlv_2='Ratio' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getPhasedStrategyAccess().getRatioKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getPhasedRuleAccess().getRatioKeyword_2());
     }
 	otherlv_3='{' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getPhasedStrategyAccess().getLeftCurlyBracketKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getPhasedRuleAccess().getLeftCurlyBracketKeyword_3());
     }
 	otherlv_4='phases' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getPhasedStrategyAccess().getPhasesKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getPhasedRuleAccess().getPhasesKeyword_4());
     }
 	otherlv_5='{' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getPhasedStrategyAccess().getLeftCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getPhasedRuleAccess().getLeftCurlyBracketKeyword_5());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getPhasedStrategyRule());
+	            $current = createModelElement(grammarAccess.getPhasedRuleRule());
 	        }
         }
 	otherlv_6=RULE_ID
 	{
-		newLeafNode(otherlv_6, grammarAccess.getPhasedStrategyAccess().getPhasesStrategyCrossReference_6_0()); 
+		newLeafNode(otherlv_6, grammarAccess.getPhasedRuleAccess().getPhasesRuleCrossReference_6_0()); 
 	}
 
 )
 )*	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getPhasedStrategyAccess().getRightCurlyBracketKeyword_7());
+    	newLeafNode(otherlv_7, grammarAccess.getPhasedRuleAccess().getRightCurlyBracketKeyword_7());
     }
 	otherlv_8='}' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getPhasedStrategyAccess().getRightCurlyBracketKeyword_8());
+    	newLeafNode(otherlv_8, grammarAccess.getPhasedRuleAccess().getRightCurlyBracketKeyword_8());
     }
 )
 ;

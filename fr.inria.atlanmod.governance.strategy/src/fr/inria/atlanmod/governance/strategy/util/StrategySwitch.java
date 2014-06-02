@@ -78,16 +78,16 @@ public class StrategySwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StrategyPackage.STRATEGY: {
-				Strategy strategy = (Strategy)theEObject;
-				T result = caseStrategy(strategy);
+			case StrategyPackage.RULE: {
+				Rule rule = (Rule)theEObject;
+				T result = caseRule(rule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StrategyPackage.MAJORITY: {
 				Majority majority = (Majority)theEObject;
 				T result = caseMajority(majority);
-				if (result == null) result = caseStrategy(majority);
+				if (result == null) result = caseRule(majority);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -95,21 +95,21 @@ public class StrategySwitch<T> extends Switch<T> {
 				RatioMajority ratioMajority = (RatioMajority)theEObject;
 				T result = caseRatioMajority(ratioMajority);
 				if (result == null) result = caseMajority(ratioMajority);
-				if (result == null) result = caseStrategy(ratioMajority);
+				if (result == null) result = caseRule(ratioMajority);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case StrategyPackage.LEADER_DRIVEN: {
 				LeaderDriven leaderDriven = (LeaderDriven)theEObject;
 				T result = caseLeaderDriven(leaderDriven);
-				if (result == null) result = caseStrategy(leaderDriven);
+				if (result == null) result = caseRule(leaderDriven);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StrategyPackage.PHASED_STRATEGY: {
-				PhasedStrategy phasedStrategy = (PhasedStrategy)theEObject;
-				T result = casePhasedStrategy(phasedStrategy);
-				if (result == null) result = caseStrategy(phasedStrategy);
+			case StrategyPackage.PHASED_RULE: {
+				PhasedRule phasedRule = (PhasedRule)theEObject;
+				T result = casePhasedRule(phasedRule);
+				if (result == null) result = caseRule(phasedRule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,17 +175,17 @@ public class StrategySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Strategy</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Strategy</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStrategy(Strategy object) {
+	public T caseRule(Rule object) {
 		return null;
 	}
 
@@ -235,17 +235,17 @@ public class StrategySwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Phased Strategy</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Phased Rule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Phased Strategy</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Phased Rule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePhasedStrategy(PhasedStrategy object) {
+	public T casePhasedRule(PhasedRule object) {
 		return null;
 	}
 
