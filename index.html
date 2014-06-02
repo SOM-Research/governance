@@ -1,79 +1,270 @@
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
+<head>
+    <title>Governance DSL Survey</title>
+    <meta name="description" content="Governance DSL Survey">
+    <meta name="author" content="Javier Canovas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+</head>
+<body ng-app="governanceSurvey">
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Governance : Support for governance rules" />
+<div class="container">
+	<div ng-controller="genController">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Governance Rule Generator
+			</div>
+			<div class="panel-body">
+				<div class="row">
+                    <div style="margin-bottom: 20px;" class="col-md-6">
+                        <strong><div style="font-size: 150%; text-align: center; margin-bottom: 12px;">The process to be governed</div></strong>
+                        <p class="text-center">
+                            <img class="img-thumbnail" style="padding: 20px 20px 20px 20px;" src="images/summary.png" alt="summary of the process">
+                        </p>
+                    </div>
+					<div class="col-md-6">
+						<form>
+							<h2 style="margin-top:0px;" ng-class="{ red : errorQ1 }">Q1. The rule that you're going to create will be applied to</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
+			    					Bugs
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="Enhancement" value="Enhancement">
+				    				Feature Requests
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="All" value="All">
+				    				Both
+			  					</label>
+							</div>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+							<h2 ng-class="{ red : errorQ2 }">Q2. The rule will control the:</h2>
+							<div class="radio">
+			  					<label>
+			    					<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
+			    					Task acceptance phase (to accept/reject bugs/feature requests)
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
+				    				Patch acceptance phase (to accept/reject patches for bugs/feature requests)
+			  					</label>
+							</div>
+							<div class="radio">
+			  					<label>
+				    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
+				    				Release inclusion phase (to accept/reject the patch in the next product release)
+			  					</label>
+							</div>
 
-    <title>Governance</title>
-  </head>
+							<h2 ng-class="{ red : errorQ3 }">Q3. Who will be involved in the decision?</h2>
+							<div class="checkbox">
+			  					<label>
+			    					<input ng-model="leader" type="checkbox">
+			    					The leader
+			  					</label>
+							</div>
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="projectBoard" type="checkbox">
+                                    Project board
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="contributors" type="checkbox">
+                                    Contributors
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="users" type="checkbox">
+                                    Users
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="other" type="checkbox">
+                                    Other:<input style="margin-left:5px;" type="text" ng-model="otherRole" ng-value=""/>
+                                </label>
+                            </div>
 
-  <body>
+                            <h2 ng-class="{ red : errorQ4 }">Q4. How will the decision be made?</h2>
+                            <div class="radio">
+                                <label>
+                                    <input ng-model="strategy" type="radio" name="strategy" id="Unanimous" value="unanimous">
+                                    Unanimously (i.e., the leader)
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input ng-model="strategy" type="radio" name="strategy" id="Voting" value="voting">
+                                    Voting
+                                </label>
+                            </div>
+							<div ng-show="strategy == 'voting'">
+								<div class="tabbed">
+									<h2 ng-class="{ red : errorQ4A }"style="font-size: 100%; padding-top: 0px; margin-top: 0px;">Q4A. Does everyone have to vote?</h2>
+									<div class="radio">
+					  					<label>
+						    				<input ng-model="democracyRange" type="radio" name="democracyRange" id="Qualified" value="qualified">
+						    				Yes
+					  					</label>
+									</div>
+									<div class="radio">
+					  					<label>
+					    					<input ng-model="democracyRange" type="radio" name="democracyRange" id="Present" value="present">
+					    					No
+					  					</label>
+									</div>
+									<h2 ng-class="{ red : errorQ4B }" style="font-size: 100%;">Q4B. What ratio of positive votes is required to be approved?</h2>
+									<input type="number" ng-model="democracyRatio" ng-value="50" min="0" max="100"> %
+									<h2 ng-class="{ red : errorQ4C }" style="font-size: 100%;">Q4C. What is the minimum number of votes? (0 if everyone)</h2>
+									<input type="number" ng-model="democracyMinVotes" ng-value="0" min="0" max="9999"> votes
+								</div>
+							</div>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/atlanmod/governance">View on GitHub</a>
+							<h2 style="margin-bottom: 15px;" ng-class="{ red : errorQ5 }">Q5. Is there a max deadline to take the decision?</h2>
+							<div class="row">
+								<div style="margin-bottom: 10px;" class="col-md-3">
+									<input type="number" ng-model="deadlineDays" ng-value="0" min="0" max="999"/> days
+								</div>
+								<div style="margin-bottom: 10px;"class="col-md-3">
+									<input type="number" ng-model="deadlineHours" ng-value="0" min="0" max="999"/> hours
+								</div>
+                                <div class="col-md-6">
+                                    <input type="checkbox" ng-model="noDeadline">No deadline
+                                </div>
+							</div>
 
-          <h1 id="project_title">Governance</h1>
-          <h2 id="project_tagline">Support for governance rules</h2>
+							<p style="margin-top: 20px;" class="text-center">
+								<button style="margin-right: 10px;" class="btn btn-primary" ng-click="generate()">Generate Governance Rule</button>
+							</p>
+						</form>
+					</div>
+				</div>
+                <div class="row">
+					<p></p>
+                    <div class="col-md-6">
+                        <p>Here it is your governance rule in English:</p>
+                        <div class="verb">
+                            {{governanceEnGen}}
+                        </div>
+                    </div>
+					<p></p>
+                    <div class="col-md-6">
+                        <p>And our DSL definition:</p>
+                        <div class="verb">
+                            <div ng-bind-html-unsafe="governanceDSLGen"></div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+		
+		<p style="margin-top: 20px;" class="text-center">
+			<button style="margin-right: 10px;" class="btn btn-primary" onclick="location.href='https://github.com/atlanmod/governance'">Visit the GitHub webpage to explore the source code</button>
+		</p>
+	</div>
+</div>
+<!-- 
+<div class="container">
+	<div ng-controller="surveyController">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Survey
+            </div>
+            <div class="panel-body">
+                <p>Thank you for playing with the governance rule generator. These are the rules you have generated,
+                    please remove the ones that are non-sense or not applicable to your project: </p>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/atlanmod/governance/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/atlanmod/governance/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+                <div style="padding-bottom: 10px;" ng-show="savedRules.length == 0">
+                    <div class="verb">
+                        Nothing saved yet.
+                    </div>
+                </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+                <div ng-repeat="savedRule in savedRules">
+                    <div class="panel panel-default savedRule">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-11">{{savedRule.rule}}</div>
+                                <div class="col-md-1"><p class="text-center"><button style="margin-top: 10px;" class="btn btn-xs" ng-click="delete(savedRule)">Remove</button></div></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+                <p>We would like now to ask you some questions about your experience with the tool.</p>
+                <p>Please, give us your input on the following questions:</p>
+                <form>
+                    <h2 ng-class="{ red : errorQS0 }">Which is your role in the project?</h2>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="leader" value="leader">
+                            Leader
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="projectBoard" value="projectBoard">
+                            Project Board member
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="contributor" value="contributor">
+                            Contributor
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input ng-model="QS0" type="radio" name="strategy" id="user" value="user">
+                            User (not contributor yet)
+                        </label>
+                    </div>
+                    <h2 ng-class="{ red : errorQS1 }">Your answers are based on which project/s you participate in? (Optional)</h2>
+                    <textarea ng-model="QS1" rows="1"></textarea>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+                    <h2 ng-class="{ red : errorQS2 }">Do the phases listed in Q2 apply to your project? If not, what the ones you follow? (Optional)</h2>
+                    <textarea ng-model="QS2" rows="5"></textarea>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                    <h2 ng-class="{ red : errorQS3 }">Beyond those in Q3, does your project include other possible member roles? (Optional)</h2>
+                    <textarea ng-model="QS3" rows="5"></textarea>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+                    <h2 ng-class="{ red : errorQS4 }">Were you able to express all rules using this generator? If not, what was missing? (Optional)</h2>
+                    <textarea ng-model="QS4" rows="5"></textarea>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+                    <h2 ng-class="{ red : errorQS5 }">Any other comments for us? (Optional)</h2>
+                    <textarea ng-model="QS5" rows="5"></textarea>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+                    <h2 ng-class="{ red : errorQS5 }">If you want to be contacted to discuss in more detail your experience please leave us your email. (Optional) </h2>
+                    <textarea ng-model="QS6" rows="1"></textarea>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+                    <p style="margin-top: 20px;" class="text-center">
+                        <button class="btn btn-primary" ng-click="submit()" ng-disabled="buttonDisabled">{{buttonText}}</button>
+                    </p>
+                </form>
+            </div>
+        </div>
+	</div>
+</div>
+ -->
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/ui-bootstrap-tpls-0.6.0.js"></script>
+<script src="js/script.js"></script>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Governance maintained by <a href="https://github.com/atlanmod">atlanmod</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</body>
 </html>
