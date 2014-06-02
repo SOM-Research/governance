@@ -209,7 +209,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             } else if(collaborationType.equals("Comment")) {
             	appliedTo = "Comment";
             } else if(collaborationType.equals("All")) {
-            	appliedTo = "Patch";
+            	appliedTo = "Task";
             }
             
             String participants = "";
@@ -247,29 +247,29 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             	governanceRule = tab + tab + "R1 : LeaderDriven { <br>" +
             			tab + tab + tab + "applied to " + appliedTo + "<br>" + 
             			tab + tab + tab + "when " + when + "<br>" +
-            			tab + tab + tab + "deafult None <br>" +
+            			tab + tab + tab + "default None <br>" +
             			tab + tab + tab + "deadline D1 <br>" +
             			tab + tab + tab + "} <br>" +
             			tab + tab + "}<br>";
             } else if(strategy.equals("voting")) {
-                if(democracyRatio.equals("100")) {
+                if(democracyRatio.equals("50")) {
                 	governanceRule = tab + tab + "R1 : Majority { <br>" +
-                			tab + tab + tab + "appliedTo " + appliedTo + "<br>" + 
+                			tab + tab + tab + "applied to " + appliedTo + "<br>" + 
                 			tab + tab + tab + "when " + when + "<br>" +
-                			tab + tab + tab + "participants " + participants + "<br>" +
+                			tab + tab + tab + "people " + participants + "<br>" +
                 			tab + tab + tab + "range " + democracyRange + "<br>" +
                 			tab + tab + tab + "minVotes " + (democracyMinVotes.equals("0") ? "All" : democracyMinVotes) + "<br>" +
                 			tab + tab + tab + "deadline D1 <br>" +
                 			tab + tab + tab + "} <br>" +
-                			tab + tab + "}<br>";
+                			tab + tab + "}<br>"; 
                 } else {
                 	governanceRule = tab + tab + "R1 : Ratio { <br>" +
-                			tab + tab + tab + "appliedTo " + appliedTo + "<br>" + 
+                			tab + tab + tab + "applied to " + appliedTo + "<br>" + 
                 			tab + tab + tab + "when " + when + "<br>" +
-                			tab + tab + tab + "participants " + participants + "<br>" +
-                			tab + tab + tab + "democracyRange " + democracyRange + "<br>" +
+                			tab + tab + tab + "people " + participants + "<br>" +
+                			tab + tab + tab + "range " + democracyRange + "<br>" +
                 			tab + tab + tab + "minVotes " + (democracyMinVotes.equals("0") ? "All" : democracyMinVotes) + "<br>" +
-                			tab + tab + tab + "ratio " + democracyRatio + "<br>" +
+                			tab + tab + tab + "ratio " + (democracyRatio.equals("100") ? "1" : "0." + democracyRatio) + "<br>" +
                 			tab + tab + tab + "deadline D1 <br>" +
                 			tab + tab + tab + "} <br>" +
                 			tab + tab + "}<br>";

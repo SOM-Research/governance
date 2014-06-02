@@ -90,7 +90,7 @@ governanceSurveyModule.controller("genController", ["$scope", "$http", "$rootSco
             $http({
                 method : "POST",
                 url : "http://atlanmodexp.info.emn.fr:8800/governance/generator",
-                //url : "http://localhost:8080/generator",
+                //url : "http://localhost:8080/fr.inria.atlanmod.governance.survey.web/generator",
                 //url : "generator",
                 data : dataToSend,
                 headers : { "Content-Type" : "application/x-www-form-urlencoded"}
