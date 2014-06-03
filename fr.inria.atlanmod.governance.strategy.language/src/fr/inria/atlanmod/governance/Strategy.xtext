@@ -11,7 +11,7 @@ Project returns Project:
 	('Deadlines' ':' deadlines+=Deadline ( "," deadlines+=Deadline)*  )?
 	('Rules' ':' rules+=Rule ( "," rules+=Rule)*)?
 	'}' 
-	;      
+	;       
  
 Rule returns Rule: 
 	Majority | RatioMajority | LeaderDriven | PhasedRule;

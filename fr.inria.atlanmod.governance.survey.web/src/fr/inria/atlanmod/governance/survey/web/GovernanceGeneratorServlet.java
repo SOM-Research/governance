@@ -93,13 +93,13 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             }
 
             if(collaborationType.equals("Bug")) {
-                result = "All the " + prePhaseString + " bugs will be accepted or rejected " + postPhaseString;
+                result = "All " + prePhaseString + " bugs will be accepted or rejected " + postPhaseString;
             } else if(collaborationType.equals("Enhancement")) {
-                result = "All the " + prePhaseString + " enhancements will be accepted or rejected " + postPhaseString;
+                result = "All " + prePhaseString + " feature requests will be accepted or rejected " + postPhaseString;
             } else if(collaborationType.equals("Comment")) {
-                result = "All the " + prePhaseString + " comments will be accepted or rejected " + postPhaseString;
+                result = "All " + prePhaseString + " comments will be accepted or rejected " + postPhaseString;
             } else if(collaborationType.equals("All")) {
-                result = "All the " + prePhaseString + " bugs, enhancements and comments will be accepted or rejected " + postPhaseString;
+                result = "All " + prePhaseString + " bugs and feature requests will be accepted or rejected " + postPhaseString;
             }
 
             if(noDeadline) {
@@ -141,13 +141,13 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
                 }
 
                 if(!democracyMinVotes.equals("0")) {
-                    result += " and there" + (democracyMinVotes.equals("1") ? "is" : "are") + ", at least, " + democracyMinVotes + " vote" + (democracyMinVotes.equals("1") ? "" : "s") + ".";
+                    result += " and there " + (democracyMinVotes.equals("1") ? "is" : "are") + ", at least, " + democracyMinVotes + " vote" + (democracyMinVotes.equals("1") ? "" : "s") + ".";
                 } else {
                     result += ".";
                 }
 
                 if(democracyRange.equals("present")) {
-                    result += " To calculate the ratio, only the votes issued at the moment of applying the rule will be counted.";
+                    result += " To calculate the ratio, only those votes issued at the moment of applying the rule will be counted.";
                 } else if (democracyRange.equals("qualified")) {
                     result += " To calculate the ratio, every member will be counted (if someone does not vote it will be counted as negative). ";
                 }
