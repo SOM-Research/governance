@@ -1,6 +1,5 @@
 angular.module('governanceControllers').controller('generatorController', ['$scope', '$routeParams', '$sce', 'governanceService',
 	function($scope, $routeParams, $sce, governanceService){
-
 		governanceService.convertFromURL($routeParams.code).then(
 			function(result) {
 				var dataToSend = $.param(result);
@@ -22,7 +21,7 @@ angular.module('governanceControllers').controller('generatorController', ['$sco
 	                    $scope.governanceDSLGen = $sce.trustAsHtml(response);
 	                },
 	                function(response) {
-	                    $scope.governanceDSLGen = "Ouch! There was an error generating the governance rule";
+	                    $scope.governanceDSLGen = $sce.trustAsHtml("Ouch! There was an error generating the governance rule");
 	                }
 	            );
 			},
