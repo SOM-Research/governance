@@ -39,6 +39,28 @@ a:link, a:visited, a:hover, a:active {
   font-style: italic;
 }
 
+.permalink {
+  display: block;
+  padding: 10px;
+  margin: 20px 0 0 0px;
+  font-size: 20px;
+  line-height: 1.428571429;
+  color: #FFFFFF;
+  background-color: #4e7dab;
+  border: 1px solid #336699;
+  border-radius: 4px;
+}
+
+.permalink p {
+
+  margin-top: 10px;
+}
+
+.permalink a:hover, .permalink a:link, .permalink a:visited {
+  color : #FFFFFF;
+  text-decoration: underline;
+}
+
 .savedRule {
     font-size: 13px;
     color: #333333;
