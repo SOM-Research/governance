@@ -1,15 +1,10 @@
 angular.module('governanceServices').factory('governanceService', ['$http', '$q',
 	function($http, $q) {
-		var q1_values = ["Bug", "Enhancement", "All"];
-		var q2_values = ["CollaborationAcceptance", "PatchAcceptance", "ReleaseAcceptance"];
-		var q3A_values = ["true", "false"];
-		var q3B_values = ["true", "false"];
-		var q3C_values = ["true", "false"];
-		var q3D_values = ["true", "false"];
-		var q3E_values = ["true", "false"];
-		var q4_values = ["unanimous", "voting"];
-		var q4A_values = ["qualified", "present"];
-		var q5C_values = ["true", "false"];
+		var collaborationType_values = ["Bug", "Enhancement", "All"];
+		var collaborationPhase_values = ["CollaborationAcceptance", "PatchAcceptance", "ReleaseAcceptance"];
+		var boolean_values = [false, true];
+		var strategy_values = ["unanimous", "voting"];
+		var democracyRange_values = ["qualified", "present"];
 
 		var service = {
 			generateRule : function(data) {
@@ -17,8 +12,8 @@ angular.module('governanceServices').factory('governanceService', ['$http', '$q'
 				$http({
 	                method : "POST",
 	                url : governanceURL + "/generator",
-	                data : data,
-	                headers : { "Content-Type" : "application/x-www-form-urlencoded"}
+	                data : data
+	                //headers : { "Content-Type" : "application/x-www-form-urlencoded"}
 	            }).success(function(data) {
 					deferred.resolve(data);
 	            }).error(function(data, status, headers, config) {
@@ -28,52 +23,53 @@ angular.module('governanceServices').factory('governanceService', ['$http', '$q'
 			},
 			convertFromURL : function(code) {
 				var deferred = $q.defer();
-
 				if(code.length == 22) {
 					result = {
-			        	language : "en",
-			            q1 : q1_values[code[0]],
-			            q2 : q2_values[code[1]],
-			            q3A: q3A_values[code[2]],
-			            q3B: q3B_values[code[3]],
-			            q3C: q3C_values[code[4]],
-			            q3D: q3D_values[code[5]],
-			            q3E: q3E_values[code[6]],
-			            q3F: "", // TODO: Support for this!
-			            q4 : q4_values[code[7]],
-			            q4A: q4A_values[code[8]],
-			            q4B: code.substring(9,12),
-			            q4C: code.substring(12,15),
-			            q5A: code.substring(15,18),
-			            q5B: code.substring(18,21),
-			            q5C: q5C_values[code[21]],
+			            collaborationType : collaborationType_values[code[0]],
+			            collaborationPhase : collaborationPhase_values[code[1]],
+			            people : {
+				            leader: boolean_values[code[2]],
+				            projectBoard: boolean_values[code[3]],
+				            contributors: boolean_values[code[4]],
+				            users: boolean_values[code[5]],
+				            other: boolean_values[code[6]],
+				            otherRole: "" // TODO: Support for this!
+			            },
+			            strategy : strategy_values[code[7]],
+			            democracyRange: democracyRange_values[code[8]],
+			            democracyRatio: code.substring(9,12),
+			            democracyMinVotes: code.substring(12,15),
+			            deadlineDays: code.substring(15,18),
+			            deadlineHours: code.substring(18,21),
+			            noDeadline: boolean_values[code[21]]
 			        };
-
 		            deferred.resolve(result);
 			    } else {
 			    	deferred.reject("Wrong code");
 			    }
 				return deferred.promise;
 			},
-			convertToURL : function(data) {
-				var q1 = q1_values.indexOf(data.q1);
-				var q2 = q2_values.indexOf(data.q2);
-				var q3A = (data.q3A) ? "1" : "0";
-				var q3B = (data.q3B) ? "1" : "0";
-				var q3C = (data.q3C) ? "1" : "0";
-				var q3D = (data.q3D) ? "1" : "0";
-				var q3E = (data.q3E) ? "1" : "0";
-				var q3F = ""; // TODO Support this!
-				var q4 =  q4_values.indexOf(data.q4);
-				console.log("-->" + data.q4A);
-				var q4A = (data.q4A == undefined) ? "0" : q4A_values.indexOf(data.q4A);
-				var q4B = (data.q4B < 100) ? ((data.q4B < 10) ? "00" + data.q4B : "0" + data.q4B) : data.q4B;
-				var q4C = (data.q4C < 100) ? ((data.q4C < 10) ? "00" + data.q4C : "0" + data.q4C) : data.q4C;
-				var q5A = (data.q5A < 100) ? ((data.q5A < 10) ? "00" + data.q5A : "0" + data.q5A) : data.q5A;
-				var q5B = (data.q5B < 100) ? ((data.q5B < 10) ? "00" + data.q5B : "0" + data.q5B) : data.q5B;
-				var q5C = (data.q5C) ? "1" : "0";
+			convertToURL : function(rule) {
+				var collaborationType = collaborationType_values.indexOf(rule.collaborationType);
+				var collaborationPhase = collaborationPhase_values.indexOf(rule.collaborationPhase);
+				var people_leader = (rule.people.leader) ? "1" : "0";
+				var people_projectBoard = (rule.people.projectBoard) ? "1" : "0";
+				var people_contributors = (rule.people.contributors) ? "1" : "0";
+				var people_users = (rule.people.users) ? "1" : "0";
+				var people_other = (rule.people.other) ? "1" : "0";
+				var people_otherRole = ""; // TODO Support this!
+				var strategy =  strategy_values.indexOf(rule.strategy);
+				var democracyRange = (rule.democracyRange == undefined) ? "0" : democracyRange_values.indexOf(rule.democracyRange);
+				var democracyRatio = (rule.democracyRatio < 100) ? ((rule.democracyRatio < 10) ? "00" + rule.democracyRatio : "0" + rule.democracyRatio) : rule.democracyRatio;
+				var democracyMinVotes = (rule.democracyMinVotes < 100) ? ((rule.democracyMinVotes < 10) ? "00" + rule.democracyMinVotes : "0" + rule.democracyMinVotes) : rule.democracyMinVotes;
+				var deadlineDays = (rule.deadlineDays < 100) ? ((rule.deadlineDays < 10) ? "00" + rule.deadlineDays : "0" + rule.deadlineDays) : rule.deadlineDays;
+				var deadlineHours = (rule.deadlineHours < 100) ? ((rule.deadlineHours < 10) ? "00" + rule.deadlineHours : "0" + rule.deadlineHours) : rule.deadlineHours;
+				var noDeadline = (rule.noDeadline) ? "1" : "0";
 
-				var result = "" + q1 + q2 + q3A + q3B + q3C + q3D + q3E + q3F + q4 +q4A + q4B + q4C + q5A + q5B + q5C;
+				var result = "" + collaborationType + collaborationPhase + 
+							people_leader + people_projectBoard + people_contributors + people_users + people_other + people_otherRole + 
+							strategy + democracyRange + democracyRatio + democracyMinVotes + 
+							deadlineDays + deadlineHours + noDeadline;
 
 				var deferred = $q.defer();
 				deferred.resolve(result);

@@ -10,19 +10,19 @@
 			<h2 style="margin-top:0px;" ng-class="{ red : errorQ1 }">Q1. The rule that you're going to create will be applied to</h2>
 			<div class="radio">
 					<label>
-					<input ng-model="collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
+					<input ng-model="rule.collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
 					Bugs
 					</label>
 			</div>
 			<div class="radio">
 					<label>
-    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="Enhancement" value="Enhancement">
+    				<input ng-model="rule.collaborationType" type="radio" name="collaborationType" id="Enhancement" value="Enhancement">
     				Feature Requests
 					</label>
 			</div>
 			<div class="radio">
 					<label>
-    				<input ng-model="collaborationType" type="radio" name="collaborationType" id="All" value="All">
+    				<input ng-model="rule.collaborationType" type="radio" name="collaborationType" id="All" value="All">
     				Both
 					</label>
 			</div>
@@ -30,19 +30,19 @@
 			<h2 ng-class="{ red : errorQ2 }">Q2. The rule will control the:</h2>
 			<div class="radio">
 					<label>
-					<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
+					<input ng-model="rule.collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
 					Task acceptance phase (to accept/reject bugs/feature requests)
 					</label>
 			</div>
 			<div class="radio">
 					<label>
-    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
+    				<input ng-model="rule.collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
     				Patch acceptance phase (to accept/reject patches for bugs/feature requests)
 					</label>
 			</div>
 			<div class="radio">
 					<label>
-    				<input ng-model="collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
+    				<input ng-model="rule.collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
     				Release inclusion phase (to accept/reject the patch in the next product release)
 					</label>
 			</div>
@@ -50,80 +50,80 @@
 			<h2 ng-class="{ red : errorQ3 }">Q3. Who will be involved in the decision?</h2>
 			<div class="checkbox">
 					<label>
-					<input ng-model="leader" type="checkbox">
+					<input ng-model="rule.people.leader" type="checkbox">
 					The leader
 					</label>
 			</div>
             <div class="checkbox">
                 <label>
-                    <input ng-model="projectBoard" type="checkbox">
+                    <input ng-model="rule.people.projectBoard" type="checkbox">
                     Project board
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input ng-model="contributors" type="checkbox">
+                    <input ng-model="rule.people.contributors" type="checkbox">
                     Contributors
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input ng-model="users" type="checkbox">
+                    <input ng-model="rule.people.users" type="checkbox">
                     Users
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input ng-model="other" type="checkbox">
-                    Other:<input style="margin-left:5px;" type="text" ng-model="otherRole" ng-value=""/>
+                    <input ng-model="rule.people.other" type="checkbox">
+                    Other:<input style="margin-left:5px;" type="text" ng-model="rule.people.otherRole" ng-value=""/>
                 </label>
             </div>
 
             <h2 ng-class="{ red : errorQ4 }">Q4. How will the decision be made?</h2>
             <div class="radio">
                 <label>
-                    <input ng-model="strategy" type="radio" name="strategy" id="Unanimous" value="unanimous">
+                    <input ng-model="rule.strategy" type="radio" name="strategy" id="Unanimous" value="unanimous">
                     Unanimously (i.e., the leader)
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input ng-model="strategy" type="radio" name="strategy" id="Voting" value="voting">
+                    <input ng-model="rule.strategy" type="radio" name="strategy" id="Voting" value="voting">
                     Voting
                 </label>
             </div>
-			<div ng-show="strategy == 'voting'">
+			<div ng-show="rule.strategy == 'voting'">
 				<div class="tabbed">
 					<h2 ng-class="{ red : errorQ4A }"style="font-size: 100%; padding-top: 0px; margin-top: 0px;">Q4A. Does everyone have to vote?</h2>
 					<div class="radio">
 	  					<label>
-		    				<input ng-model="democracyRange" type="radio" name="democracyRange" id="Qualified" value="qualified">
+		    				<input ng-model="rule.democracyRange" type="radio" name="democracyRange" id="Qualified" value="qualified">
 		    				Yes
 	  					</label>
 					</div>
 					<div class="radio">
 	  					<label>
-	    					<input ng-model="democracyRange" type="radio" name="democracyRange" id="Present" value="present">
+	    					<input ng-model="rule.democracyRange" type="radio" name="democracyRange" id="Present" value="present">
 	    					No
 	  					</label>
 					</div>
 					<h2 ng-class="{ red : errorQ4B }" style="font-size: 100%;">Q4B. What ratio of positive votes is required to be approved?</h2>
-					<input type="number" ng-model="democracyRatio" ng-value="50" min="0" max="100"> %
+					<input type="number" ng-model="rule.democracyRatio" ng-value="50" min="0" max="100"> %
 					<h2 ng-class="{ red : errorQ4C }" style="font-size: 100%;">Q4C. What is the minimum number of votes? (0 if everyone)</h2>
-					<input type="number" ng-model="democracyMinVotes" ng-value="0" min="0" max="9999"> votes
+					<input type="number" ng-model="rule.democracyMinVotes" ng-value="0" min="0" max="9999"> votes
 				</div>
 			</div>
 
 			<h2 style="margin-bottom: 15px;" ng-class="{ red : errorQ5 }">Q5. Is there a max deadline to take the decision?</h2>
 			<div class="row">
 				<div style="margin-bottom: 10px;" class="col-md-3">
-					<input type="number" ng-model="deadlineDays" ng-value="0" min="0" max="999"/> days
+					<input type="number" ng-model="rule.deadlineDays" ng-value="0" min="0" max="999"/> days
 				</div>
 				<div style="margin-bottom: 10px;"class="col-md-3">
-					<input type="number" ng-model="deadlineHours" ng-value="0" min="0" max="999"/> hours
+					<input type="number" ng-model="rule.deadlineHours" ng-value="0" min="0" max="999"/> hours
 				</div>
                 <div class="col-md-6">
-                    <input type="checkbox" ng-model="noDeadline">No deadline
+                    <input type="checkbox" ng-model="rule.noDeadline">No deadline
                 </div>
 			</div>
 

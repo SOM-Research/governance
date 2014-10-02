@@ -2,9 +2,12 @@ angular.module('governanceControllers').controller('generatorController', ['$sco
 	function($scope, $routeParams, $sce, governanceService){
 		governanceService.convertFromURL($routeParams.code).then(
 			function(result) {
-				var dataToSend = $.param(result);
+				var dataEn = {
+	            	language : "en",
+	                rule : result
+	            };
 
-	            governanceService.generateRule(dataToSend).then(
+	            governanceService.generateRule(dataEn).then(
 	                function(response) {
 	                    $scope.governanceEnGen = response;
 	                },
@@ -13,10 +16,12 @@ angular.module('governanceControllers').controller('generatorController', ['$sco
 	                }
 	            );
 	            
-	            result.language = "dsl";
-	            var dataToSend = $.param(result);
+				var dataDSL = {
+	            	language : "dsl",
+	                rule : result
+	            };
 
-	            governanceService.generateRule(dataToSend).then(
+	            governanceService.generateRule(dataDSL).then(
 	                function(response) {
 	                    $scope.governanceDSLGen = $sce.trustAsHtml(response);
 	                },
