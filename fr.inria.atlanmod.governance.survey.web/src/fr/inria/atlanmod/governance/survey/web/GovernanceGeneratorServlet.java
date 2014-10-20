@@ -1,5 +1,6 @@
 package fr.inria.atlanmod.governance.survey.web;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -7,6 +8,10 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 
 /**
@@ -16,34 +21,39 @@ import javax.servlet.http.HttpServletResponse;
  * @author Javier Canovas (me@jlcanovas.es)
  */
 @WebServlet("/generator")
-public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
+public class GovernanceGeneratorServlet extends AbstractGovernanceServlet {
+	private static final long serialVersionUID = 90L;
 	public final static String DEFAULT_LANGUAGE = "en"; 
 	
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-    	String language = request.getParameter("language");
+    	addResponseOptions(response);
+		
+		JsonObject jsonObject = digestParams(request);
+    	
+    	String language = jsonObject.get("language").getAsString();
     	if(language == null) language = DEFAULT_LANGUAGE;
     	
-        String collaborationType = request.getParameter("q1");
-        String collaborationPhase = request.getParameter("q2");
+    	JsonObject rule = jsonObject.get("rule").getAsJsonObject();
+    	
+        String collaborationType = rule.get("collaborationType").getAsString();
+        String collaborationPhase = rule.get("collaborationPhase").getAsString();
 
-        // These parameters are boolean but received as string
-        boolean leaderParticipation = (request.getParameter("q3A") != null && request.getParameter("q3A").equals("true")) ? true : false;
-        boolean projectBoardParticipation = (request.getParameter("q3B") != null && request.getParameter("q3B").equals("true")) ? true : false;
-        boolean contributorsParticipation = (request.getParameter("q3C") != null && request.getParameter("q3C").equals("true")) ? true : false;
-        boolean usersParticipation = (request.getParameter("q3D") != null && request.getParameter("q3D").equals("true")) ? true : false;
-        boolean otherParticipation = (request.getParameter("q3E") != null && request.getParameter("q3E").equals("true")) ? true : false;
-        String otherRoleParticipation = "";
-        if(otherParticipation) {
-        	otherRoleParticipation = request.getParameter("q3F");
-        }
+        JsonObject people = rule.get("people").getAsJsonObject();
+        boolean leaderParticipation = people.get("leader").getAsBoolean();
+        boolean projectBoardParticipation = people.get("projectBoard").getAsBoolean();
+        boolean contributorsParticipation = people.get("contributors").getAsBoolean();
+        boolean usersParticipation = people.get("users").getAsBoolean();
+        boolean otherParticipation = people.get("other").getAsBoolean();
+        String otherRoleParticipation = people.get("otherRole").getAsString();
 
-        String strategy = request.getParameter("q4");
-        String democracyRange = request.getParameter("q4A");
-        String democracyRatio = request.getParameter("q4B");
-        String democracyMinVotes = request.getParameter("q4C");
-        String deadlineDays = request.getParameter("q5A");
-        String deadlineHours = request.getParameter("q5B");
-        boolean noDeadline = (request.getParameter("q5C") != null && request.getParameter("q5C").equals("true")) ? true : false;
+        String strategy = rule.get("strategy").getAsString();
+        String democracyRange = (rule.has("democracyRange")) ? rule.get("democracyRange").getAsString() : "";
+        String democracyRatio = rule.get("democracyRatio").getAsString();
+        String democracyMinVotes = rule.get("democracyMinVotes").getAsString();
+        
+        String deadlineDays = rule.get("deadlineDays").getAsString();
+        String deadlineHours = rule.get("deadlineHours").getAsString();
+        boolean noDeadline = rule.get("noDeadline").getAsBoolean();
 
         String result = "";
 
@@ -194,11 +204,11 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
             String when = "";
 
             if(collaborationPhase.equals("CollaborationAcceptance")) {
-            	when = "Task";
+            	when = "TaskReview";
             } else if (collaborationPhase.equals("PatchAcceptance")) {
-            	when = "Patch";
+            	when = "PatchReview";
             } else if (collaborationPhase.equals("ReleaseAcceptance")) {
-            	when = "Release ";
+            	when = "Release";
             }
 
             String appliedTo = "";
@@ -289,10 +299,7 @@ public class GovernanceGeneratorServlet extends javax.servlet.http.HttpServlet {
 	
 	@Override
 	protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setHeader("Access-Control-Allow-Origin", "*");
-		response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-		response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-		super.doOptions(request, response);
-
+		addResponseOptions(response);
 	}
+	
 }

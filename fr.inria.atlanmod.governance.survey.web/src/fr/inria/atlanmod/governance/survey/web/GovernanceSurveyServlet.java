@@ -2,7 +2,11 @@ package fr.inria.atlanmod.governance.survey.web;
 
 import com.google.gson.JsonObject;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,10 +21,12 @@ import java.util.regex.Pattern;
  * @author Javier Canovas (me@jlcanovas.es)
  */
 @WebServlet("/survey")
-public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
-    private static String paramsPattern = Pattern.quote("examples[") + "([a-zA-Z0-9]*)"+ Pattern.quote("][") + "[\\$a-zA-Z0-9]*" + Pattern.quote("]");
+public class GovernanceSurveyServlet extends AbstractGovernanceServlet { 
+	private static final long serialVersionUID = 7L;
+	private static String paramsPattern = Pattern.quote("examples[") + "([a-zA-Z0-9]*)"+ Pattern.quote("][") + "[\\$a-zA-Z0-9]*" + Pattern.quote("]");
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+    	addResponseOptions(response);
         JsonObject result = new JsonObject();
 
         Calendar now = Calendar.getInstance();
@@ -111,5 +117,10 @@ public class GovernanceSurveyServlet extends javax.servlet.http.HttpServlet {
             pw.close();
         }
     }
+    
+    @Override
+	protected void doOptions(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		addResponseOptions(response);
+	}
 
 }
