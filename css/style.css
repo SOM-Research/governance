@@ -1,11 +1,44 @@
 body {
   padding-bottom: 30px;
-  padding-top: 20px;
   font-size: 12px;
 }
 
 a:link, a:visited, a:hover, a:active {
   color: #3136a8;
+}
+
+.jumbotron {
+  margin-top: 0px;
+  padding-top: 50px;
+  background-color: #336699;
+  text-align: center;
+}
+
+.jumbotron h1 a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+.jumbotron .btn:enabled {
+  background-color: #DDDDDD;
+  color : #000000;
+}
+
+.jumbotron h2 {
+  color : #ffffff;
+  margin-bottom: 40px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.row h1 {
+  font-size: 2em;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
+.row p {
+  font-size: 1.55em;
 }
 
 .btn:enabled {

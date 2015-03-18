@@ -1,0 +1,203 @@
+
+<div class="container">
+        <div style="margin-top: 25px;" class="row">
+            <div class="col-md-5">
+                <p class="text-center"><img style="width: 70%;" src="images/steps.png"/></p>
+            </div>
+            <div class="col-md-7">
+                <h1>What is this?</h1>
+                <p>When developing software systems, we have to face a long-life process where we cope with a huge number of development <strong>tasks</strong> (e.g., implementing new features or fixing bugs). To success, it becomes crucial to effectively and precisely <trong>prioritize</trong> these tasks.</p>
+                <p>For that, we normally define and apply what is normally referred as <i>governance rules</i>, in plain English, a set of instructions telling us how we can create tasks and how decisions regarding their acceptance/rejection are going to be made.</p> 
+                <p>Despite their importance, in practice, we discovered governance rules are hardly ever explicitly defined, especially in the context of Open Source Systems (OSS).</p>
+                <p>This tool will allow you to make explicit the governance rules in your projects</p>
+            </div>
+        </div>
+
+
+        <div style="margin-top: 25px;" class="row">
+            <div class="col-md-7">
+                <h1>How can I define my governance rules?</h1>
+                <p>We have created a simple language to define governance. You can download the tool <a href="http://atlanmod.github.io/governance">here</a>. </p>
+                <p>To make things easier we have also developed a form-based generator that creates instances of our DSL and also their English translation. Just play with the form in this webpage to start obtaining your rules!</p>
+                <p>We envision the use of a kind of <code>governance.md</code> files where anyone can easily understand how our project is governed. For this, our DSL is only the starting point, but we believe it may help to achieve it. </p>
+            </div>
+            <div class="col-md-5">
+                <img style="margin-top: 40px; width: 100%;" src="images/mainProcess.png"/>
+            </div>
+        </div>
+
+        <div style="margin-top: 25px;" class="row">
+    	<div ng-controller="formController">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				Governance Rule Generator
+    			</div>
+    			<div class="panel-body">
+    				<div class="row">
+					    <div style="margin-bottom: 20px;" class="col-md-6">
+					        <strong><div style="font-size: 150%; text-align: center; margin-bottom: 12px;">The process to be governed</div></strong>
+					        <p class="text-center">
+					            <img class="img-thumbnail" style="padding: 20px 20px 20px 20px;" src="images/summary.png" alt="summary of the process">
+					        </p>
+					    </div>
+						<div class="col-md-6">
+							<form>
+								<h2 style="margin-top:0px;" ng-class="{ red : errorQ1 }">Q1. The rule that you're going to create will be applied to</h2>
+								<div class="radio">
+										<label>
+										<input ng-model="rule.collaborationType" type="radio" name="collaborationType" id="Bug" value="Bug">
+										Bugs
+										</label>
+								</div>
+								<div class="radio">
+										<label>
+					    				<input ng-model="rule.collaborationType" type="radio" name="collaborationType" id="Enhancement" value="Enhancement">
+					    				Feature Requests
+										</label>
+								</div>
+								<div class="radio">
+										<label>
+					    				<input ng-model="rule.collaborationType" type="radio" name="collaborationType" id="All" value="All">
+					    				Both
+										</label>
+								</div>
+
+								<h2 ng-class="{ red : errorQ2 }">Q2. The rule will control the:</h2>
+								<div class="radio">
+										<label>
+										<input ng-model="rule.collaborationPhase" type="radio" name="collaborationPhase" id="CollaborationAcceptance" value="CollaborationAcceptance">
+										Task acceptance phase (to accept/reject bugs/feature requests)
+										</label>
+								</div>
+								<div class="radio">
+										<label>
+					    				<input ng-model="rule.collaborationPhase" type="radio" name="collaborationPhase" id="PatchAcceptance" value="PatchAcceptance">
+					    				Patch acceptance phase (to accept/reject patches for bugs/feature requests)
+										</label>
+								</div>
+								<div class="radio">
+										<label>
+					    				<input ng-model="rule.collaborationPhase" type="radio" name="collaborationPhase" id="ReleaseAcceptance" value="ReleaseAcceptance">
+					    				Release inclusion phase (to accept/reject the patch in the next product release)
+										</label>
+								</div>
+
+								<h2 ng-class="{ red : errorQ3 }">Q3. Who will be involved in the decision?</h2>
+								<div class="checkbox">
+										<label>
+										<input ng-model="rule.people.leader" type="checkbox">
+										The leader
+										</label>
+								</div>
+					            <div class="checkbox">
+					                <label>
+					                    <input ng-model="rule.people.projectBoard" type="checkbox">
+					                    Project board
+					                </label>
+					            </div>
+					            <div class="checkbox">
+					                <label>
+					                    <input ng-model="rule.people.contributors" type="checkbox">
+					                    Contributors
+					                </label>
+					            </div>
+					            <div class="checkbox">
+					                <label>
+					                    <input ng-model="rule.people.users" type="checkbox">
+					                    Users
+					                </label>
+					            </div>
+					            <div class="checkbox">
+					                <label>
+					                    <input ng-model="rule.people.other" type="checkbox">
+					                    Other:<input style="margin-left:5px;" type="text" ng-model="rule.people.otherRole" ng-value=""/>
+					                </label>
+					            </div>
+
+					            <h2 ng-class="{ red : errorQ4 }">Q4. How will the decision be made?</h2>
+					            <div class="radio">
+					                <label>
+					                    <input ng-model="rule.strategy" type="radio" name="strategy" id="Unanimous" value="unanimous">
+					                    Unanimously (i.e., the leader)
+					                </label>
+					            </div>
+					            <div class="radio">
+					                <label>
+					                    <input ng-model="rule.strategy" type="radio" name="strategy" id="Voting" value="voting">
+					                    Voting
+					                </label>
+					            </div>
+								<div ng-show="rule.strategy == 'voting'">
+									<div class="tabbed">
+										<h2 ng-class="{ red : errorQ4A }"style="font-size: 100%; padding-top: 0px; margin-top: 0px;">Q4A. Does everyone have to vote?</h2>
+										<div class="radio">
+						  					<label>
+							    				<input ng-model="rule.democracyRange" type="radio" name="democracyRange" id="Qualified" value="qualified">
+							    				Yes
+						  					</label>
+										</div>
+										<div class="radio">
+						  					<label>
+						    					<input ng-model="rule.democracyRange" type="radio" name="democracyRange" id="Present" value="present">
+						    					No
+						  					</label>
+										</div>
+										<h2 ng-class="{ red : errorQ4B }" style="font-size: 100%;">Q4B. What ratio of positive votes is required to be approved?</h2>
+										<input type="number" ng-model="rule.democracyRatio" ng-value="50" min="0" max="100"> %
+										<h2 ng-class="{ red : errorQ4C }" style="font-size: 100%;">Q4C. What is the minimum number of votes? (0 if everyone)</h2>
+										<input type="number" ng-model="rule.democracyMinVotes" ng-value="0" min="0" max="9999"> votes
+									</div>
+								</div>
+
+								<h2 style="margin-bottom: 15px;" ng-class="{ red : errorQ5 }">Q5. Is there a max deadline to take the decision?</h2>
+								<div class="row">
+									<div style="margin-bottom: 10px;" class="col-md-3">
+										<input type="number" ng-model="rule.deadlineDays" ng-value="0" min="0" max="999"/> days
+									</div>
+									<div style="margin-bottom: 10px;"class="col-md-3">
+										<input type="number" ng-model="rule.deadlineHours" ng-value="0" min="0" max="999"/> hours
+									</div>
+					                <div class="col-md-6">
+					                    <input type="checkbox" ng-model="rule.noDeadline">No deadline
+					                </div>
+								</div>
+
+								<p style="margin-top: 20px;" class="text-center">
+									<button style="margin-right: 10px;" class="btn btn-primary" ng-click="generate()">Generate Governance Rule</button>
+								</p>
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<p></p>
+					    <div class="col-md-6">
+					        <p>Here it is your governance rule in English:</p>
+					        <div class="verb">
+					            {{governanceEnGen}}
+					        </div>
+					    </div>
+						<p></p>
+					    <div class="col-md-6">
+					        <p>And our DSL definition:</p>
+					        <div class="verb">
+					            <div ng-bind-html="governanceDSLGen"></div>
+					        </div>
+					    </div>
+					</div>
+					<div class="row">
+						<div class="col-md-offset-1 col-md-10" ng-show="permaLink !== ''">
+							<div class="permalink">
+								<p class="text-center">You can also use <a ng-href="{{permaLink}}">this permanent link</a> to refer your governance rule</p>
+							</div>
+						</div>
+					</div>
+    			</div>
+    		</div>
+    		
+    		<p style="margin-top: 20px;" class="text-center">
+    			<button style="margin-right: 10px;" class="btn btn-primary" onclick="location.href='https://github.com/atlanmod/governance'">Visit the GitHub webpage to explore the source code</button>
+    		</p>
+    	</div>
+        </div>
+    </div>
+
