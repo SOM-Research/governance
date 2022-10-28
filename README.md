@@ -35,4 +35,3 @@ Who is behind this project?
 * [Javier Canovas](http://github.com/jlcanovas/ "Javier Canovas")
 * [Jordi Cabot](http://github.com/jcabot/ "Jordi Cabot")
 
-Javier and Jordi work in [Atlandmod](http://www.emn.fr/z-info/atlanmod), a research team of Inria.
